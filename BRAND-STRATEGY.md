@@ -40,9 +40,12 @@ stages — which is exactly why there are two landing pages:
   **champagne-gold / bronze `#B07F2C`** (the single most-used colour on the live
   site, 190+ occurrences), with lighter golds `#D9BE7E`, `#D3B379` and a warm
   off-white `#F8F7F4`. This is a classic **luxury black-and-gold** system.
-- **Typography:** **Montserrat** (the site's workhorse sans) paired here with
-  **Cormorant Garamond**, the elegant high-contrast serif already present in the
-  brand's type stack — used for large editorial display headlines.
+- **Typography:** **Montserrat only** — per the client's CI, Montserrat is the
+  single typeface of the system; hierarchy comes from weight/size/spacing
+  (headlines bold/extrabold, body regular). No secondary serif.
+- **Gold gradient (official CI "Goldverlauf"):** `#B07F2C → #F3E07A → #B07F2C`
+  for accents/numbers; button variant `#9A6F24 → #E2CD68 → #9A6F24`. Applied
+  via the `--grad-gold` / `--grad-gold-btn` tokens in both pages.
 - **Design language:** dark, editorial, generous whitespace, thin gold
   hairlines, uppercase letter-spaced labels, framed imagery, restrained motion.
 

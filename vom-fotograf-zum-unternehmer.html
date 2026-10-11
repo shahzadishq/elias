@@ -21,7 +21,7 @@
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
 <!-- Structured data -->
 <script type="application/ld+json">
@@ -46,12 +46,14 @@
 
 /* ---------- 1. Design Tokens (shared brand system) ---------- */
 :root{
-  --ink:#0B0B0C;--ink-900:#101011;--ink-800:#17171A;--ink-700:#201F22;--ink-600:#2B2A2E;
-  --cream:#F7F5F0;--cream-2:#EFEBE2;--paper:#FFFFFF;
-  --gold:#B07F2C;--gold-400:#C89A3E;--gold-300:#D9BE7E;--gold-200:#E9D6A6;--gold-soft:rgba(176,127,44,.14);
+  --ink:#000000;--ink-900:#0A0A0A;--ink-800:#151515;--ink-700:#1E1E1E;--ink-600:#2A2A2A;
+  --cream:#FFFFFF;--cream-2:#F4F2EC;--paper:#FFFFFF;
+  --gold:#B07F2C;--gold-400:#C89A3E;--gold-300:#DCC07E;--gold-200:#E2CD68;--gold-100:#F3E07A;--gold-soft:rgba(176,127,44,.14);
+  --grad-gold:linear-gradient(100deg,#B07F2C 0%,#F3E07A 50%,#B07F2C 100%);
+  --grad-gold-btn:linear-gradient(135deg,#9A6F24 0%,#E2CD68 50%,#9A6F24 100%);
   --txt-on-dark:#EDEAE3;--muted-dark:#9B968C;--txt-on-light:#1A1915;--muted-light:#6C675E;
   --line-dark:rgba(255,255,255,.10);--line-gold:rgba(176,127,44,.38);--line-light:rgba(26,25,21,.12);
-  --serif:"Cormorant Garamond",Georgia,serif;
+  --serif:"Montserrat",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   --sans:"Montserrat",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   --r:5px;--r-lg:8px;--shadow:0 24px 60px -24px rgba(0,0,0,.55);--shadow-gold:0 20px 48px -20px rgba(176,127,44,.45);
   --ease:cubic-bezier(.22,.61,.36,1);--container:1200px;
@@ -83,12 +85,15 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .eyebrow::before{content:"";width:28px;height:1px;background:currentColor;opacity:.7}
 .eyebrow.is-centered{justify-content:center}
 .eyebrow.is-centered::after{content:"";width:28px;height:1px;background:currentColor;opacity:.7}
-h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.08;letter-spacing:-.01em}
-.display{font-size:clamp(2.6rem,6.2vw,5.2rem);font-weight:500;line-height:1.02}
-h2.title{font-size:clamp(2.1rem,4.4vw,3.6rem);line-height:1.06}
-h3{font-size:clamp(1.4rem,2.2vw,1.9rem)}
-.serif-italic{font-style:italic;color:var(--gold-300)}
-.bg-cream .serif-italic{color:var(--gold)}
+h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.08;letter-spacing:-.02em}
+.display{font-size:clamp(2.3rem,5.4vw,4.6rem);font-weight:800;line-height:1.05;letter-spacing:-.025em}
+h2.title{font-size:clamp(1.9rem,3.8vw,3rem);line-height:1.08;font-weight:800}
+h3{font-size:clamp(1.3rem,2vw,1.7rem);font-weight:700}
+.serif-italic{background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.bg-cream .serif-italic{background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+/* metallic gold numbers */
+.stat b,.hero2__mini .m b,.trow__foot .res b,.about2__facts b{
+  background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
 .lead{font-size:clamp(1.05rem,1.5vw,1.28rem);color:var(--muted-dark);font-weight:300;line-height:1.7}
 .bg-cream .lead{color:var(--muted-light)}
 p+p{margin-top:1.1em}
@@ -100,7 +105,7 @@ p+p{margin-top:1.1em}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;font-family:var(--sans);font-weight:600;font-size:13.5px;letter-spacing:.12em;text-transform:uppercase;padding:18px 34px;border-radius:var(--r);position:relative;overflow:hidden;transition:transform .4s var(--ease),box-shadow .4s var(--ease),background .4s var(--ease),color .3s var(--ease);will-change:transform}
 .btn .arrow{transition:transform .4s var(--ease)}
 .btn:hover .arrow{transform:translateX(5px)}
-.btn--primary{background:linear-gradient(135deg,var(--gold-400),var(--gold) 55%,#9A6F24);color:#140F06;box-shadow:var(--shadow-gold)}
+.btn--primary{background:var(--grad-gold-btn);color:#120D04;box-shadow:var(--shadow-gold)}
 .btn--primary::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 20%,rgba(255,255,255,.45) 50%,transparent 80%);transform:translateX(-120%);transition:transform .7s var(--ease)}
 .btn--primary:hover{transform:translateY(-3px);box-shadow:0 26px 56px -18px rgba(176,127,44,.6)}
 .btn--primary:hover::after{transform:translateX(120%)}
@@ -116,10 +121,8 @@ p+p{margin-top:1.1em}
 .header.scrolled::before{opacity:0}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:24px;position:relative;z-index:2}
 .brand{display:flex;align-items:center;gap:12px}
-.brand img{height:40px;width:auto;transition:height .4s var(--ease)}
-.header.scrolled .brand img{height:34px}
-.brand-name{font-family:var(--serif);font-size:1.15rem;letter-spacing:.02em;line-height:1}
-.brand-name small{display:block;font-family:var(--sans);font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-300);margin-top:3px}
+.brand img{height:30px;width:auto;transition:height .4s var(--ease);filter:drop-shadow(0 2px 8px rgba(0,0,0,.35))}
+.header.scrolled .brand img{height:24px}
 .nav-links{display:flex;align-items:center;gap:34px}
 .nav-links a{font-size:13.5px;font-weight:500;letter-spacing:.04em;color:var(--txt-on-dark);opacity:.85;position:relative;padding:4px 0;transition:opacity .3s}
 .nav-links a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--gold-300);transition:width .35s var(--ease)}
@@ -168,8 +171,8 @@ p+p{margin-top:1.1em}
 
 /* ---------- 9. Problem ---------- */
 .prob2{max-width:860px}
-.prob2 .pull{font-family:var(--serif);font-size:clamp(1.8rem,3.4vw,2.9rem);line-height:1.2;font-weight:500;margin:0 0 30px}
-.prob2 .pull em{font-style:italic;color:var(--gold)}
+.prob2 .pull{font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.4rem);line-height:1.22;font-weight:800;letter-spacing:-.02em;margin:0 0 30px}
+.prob2 .pull em{font-style:normal;background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .prob2 p{color:var(--muted-dark);font-size:1.08rem;max-width:720px}
 .prob2 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px}
 .prob-mini{padding:28px;border:1px solid var(--line-dark);border-radius:var(--r-lg);background:var(--ink-800)}
@@ -179,7 +182,7 @@ p+p{margin-top:1.1em}
 
 /* ---------- 10. Comparison (self-employed vs entrepreneur) ---------- */
 .compare{display:grid;grid-template-columns:1fr 1fr;gap:26px;position:relative}
-.compare__vs{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3;width:60px;height:60px;border-radius:50%;background:var(--ink);border:1px solid var(--line-gold);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-style:italic;color:var(--gold-300);font-size:1.2rem}
+.compare__vs{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3;width:60px;height:60px;border-radius:50%;background:var(--ink);border:1px solid var(--line-gold);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:600;color:var(--gold-300);font-size:1.1rem}
 .col{padding:clamp(34px,4vw,48px);border-radius:var(--r-lg)}
 .col--now{background:var(--ink-800);border:1px solid var(--line-dark)}
 .col--goal{background:linear-gradient(170deg,rgba(176,127,44,.14),rgba(176,127,44,.03));border:1px solid var(--line-gold)}
@@ -193,7 +196,7 @@ p+p{margin-top:1.1em}
 .col li .d{flex-shrink:0;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:2px;font-size:12px}
 .col--now li .d{background:rgba(120,120,120,.14);color:var(--muted-dark)}
 .col--goal li .d{background:var(--gold-soft);color:var(--gold-300)}
-.compare__line{text-align:center;max-width:720px;margin:44px auto 0;font-family:var(--serif);font-size:clamp(1.3rem,2.4vw,1.9rem);font-style:italic;line-height:1.35;color:var(--txt-on-dark)}
+.compare__line{text-align:center;max-width:760px;margin:44px auto 0;font-family:var(--serif);font-size:clamp(1.2rem,2.1vw,1.65rem);font-weight:700;letter-spacing:-.015em;line-height:1.4;color:var(--txt-on-dark)}
 .compare__line b{color:var(--gold-300);font-style:normal;font-weight:600}
 
 /* ---------- 11. Process (5-step vertical, unique) ---------- */
@@ -230,7 +233,7 @@ p+p{margin-top:1.1em}
 .trow__mono .ini{font-family:var(--serif);font-size:4rem;color:var(--gold-300)}
 .trow__body{padding:clamp(28px,3vw,40px);display:flex;flex-direction:column;justify-content:center}
 .trow__tag{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:14px}
-.trow__quote{font-family:var(--serif);font-size:clamp(1.4rem,2.2vw,1.8rem);font-style:italic;line-height:1.3;margin-bottom:16px}
+.trow__quote{font-family:var(--serif);font-size:clamp(1.25rem,1.9vw,1.55rem);font-weight:600;line-height:1.36;margin-bottom:16px}
 .trow__desc{font-size:.96rem;color:var(--muted-dark);margin-bottom:22px;max-width:640px}
 .trow__foot{display:flex;align-items:center;gap:26px;flex-wrap:wrap;padding-top:18px;border-top:1px solid var(--line-dark)}
 .trow__foot .nm b{font-family:var(--serif);font-size:1.25rem;display:block;line-height:1.1}
@@ -270,7 +273,7 @@ p+p{margin-top:1.1em}
 /* ---------- 17. Footer ---------- */
 .footer{background:var(--ink);border-top:1px solid var(--line-dark);padding:64px 0 32px}
 .footer__top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1px solid var(--line-dark)}
-.footer__brand img{height:46px;margin-bottom:18px}
+.footer__brand img{height:38px;width:auto;margin-bottom:18px}
 .footer__brand p{color:var(--muted-dark);font-size:.95rem;max-width:320px}
 .footer h4{font-family:var(--sans);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-300);margin-bottom:18px;font-weight:600}
 .footer ul li{margin-bottom:12px}
@@ -282,8 +285,12 @@ p+p{margin-top:1.1em}
 
 /* ---------- 18. Reveal (JS-guarded: visible if JS off) ---------- */
 .js .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
-.reveal.in{opacity:1;transform:none}
+.js .reveal-l{opacity:0;transform:translateX(-46px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.js .reveal-r{opacity:0;transform:translateX(46px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.reveal.in,.reveal-l.in,.reveal-r.in{opacity:1;transform:none}
 .reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}.reveal.d4{transition-delay:.32s}
+.scroll-progress{position:fixed;top:0;left:0;height:3px;width:100%;transform:scaleX(0);transform-origin:left;background:var(--grad-gold);z-index:200;transition:transform .08s linear;box-shadow:0 0 12px rgba(220,192,126,.5)}
+.hero2__bg{will-change:transform}
 
 /* ---------- 19. Responsive ---------- */
 @media (max-width:1024px){
@@ -323,13 +330,13 @@ p+p{margin-top:1.1em}
 </style>
 </head>
 <body>
+<div class="scroll-progress" id="progress" aria-hidden="true"></div>
 
 <!-- ============ HEADER ============ -->
 <header class="header" id="header">
   <div class="container nav">
     <a href="#top" class="brand" aria-label="Elias Kaltenberger – Startseite">
-      <img src="assets/img/logo.png" alt="Elias Kaltenberger Logo" />
-      <span class="brand-name">Elias Kaltenberger<small>Fotounternehmer</small></span>
+      <img src="assets/img/logo-wordmark.png" alt="Elias Kaltenberger – Fotounternehmer" />
     </a>
     <nav class="nav-links" aria-label="Hauptnavigation">
       <a href="#wachstum">Der Unterschied</a>
@@ -366,8 +373,8 @@ p+p{margin-top:1.1em}
       <a href="#ergebnisse" class="btn btn--ghost btn--lg">Ergebnisse ansehen</a>
     </div>
     <div class="hero2__mini reveal d4">
-      <div class="m"><b>15.000€+</b><span>planbar pro Monat</span></div>
-      <div class="m"><b>238+</b><span>begleitete Fotograf:innen</span></div>
+      <div class="m"><b data-count="15000" data-suffix="€+">15.000€+</b><span>planbar pro Monat</span></div>
+      <div class="m"><b data-count="238" data-suffix="+">238+</b><span>begleitete Fotograf:innen</span></div>
       <div class="m"><b>★★★★★</b><span>107 Trustpilot-Bewertungen</span></div>
     </div>
   </div>
@@ -376,10 +383,10 @@ p+p{margin-top:1.1em}
 <!-- ============ STAT BAND ============ -->
 <section class="statband">
   <div class="container"><div class="statband__grid">
-    <div class="stat reveal"><b>200.000€</b><span class="lbl">Jahresumsatz mit Team</span><span class="who">Anna von Hafenbrädl</span></div>
-    <div class="stat reveal d1"><b>60</b><span class="lbl">Hochzeiten pro Jahr mit Team</span><span class="who">Barbara Frieß</span></div>
+    <div class="stat reveal"><b data-count="200000" data-suffix="€">200.000€</b><span class="lbl">Jahresumsatz mit Team</span><span class="who">Anna von Hafenbrädl</span></div>
+    <div class="stat reveal d1"><b data-count="60">60</b><span class="lbl">Hochzeiten pro Jahr mit Team</span><span class="who">Barbara Frieß</span></div>
     <div class="stat reveal d2"><b>15–20k€</b><span class="lbl">stabil pro Monat</span><span class="who">Steve Meinhardt</span></div>
-    <div class="stat reveal d3"><b>3×</b><span class="lbl">höhere Preise durchgesetzt</span><span class="who">Claudia Brandl</span></div>
+    <div class="stat reveal d3"><b data-count="3" data-suffix="×">3×</b><span class="lbl">höhere Preise durchgesetzt</span><span class="who">Claudia Brandl</span></div>
   </div></div>
 </section>
 
@@ -512,7 +519,7 @@ p+p{margin-top:1.1em}
           <span class="trow__tag">Studio- &amp; Familienfotografie</span>
           <p class="trow__quote">Jetzt kann ich heimfahren, essen machen – und in der Zeit wird meine Arbeit gemacht.</p>
           <p class="trow__desc">Seit sieben Jahren selbstständig, der Kalender randvoll, keine Zeit mehr für irgendetwas. Preisstruktur neu aufgestellt, Verkaufsprozess entwickelt, erste Mitarbeiterin für Back-Office &amp; Bildbearbeitung.</p>
-          <div class="trow__foot"><div class="nm"><b>Anna von Hafenbrädl</b><span>Vom Einzelkämpfer zum Team</span></div><div class="res"><b>200.000€</b><span>Jahresumsatz</span></div></div>
+          <div class="trow__foot"><div class="nm"><b>Anna von Hafenbrädl</b><span>Vom Einzelkämpfer zum Team</span></div><div class="res"><b data-count="200000" data-suffix="€">200.000€</b><span>Jahresumsatz</span></div></div>
         </div>
       </article>
       <article class="trow reveal">
@@ -539,7 +546,7 @@ p+p{margin-top:1.1em}
           <span class="trow__tag">High-End-Boudoirfotografie</span>
           <p class="trow__quote">Wer immer das Gleiche macht, braucht sich nicht wundern, wenn sich nichts verändert.</p>
           <p class="trow__desc">29 Jahre Erfahrung mit Meisterbrief, aber Kundengewinnung wurde nie aktiv betrieben. Positionierung auf High-End-Boudoir für Frauen zwischen 40 und 60 geschärft, aktiver Social-Media-Weg entwickelt.</p>
-          <div class="trow__foot"><div class="nm"><b>Claudia Brandl</b><span>Preise fast verdreifacht</span></div><div class="res"><b>2.000€</b><span>pro Shooting</span></div></div>
+          <div class="trow__foot"><div class="nm"><b>Claudia Brandl</b><span>Preise fast verdreifacht</span></div><div class="res"><b data-count="2000" data-suffix="€">2.000€</b><span>pro Shooting</span></div></div>
         </div>
       </article>
     </div>
@@ -555,8 +562,8 @@ p+p{margin-top:1.1em}
       <p class="lead">Ich erinnere mich genau an den Moment, als ich zum ersten Mal eine fertig bearbeitete Galerie bekam – komplett erledigt von meinem Team und KI. Kein einziger Handgriff meinerseits. Das war das erste Mal, dass sich Selbstständigkeit wirklich nach Freiheit angefühlt hat.</p>
       <p style="color:var(--muted-dark)">Planbare Kundengewinnung über bezahlte Werbung, das Retainer-Modell mit Firmenkunden, Prozesse die ohne mich laufen, ein funktionierendes Team und ein klares Dashboard. Genau diese Systeme gebe ich heute an andere Fotograf:innen weiter – weil ich damals selbst niemanden hatte, der mir das gezeigt hat.</p>
       <div class="about2__facts">
-        <div><b>826+</b><span>bezahlte Aufträge</span></div>
-        <div><b>238+</b><span>begleitete Fotograf:innen</span></div>
+        <div><b data-count="826" data-suffix="+">826+</b><span>bezahlte Aufträge</span></div>
+        <div><b data-count="238" data-suffix="+">238+</b><span>begleitete Fotograf:innen</span></div>
         <div><b>St.&nbsp;Pölten</b><span>eigenes Studio</span></div>
       </div>
     </div>
@@ -616,7 +623,7 @@ p+p{margin-top:1.1em}
   <div class="container">
     <div class="footer__top">
       <div class="footer__brand">
-        <img src="assets/img/logo.png" alt="Elias Kaltenberger" />
+        <img src="assets/img/logo-wordmark.png" alt="Elias Kaltenberger" />
         <p>Premiumfotograf &amp; Fotounternehmer aus Österreich. Wir zeigen Fotograf:innen &amp; Videograf:innen, wie sie planbar wachsen und ein Unternehmen aufbauen, das auch ohne sie funktioniert.</p>
       </div>
       <div>
@@ -663,10 +670,44 @@ const toggleMenu = (open) => {
 burger.addEventListener('click', () => toggleMenu(!menu.classList.contains('open')));
 menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
 
+const reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
 const io = new IntersectionObserver((entries) => {
   entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
 }, {threshold:0.12, rootMargin:'0px 0px -8% 0px'});
-document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(el => io.observe(el));
+
+/* count-up numbers */
+const countIO = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(!e.isIntersecting) return;
+    const el = e.target, target = parseFloat(el.dataset.count),
+          pre = el.dataset.prefix || '', suf = el.dataset.suffix || '';
+    countIO.unobserve(el);
+    if(reduce){ el.textContent = pre + target.toLocaleString('de-DE') + suf; return; }
+    const dur = 1500, t0 = performance.now();
+    const tick = (now) => {
+      const p = Math.min((now - t0) / dur, 1), eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = pre + Math.round(target * eased).toLocaleString('de-DE') + suf;
+      if(p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  });
+}, {threshold:0.6});
+document.querySelectorAll('[data-count]').forEach(el => countIO.observe(el));
+
+/* hero parallax + scroll progress */
+const heroBg = document.querySelector('.hero2__bg');
+const progress = document.getElementById('progress');
+let ticking = false;
+const fx = () => {
+  const y = window.scrollY;
+  if(heroBg && !reduce) heroBg.style.transform = 'translate3d(0,' + Math.min(y * 0.28, 240) + 'px,0)';
+  if(progress){ const h = document.documentElement.scrollHeight - window.innerHeight; progress.style.transform = 'scaleX(' + (h > 0 ? Math.min(y / h, 1) : 0) + ')'; }
+  ticking = false;
+};
+window.addEventListener('scroll', () => { if(!ticking){ requestAnimationFrame(fx); ticking = true; } }, {passive:true});
+fx();
 
 document.getElementById('year').textContent = new Date().getFullYear();
 </script>
