@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="de" class="no-js">
+<head>
+<meta charset="UTF-8" />
+<script>document.documentElement.className="js";</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Landing Pages | Elias Kaltenberger</title>
+<meta name="description" content="Zwei Premium-Landingpages für Elias Kaltenberger – Premiumfotograf & Fotounternehmer." />
+<meta name="robots" content="noindex" />
+<meta name="theme-color" content="#0B0B0C" />
+<link rel="icon" type="image/png" href="assets/img/logo-mark.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --ink:#0B0B0C;--ink-800:#17171A;--ink-900:#101011;
+  --gold:#B07F2C;--gold-300:#DCC07E;--gold-100:#F6EAC2;
+  --grad-gold:linear-gradient(100deg,#9A6F24 0%,#C89A3E 26%,#F4E6A6 52%,#C89A3E 74%,#9A6F24 100%);
+  --txt:#EDEAE3;--muted:#9B968C;--line:rgba(255,255,255,.1);--line-gold:rgba(176,127,44,.38);
+  --serif:"Cormorant Garamond",Georgia,serif;--sans:"Montserrat",sans-serif;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:
+  radial-gradient(90% 60% at 50% 0,rgba(176,127,44,.14),transparent 55%),var(--ink);
+  color:var(--txt);min-height:100vh;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;padding:48px 24px;text-align:center;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{text-decoration:none;color:inherit}
+.logo{height:40px;width:auto;margin:0 auto 40px;filter:drop-shadow(0 2px 10px rgba(0,0,0,.4))}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-300);margin-bottom:18px}
+h1{font-family:var(--serif);font-weight:500;font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.08;margin-bottom:14px}
+h1 em{font-style:italic;background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.sub{color:var(--muted);font-weight:300;font-size:1.05rem;max-width:520px;margin:0 auto 52px}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;width:100%;max-width:880px}
+.card{position:relative;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--ink-800);
+  text-align:left;transition:transform .5s var(--ease),border-color .5s,box-shadow .5s}
+.card:hover{transform:translateY(-8px);border-color:var(--line-gold);box-shadow:0 30px 60px -24px rgba(0,0,0,.6)}
+.card__img{aspect-ratio:16/10;overflow:hidden;position:relative}
+.card__img img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.card:hover .card__img img{transform:scale(1.06)}
+.card__img::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(11,11,12,.9))}
+.card__body{padding:26px 26px 30px}
+.card .tag{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.card h2{font-family:var(--serif);font-weight:500;font-size:1.7rem;line-height:1.15;margin:8px 0 16px}
+.card .go{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--gold-300)}
+.card .go .ar{transition:transform .4s var(--ease)}
+.card:hover .go .ar{transform:translateX(5px)}
+.foot{margin-top:52px;font-size:12.5px;color:var(--muted);letter-spacing:.03em}
+@media (max-width:680px){.cards{grid-template-columns:1fr;max-width:420px}}
+</style>
+</head>
+<body>
+  <img class="logo" src="assets/img/logo-wordmark.png" alt="Elias Kaltenberger" />
+  <p class="eyebrow">Premium Landing Pages</p>
+  <h1>Zwei Wege. Eine <em>Marke.</em></h1>
+  <p class="sub">Konversionsoptimierte Landingpages für Elias Kaltenberger – Premiumfotograf &amp; Fotounternehmer.</p>
+
+  <div class="cards">
+    <a class="card" href="vom-nebenberuf-zum-profi.html">
+      <div class="card__img"><img src="assets/img/elias-wide.webp" alt="" /></div>
+      <div class="card__body">
+        <span class="tag">Landing Page 1</span>
+        <h2>Vom Nebenberuf zum Profifotografen</h2>
+        <span class="go">Ansehen <span class="ar">→</span></span>
+      </div>
+    </a>
+    <a class="card" href="vom-fotograf-zum-unternehmer.html">
+      <div class="card__img"><img src="assets/img/studio.webp" alt="" /></div>
+      <div class="card__body">
+        <span class="tag">Landing Page 2</span>
+        <h2>Vom Fotografen zum Fotounternehmer</h2>
+        <span class="go">Ansehen <span class="ar">→</span></span>
+      </div>
+    </a>
+  </div>
+
+  <p class="foot">© <span id="y"></span> Kaltenberger Media &amp; Consulting GmbH</p>
+  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+</body>
+</html>
