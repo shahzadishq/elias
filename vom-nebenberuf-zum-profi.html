@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="de" class="no-js">
+<head>
+<meta charset="UTF-8" />
+<script>document.documentElement.className="js";</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Vom Nebenberuf zum Profifotografen | Elias Kaltenberger</title>
+<meta name="description" content="Der 4-Schritte-Plan, mit dem nebenberufliche Fotograf:innen planbar Wunschkunden gewinnen, faire Preise durchsetzen und endlich hauptberuflich von ihrer Fotografie leben. Jetzt kostenloses Strategiegespräch sichern." />
+<meta name="robots" content="index,follow" />
+<meta name="theme-color" content="#0B0B0C" />
+<link rel="canonical" href="https://www.eliaskaltenberger.com/vom-nebenberuf-zum-profifotograf/" />
+<link rel="icon" type="image/png" href="assets/img/logo-mark.png" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="de_AT" />
+<meta property="og:title" content="Vom Nebenberuf zum hochbezahlten Profifotografen" />
+<meta property="og:description" content="Der 4-Schritte-Plan, mit dem bereits 238+ Fotograf:innen den Sprung in den Hauptberuf geschafft haben." />
+<meta property="og:image" content="assets/img/elias-wide.webp" />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Elias Kaltenberger – Premiumfotograf & Fotounternehmer",
+  "description": "Coaching für Fotograf:innen und Videograf:innen: vom Nebenberuf zum hochbezahlten Profifotografen.",
+  "areaServed": "DACH",
+  "address": { "@type": "PostalAddress", "addressLocality": "St. Pölten", "addressCountry": "AT" },
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "107" }
+}
+</script>
+
+<style>
+/* =============================================================
+   ELIAS KALTENBERGER — LANDING PAGE 1
+   "Vom Nebenberuf zum Profifotografen"
+   Brand system: Black + Champagne-Gold · Cormorant + Montserrat
+   CSS inlined for render performance (single request, fast LCP).
+   ============================================================= */
+
+/* ---------- 1. Design Tokens ---------- */
+:root{
+  /* Ink / neutrals */
+  --ink:#0B0B0C;
+  --ink-900:#101011;
+  --ink-800:#17171A;
+  --ink-700:#201F22;
+  --ink-600:#2B2A2E;
+  --cream:#F7F5F0;
+  --cream-2:#EFEBE2;
+  --paper:#FFFFFF;
+
+  /* Brand gold (from eliaskaltenberger.com) */
+  --gold:#B07F2C;
+  --gold-400:#C89A3E;
+  --gold-300:#D9BE7E;
+  --gold-200:#E9D6A6;
+  --gold-soft:rgba(176,127,44,.14);
+
+  /* Text */
+  --txt-on-dark:#EDEAE3;
+  --muted-dark:#9B968C;      /* muted text on dark */
+  --txt-on-light:#1A1915;
+  --muted-light:#6C675E;     /* muted text on light */
+
+  /* Lines */
+  --line-dark:rgba(255,255,255,.10);
+  --line-gold:rgba(176,127,44,.38);
+  --line-light:rgba(26,25,21,.12);
+
+  /* Type */
+  --serif:"Cormorant Garamond",Georgia,serif;
+  --sans:"Montserrat",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+
+  /* Shape & motion */
+  --r:5px;
+  --r-lg:8px;
+  --shadow:0 24px 60px -24px rgba(0,0,0,.55);
+  --shadow-gold:0 20px 48px -20px rgba(176,127,44,.45);
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --container:1200px;
+}
+
+/* ---------- 2. Reset & Base ---------- */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--sans);
+  background:var(--ink);
+  color:var(--txt-on-dark);
+  line-height:1.65;
+  font-weight:400;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block;height:auto}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+:focus-visible{outline:2px solid var(--gold-300);outline-offset:3px;border-radius:2px}
+::selection{background:var(--gold);color:#fff}
+
+/* ---------- 3. Layout utilities ---------- */
+.container{width:100%;max-width:var(--container);margin-inline:auto;padding-inline:24px}
+.section{padding:clamp(72px,9vw,140px) 0}
+.section--tight{padding:clamp(56px,6vw,96px) 0}
+.bg-dark{background:var(--ink)}
+.bg-ink900{background:var(--ink-900)}
+.bg-cream{background:var(--cream);color:var(--txt-on-light)}
+.center{text-align:center}
+.mx-auto{margin-inline:auto}
+.maxw-sm{max-width:620px}
+.maxw-md{max-width:760px}
+
+/* ---------- 4. Typography ---------- */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:12px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--gold-300);
+}
+.bg-cream .eyebrow{color:var(--gold)}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor;opacity:.7}
+.eyebrow.is-centered::after{content:"";width:28px;height:1px;background:currentColor;opacity:.7}
+
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.08;letter-spacing:-.01em}
+.display{font-size:clamp(2.6rem,6.2vw,5rem);font-weight:500;line-height:1.02}
+h2.title{font-size:clamp(2.1rem,4.4vw,3.6rem);line-height:1.06}
+h3{font-size:clamp(1.4rem,2.2vw,1.9rem)}
+.serif-italic{font-style:italic;color:var(--gold-300)}
+.bg-cream .serif-italic{color:var(--gold)}
+
+.lead{font-size:clamp(1.05rem,1.5vw,1.28rem);color:var(--muted-dark);font-weight:300;line-height:1.7}
+.bg-cream .lead{color:var(--muted-light)}
+.kicker-num{font-family:var(--serif);font-weight:600}
+
+p+p{margin-top:1.1em}
+.section-head{max-width:720px;margin-bottom:clamp(40px,5vw,64px)}
+.section-head.center{margin-inline:auto}
+.section-head .lead{margin-top:20px}
+
+/* ---------- 5. Buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:12px;
+  font-family:var(--sans);font-weight:600;font-size:13.5px;letter-spacing:.12em;text-transform:uppercase;
+  padding:18px 34px;border-radius:var(--r);position:relative;overflow:hidden;
+  transition:transform .4s var(--ease),box-shadow .4s var(--ease),background .4s var(--ease),color .3s var(--ease);
+  will-change:transform;
+}
+.btn .arrow{transition:transform .4s var(--ease)}
+.btn:hover .arrow{transform:translateX(5px)}
+.btn--primary{
+  background:linear-gradient(135deg,var(--gold-400),var(--gold) 55%,#9A6F24);
+  color:#140F06;box-shadow:var(--shadow-gold);
+}
+.btn--primary::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(120deg,transparent 20%,rgba(255,255,255,.45) 50%,transparent 80%);
+  transform:translateX(-120%);transition:transform .7s var(--ease);
+}
+.btn--primary:hover{transform:translateY(-3px);box-shadow:0 26px 56px -18px rgba(176,127,44,.6)}
+.btn--primary:hover::after{transform:translateX(120%)}
+.btn--ghost{
+  background:transparent;color:var(--txt-on-dark);
+  box-shadow:inset 0 0 0 1px var(--line-gold);
+}
+.btn--ghost:hover{box-shadow:inset 0 0 0 1px var(--gold-300);background:var(--gold-soft);transform:translateY(-2px)}
+.bg-cream .btn--ghost{color:var(--txt-on-light);box-shadow:inset 0 0 0 1px var(--line-gold)}
+.btn--lg{padding:21px 42px;font-size:14px}
+.btn-note{font-size:12.5px;letter-spacing:.04em;color:var(--muted-dark);margin-top:16px}
+
+/* ---------- 6. Header ---------- */
+.header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:22px 0;transition:padding .4s var(--ease),background .4s var(--ease),box-shadow .4s var(--ease),backdrop-filter .4s;
+}
+.header::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,12,.6),transparent);pointer-events:none;transition:opacity .4s}
+.header.scrolled{padding:12px 0;background:rgba(11,11,12,.82);backdrop-filter:blur(14px) saturate(1.2);box-shadow:0 1px 0 var(--line-dark)}
+.header.scrolled::before{opacity:0}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;position:relative;z-index:2}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{height:40px;width:auto;transition:height .4s var(--ease)}
+.header.scrolled .brand img{height:34px}
+.brand-name{font-family:var(--serif);font-size:1.15rem;letter-spacing:.02em;line-height:1}
+.brand-name small{display:block;font-family:var(--sans);font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-300);margin-top:3px}
+.nav-links{display:flex;align-items:center;gap:34px}
+.nav-links a{font-size:13.5px;font-weight:500;letter-spacing:.04em;color:var(--txt-on-dark);opacity:.85;position:relative;padding:4px 0;transition:opacity .3s}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--gold-300);transition:width .35s var(--ease)}
+.nav-links a:hover{opacity:1}
+.nav-links a:hover::after{width:100%}
+.nav-cta{display:flex;align-items:center;gap:16px}
+.nav .btn{padding:13px 24px;font-size:12px}
+.burger{display:none;flex-direction:column;gap:5px;padding:8px;z-index:3}
+.burger span{width:24px;height:2px;background:var(--txt-on-dark);transition:.3s var(--ease);transform-origin:center}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ---------- 7. Hero ---------- */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding-top:120px;padding-bottom:60px;overflow:hidden}
+.hero__bg{position:absolute;inset:0;z-index:0}
+.hero__bg img{width:100%;height:100%;object-fit:cover;object-position:center 22%;opacity:.5;transform:scale(1.05);animation:slowzoom 18s var(--ease) forwards}
+.hero__bg::after{content:"";position:absolute;inset:0;background:
+  linear-gradient(100deg,var(--ink) 20%,rgba(11,11,12,.72) 52%,rgba(11,11,12,.45) 100%),
+  radial-gradient(120% 90% at 85% 10%,rgba(176,127,44,.22),transparent 55%);}
+@keyframes slowzoom{to{transform:scale(1)}}
+.hero__grid{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center;width:100%}
+.hero__content{max-width:640px}
+.hero .display{margin:22px 0 24px}
+.hero__sub{font-size:clamp(1.05rem,1.4vw,1.22rem);color:var(--txt-on-dark);opacity:.9;font-weight:300;max-width:560px}
+.hero__cta{display:flex;flex-wrap:wrap;gap:16px;margin-top:38px}
+.hero__trust{display:flex;align-items:center;gap:26px;margin-top:44px;flex-wrap:wrap}
+.trust-stars{display:flex;flex-direction:column;gap:3px}
+.stars{color:var(--gold-300);letter-spacing:2px;font-size:15px}
+.trust-stars small{font-size:12px;color:var(--muted-dark);letter-spacing:.02em}
+.trust-div{width:1px;height:38px;background:var(--line-dark)}
+.trust-pill{display:flex;align-items:center;gap:10px}
+.trust-pill b{font-family:var(--serif);font-size:1.7rem;color:var(--gold-300);font-weight:600;line-height:1}
+.trust-pill span{font-size:12px;color:var(--muted-dark);max-width:120px;line-height:1.35}
+
+/* Hero portrait card */
+.hero__figure{position:relative;justify-self:end}
+.hero__figure img{width:100%;max-width:400px;border-radius:var(--r-lg);box-shadow:var(--shadow);filter:saturate(1.02)}
+.hero__figure{width:100%;max-width:400px}
+.hero__figure::before{content:"";position:absolute;inset:-14px;border:1px solid var(--line-gold);border-radius:14px;z-index:-1}
+.hero__badge{
+  position:absolute;left:-28px;bottom:36px;background:rgba(11,11,12,.86);backdrop-filter:blur(8px);
+  border:1px solid var(--line-gold);border-radius:var(--r);padding:16px 20px;box-shadow:var(--shadow);max-width:210px;
+}
+.hero__badge b{font-family:var(--serif);font-size:1.9rem;color:var(--gold-300);display:block;line-height:1}
+.hero__badge span{font-size:11.5px;color:var(--muted-dark);letter-spacing:.03em}
+.scroll-hint{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:2;font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted-dark);display:flex;flex-direction:column;align-items:center;gap:10px}
+.scroll-hint span{width:1px;height:46px;background:linear-gradient(var(--gold-300),transparent);animation:scrolldrop 2s infinite}
+@keyframes scrolldrop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}50.1%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ---------- 8. Trust bar ---------- */
+.trustbar{border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark);background:var(--ink-900)}
+.trustbar__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;padding:46px 0}
+.trust-metric{text-align:center}
+.trust-metric b{font-family:var(--serif);font-size:clamp(2rem,3.4vw,3rem);color:var(--gold-300);font-weight:600;display:block;line-height:1}
+.trust-metric span{font-size:12.5px;color:var(--muted-dark);letter-spacing:.05em;margin-top:8px;display:block}
+.trust-metric .tp{height:20px;margin:0 auto 8px;opacity:.95}
+
+/* ---------- 9. Problem / empathy ---------- */
+.problem__wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,96px);align-items:center}
+.pullquote{font-family:var(--serif);font-size:clamp(1.7rem,3vw,2.5rem);line-height:1.22;font-weight:500}
+.pullquote em{font-style:italic;color:var(--gold)}
+.problem__text p{color:var(--muted-light);font-size:1.05rem}
+.problem__text .first{color:var(--txt-on-light);font-weight:500}
+.sig{margin-top:28px;display:flex;align-items:center;gap:16px}
+.sig img{width:56px;height:56px;border-radius:50%;object-fit:cover;border:1px solid var(--line-gold)}
+.sig b{font-size:14px;font-weight:600;display:block}
+.sig span{font-size:12.5px;color:var(--muted-light)}
+
+/* ---------- 10. Story / turning point (timeline) ---------- */
+.story__grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,6vw,80px);align-items:start}
+.story__media{position:relative}
+.story__media img{border-radius:var(--r-lg);box-shadow:var(--shadow)}
+.story__media .frame{position:absolute;inset:-16px -16px 24px 24px;border:1px solid var(--line-gold);border-radius:12px;z-index:-1}
+.story__stat{position:absolute;right:-18px;top:30px;background:var(--ink-800);border:1px solid var(--line-gold);border-radius:var(--r);padding:14px 20px;box-shadow:var(--shadow)}
+.story__stat b{font-family:var(--serif);font-size:1.9rem;color:var(--gold-300);display:block;line-height:1}
+.story__stat span{font-size:11px;color:var(--muted-dark);letter-spacing:.04em}
+.timeline{margin-top:36px;position:relative;padding-left:30px}
+.timeline::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:1px;background:linear-gradient(var(--gold),transparent)}
+.timeline li{position:relative;padding-bottom:26px}
+.timeline li:last-child{padding-bottom:0}
+.timeline li::before{content:"";position:absolute;left:-30px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--ink);border:2px solid var(--gold)}
+.timeline b{display:block;font-family:var(--serif);font-size:1.25rem;color:var(--txt-on-dark);margin-bottom:4px;font-weight:600}
+.timeline p{color:var(--muted-dark);font-size:.98rem}
+
+/* ---------- 11. Steps (the 4-step plan) ---------- */
+.steps{display:grid;gap:0;counter-reset:step}
+.step{
+  display:grid;grid-template-columns:120px 1fr;gap:clamp(24px,4vw,56px);align-items:start;
+  padding:clamp(36px,4.5vw,56px) 0;border-top:1px solid var(--line-light);
+  transition:background .4s var(--ease);
+}
+.bg-dark .step{border-top:1px solid var(--line-dark)}
+.step:last-child{border-bottom:1px solid var(--line-light)}
+.bg-dark .step:last-child{border-bottom:1px solid var(--line-dark)}
+.step__num{font-family:var(--serif);font-size:clamp(3rem,6vw,5rem);line-height:.9;color:transparent;-webkit-text-stroke:1px var(--gold);font-weight:600}
+.step h3{margin-bottom:12px}
+.step__transform{display:inline-flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:14px}
+.step__transform .ar{opacity:.7}
+.step p{color:var(--muted-light);max-width:620px}
+.bg-dark .step p{color:var(--muted-dark)}
+.bg-dark .step__num{-webkit-text-stroke:1px var(--gold-300)}
+
+/* ---------- 12. Benefits grid ---------- */
+.benefits{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.benefit{
+  padding:34px 28px;border:1px solid var(--line-dark);border-radius:var(--r-lg);
+  background:linear-gradient(170deg,var(--ink-800),var(--ink-900));
+  transition:transform .45s var(--ease),border-color .45s,box-shadow .45s;
+}
+.benefit:hover{transform:translateY(-6px);border-color:var(--line-gold);box-shadow:var(--shadow)}
+.benefit .ico{width:46px;height:46px;margin-bottom:20px;color:var(--gold-300)}
+.benefit h3{font-size:1.25rem;margin-bottom:10px}
+.benefit p{font-size:.95rem;color:var(--muted-dark)}
+
+/* ---------- 13. Testimonials ---------- */
+.tcards{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.tcard{
+  display:flex;flex-direction:column;border-radius:var(--r-lg);overflow:hidden;
+  background:var(--ink-800);border:1px solid var(--line-dark);
+  transition:transform .5s var(--ease),border-color .5s,box-shadow .5s;
+}
+.tcard:hover{transform:translateY(-7px);border-color:var(--line-gold);box-shadow:var(--shadow)}
+.tcard__media{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--ink-700)}
+.tcard__media img{width:100%;height:100%;object-fit:cover;object-position:center 20%;transition:transform .9s var(--ease)}
+.tcard:hover .tcard__media img{transform:scale(1.05)}
+.tcard__media::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(11,11,12,.85))}
+.tcard__tag{position:absolute;left:16px;top:16px;z-index:2;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-200);background:rgba(11,11,12,.7);border:1px solid var(--line-gold);padding:6px 12px;border-radius:40px}
+.tcard__name{position:absolute;left:20px;bottom:16px;z-index:2}
+.tcard__name b{font-family:var(--serif);font-size:1.4rem;display:block;line-height:1}
+.tcard__name span{font-size:12px;color:var(--gold-200);letter-spacing:.04em}
+.tcard__body{padding:26px 24px 28px;display:flex;flex-direction:column;flex:1}
+.tcard__quote{font-family:var(--serif);font-size:1.3rem;font-style:italic;line-height:1.3;color:var(--txt-on-dark);margin-bottom:18px}
+.tcard__quote::before{content:"“";color:var(--gold);font-size:1.4em;line-height:0;vertical-align:-.3em;margin-right:2px}
+.tcard__desc{font-size:.92rem;color:var(--muted-dark);margin-bottom:20px}
+.tcard__result{margin-top:auto;display:flex;align-items:center;gap:14px;padding-top:18px;border-top:1px solid var(--line-dark)}
+.tcard__result b{font-family:var(--serif);font-size:1.7rem;color:var(--gold-300);line-height:1}
+.tcard__result span{font-size:11.5px;color:var(--muted-dark);letter-spacing:.03em}
+/* monogram variant */
+.tcard__mono{aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;background:
+  radial-gradient(120% 80% at 50% 0,rgba(176,127,44,.22),transparent 60%),var(--ink-700);position:relative}
+.tcard__mono .ini{font-family:var(--serif);font-size:4.5rem;color:var(--gold-300);font-weight:500}
+.tcard__mono::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(11,11,12,.85))}
+
+/* mini results strip */
+.results-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:30px}
+.result-mini{padding:26px;border:1px solid var(--line-dark);border-radius:var(--r-lg);background:var(--ink-900);display:flex;align-items:center;gap:20px}
+.result-mini .rb{display:flex;flex-direction:column}
+.result-mini .before{font-size:12.5px;color:var(--muted-dark);text-decoration:line-through;text-decoration-color:var(--gold)}
+.result-mini .after{font-family:var(--serif);font-size:1.7rem;color:var(--gold-300);line-height:1.05}
+.result-mini .nm{font-size:12px;color:var(--muted-dark);letter-spacing:.04em;margin-top:4px}
+.result-mini .ar{color:var(--gold);font-size:1.4rem}
+
+/* ---------- 14. Audience (fit / not fit) ---------- */
+.fit__grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.fit-card{padding:clamp(32px,3.5vw,44px);border-radius:var(--r-lg);border:1px solid var(--line-light)}
+.bg-dark .fit-card{border-color:var(--line-dark)}
+.fit-card--yes{background:linear-gradient(170deg,rgba(176,127,44,.10),transparent);border-color:var(--line-gold)}
+.fit-card h3{display:flex;align-items:center;gap:12px;margin-bottom:22px;font-size:1.5rem}
+.fit-list li{display:flex;gap:14px;padding:11px 0;font-size:1rem;color:var(--muted-light);border-top:1px dashed var(--line-light)}
+.bg-dark .fit-list li{color:var(--muted-dark);border-top:1px dashed var(--line-dark)}
+.fit-list li:first-child{border-top:none}
+.fit-list .mk{flex-shrink:0;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.mk-yes{background:var(--gold-soft);color:var(--gold)}
+.bg-dark .mk-yes{color:var(--gold-300)}
+.mk-no{background:rgba(120,120,120,.12);color:var(--muted-light)}
+
+/* ---------- 15. Process (what happens in call) ---------- */
+.proc{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;counter-reset:p}
+.proc-step{position:relative;padding:40px 30px;border:1px solid var(--line-dark);border-radius:var(--r-lg);background:var(--ink-800)}
+.proc-step .pn{counter-increment:p;font-family:var(--serif);font-size:2.6rem;color:var(--gold-300);line-height:1;margin-bottom:16px}
+.proc-step .pn::before{content:"0" counter(p)}
+.proc-step h3{font-size:1.25rem;margin-bottom:10px}
+.proc-step p{font-size:.95rem;color:var(--muted-dark)}
+.proc-step .dur{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-top:14px;display:block}
+
+/* ---------- 16. About strip ---------- */
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(40px,5vw,72px);align-items:center}
+.about__img{position:relative}
+.about__img img{border-radius:var(--r-lg);box-shadow:var(--shadow)}
+.about__img .frame{position:absolute;inset:18px -18px -18px 18px;border:1px solid var(--line-gold);border-radius:12px;z-index:-1}
+.about__facts{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:30px;padding-top:30px;border-top:1px solid var(--line-dark)}
+.about__facts b{font-family:var(--serif);font-size:2rem;color:var(--gold-300);display:block;line-height:1}
+.about__facts span{font-size:12px;color:var(--muted-dark);letter-spacing:.03em}
+
+/* ---------- 17. Final CTA ---------- */
+.finalcta{position:relative;overflow:hidden;background:var(--ink-900)}
+.finalcta::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(90% 120% at 50% 0,rgba(176,127,44,.26),transparent 55%);pointer-events:none}
+.finalcta__inner{position:relative;z-index:2;text-align:center;max-width:780px;margin-inline:auto}
+.finalcta .display{margin:20px 0 22px}
+.finalcta .lead{margin-bottom:38px}
+.gold-rule{width:64px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 26px}
+
+/* ---------- 18. Footer ---------- */
+.footer{background:var(--ink);border-top:1px solid var(--line-dark);padding:64px 0 32px}
+.footer__top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1px solid var(--line-dark)}
+.footer__brand img{height:46px;margin-bottom:18px}
+.footer__brand p{color:var(--muted-dark);font-size:.95rem;max-width:320px}
+.footer h4{font-family:var(--sans);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-300);margin-bottom:18px;font-weight:600}
+.footer ul li{margin-bottom:12px}
+.footer ul a{color:var(--muted-dark);font-size:.95rem;transition:color .3s}
+.footer ul a:hover{color:var(--gold-300)}
+.footer__bottom{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-top:28px;flex-wrap:wrap}
+.footer__bottom p{font-size:12.5px;color:var(--muted-dark)}
+.footer__bottom .legal{display:flex;gap:22px}
+
+/* ---------- 19. Reveal animation (JS-guarded: visible if JS off) ---------- */
+.js .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}.reveal.d4{transition-delay:.32s}
+
+/* ---------- 20. Responsive ---------- */
+@media (max-width:1024px){
+  .hero__grid{grid-template-columns:1fr;gap:48px}
+  .hero__figure{justify-self:start;max-width:360px}
+  .hero__badge{left:auto;right:-10px}
+  .story__grid,.about,.problem__wrap{grid-template-columns:1fr}
+  .story__stat{right:16px}
+  .benefits{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:820px){
+  .nav-links,.nav-cta .btn{display:none}
+  .burger{display:flex}
+  .nav-cta{gap:0}
+  .mobile-menu{display:block}
+  .trustbar__grid{grid-template-columns:repeat(2,1fr);gap:36px 20px}
+  .tcards{grid-template-columns:1fr;max-width:420px;margin-inline:auto}
+  .results-strip,.proc{grid-template-columns:1fr}
+  .fit__grid{grid-template-columns:1fr}
+  .footer__top{grid-template-columns:1fr;gap:34px}
+  .step{grid-template-columns:1fr;gap:10px}
+  .step__num{font-size:3.2rem}
+}
+@media (max-width:520px){
+  .benefits{grid-template-columns:1fr}
+  .about__facts{grid-template-columns:1fr;gap:16px}
+  .hero__trust{gap:18px}
+  .trust-div{display:none}
+  .btn{width:100%}
+  .hero__cta{flex-direction:column}
+}
+
+/* Mobile menu */
+.mobile-menu{position:fixed;inset:0;z-index:95;background:rgba(9,9,10,.97);backdrop-filter:blur(10px);
+  display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px;
+  opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s;padding:40px}
+.mobile-menu.open{opacity:1;visibility:visible}
+.mobile-menu a{font-family:var(--serif);font-size:2rem;color:var(--txt-on-dark);padding:10px}
+.mobile-menu a:hover{color:var(--gold-300)}
+.mobile-menu .btn{margin-top:20px;width:auto}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition-duration:.01ms!important;scroll-behavior:auto}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="header" id="header">
+  <div class="container nav">
+    <a href="#top" class="brand" aria-label="Elias Kaltenberger – Startseite">
+      <img src="assets/img/logo.png" alt="Elias Kaltenberger Logo" />
+      <span class="brand-name">Elias Kaltenberger<small>Premiumfotograf</small></span>
+    </a>
+    <nav class="nav-links" aria-label="Hauptnavigation">
+      <a href="#methode">Die 4 Schritte</a>
+      <a href="#erfolge">Erfolge</a>
+      <a href="#ablauf">Ablauf</a>
+      <a href="#ueber">Über Elias</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="https://www.eliaskaltenberger.com/kontakt/" class="btn btn--primary">Strategiegespräch sichern</a>
+      <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile Navigation">
+  <a href="#methode">Die 4 Schritte</a>
+  <a href="#erfolge">Erfolge</a>
+  <a href="#ablauf">Ablauf</a>
+  <a href="#ueber">Über Elias</a>
+  <a href="https://www.eliaskaltenberger.com/kontakt/" class="btn btn--primary btn--lg">Kostenloses Gespräch</a>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero__bg">
+    <img src="assets/img/elias-wide.webp" alt="Elias Kaltenberger bei einem Shooting im Studio" fetchpriority="high" />
+  </div>
+  <div class="container hero__grid">
+    <div class="hero__content">
+      <span class="eyebrow reveal">Für nebenberufliche Fotograf:innen</span>
+      <h1 class="display reveal d1">Vom Nebenberuf zum <span class="serif-italic">hochbezahlten</span> Profifotografen.</h1>
+      <p class="hero__sub reveal d2">Du machst bereits großartige Bilder. Jetzt bekommst du den 4-Schritte-Plan, mit dem du planbar Wunschkunden gewinnst, faire Preise durchsetzt und endlich hauptberuflich von deiner Fotografie lebst.</p>
+      <div class="hero__cta reveal d3">
+        <a href="https://www.eliaskaltenberger.com/kontakt/" class="btn btn--primary btn--lg">Kostenloses Strategiegespräch <span class="arrow">→</span></a>
+        <a href="#erfolge" class="btn btn--ghost btn--lg">Erfolge ansehen</a>
+      </div>
+      <div class="hero__trust reveal d4">
+        <div class="trust-stars">
+          <span class="stars">★★★★★</span>
+          <small>107 Bewertungen auf Trustpilot</small>
+        </div>
+        <div class="trust-div"></div>
+        <div class="trust-pill"><b>238+</b><span>begleitete Fotograf:innen</span></div>
+      </div>
+    </div>
+    <figure class="hero__figure reveal d2">
+      <img src="assets/img/elias-portrait.webp" alt="Porträt von Elias Kaltenberger" />
+      <div class="hero__badge">
+        <b>826+</b>
+        <span>bezahlte Aufträge fotografiert</span>
+      </div>
+    </figure>
+  </div>
+  <div class="scroll-hint" aria-hidden="true">Scroll<span></span></div>
+</section>
+
+<!-- ============ TRUST BAR ============ -->
+<section class="trustbar">
+  <div class="container trustbar__grid">
+    <div class="trust-metric reveal"><b>238+</b><span>Fotograf:innen begleitet</span></div>
+    <div class="trust-metric reveal d1">
+      <img class="tp" src="assets/img/trustpilot-white.svg" alt="Trustpilot" />
+      <b>107</b><span>ungefilterte Bewertungen</span>
+    </div>
+    <div class="trust-metric reveal d2"><b>3.000–6.000€</b><span>typische Auftragswerte</span></div>
+    <div class="trust-metric reveal d3"><b>100%</b><span>transparent &amp; ehrlich</span></div>
+  </div>
+</section>
+
+<!-- ============ PROBLEM / EMPATHY ============ -->
+<section class="section bg-cream">
+  <div class="container problem__wrap">
+    <div class="reveal">
+      <span class="eyebrow">Kommt dir das bekannt vor?</span>
+      <p class="pullquote" style="margin-top:22px">Dein Talent steht nie infrage. Nur das <em>Business drumherum</em> funktioniert noch nicht so, wie es sollte.</p>
+    </div>
+    <div class="problem__text reveal d1">
+      <p class="first">Du machst bereits tolle Bilder und vom Hobby bist du längst entfernt. Aber irgendwie fühlt es sich noch nicht wie ein richtiges Business an.</p>
+      <p>Die Anfragen kommen ab und zu – durch Empfehlungen, durch Zufall, manchmal gar nicht. Du hast Werbung ausprobiert, Preise neu kalkuliert. Aber einen echten Plan, wie du regelmäßig an Aufträge kommst und was du wirklich verlangen kannst, hat dir noch niemand gegeben.</p>
+      <p>Das liegt nicht an deinem Talent. Es liegt daran, dass <strong>Fotografieren</strong> und <strong>davon leben können</strong> zwei komplett verschiedene Dinge sind – und das Zweite hat dir einfach noch niemand beigebracht.</p>
+      <div class="sig">
+        <img src="assets/img/elias-portrait.webp" alt="Elias Kaltenberger" />
+        <div><b>Elias Kaltenberger</b><span>Premiumfotograf &amp; Fotounternehmer</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STORY / TURNING POINT ============ -->
+<section class="section bg-dark" id="ueber">
+  <div class="container story__grid">
+    <div class="story__media reveal">
+      <img src="assets/img/elias-wide.webp" alt="Elias Kaltenberger mit Kamera" />
+      <div class="frame"></div>
+      <div class="story__stat"><b>400€</b><span>erster Monat in Vollzeit</span></div>
+    </div>
+    <div class="reveal d1">
+      <span class="eyebrow">Vom Tischler zum Profifotograf</span>
+      <h2 class="title" style="margin:18px 0 20px">Ich war genau dort, wo du jetzt stehst.</h2>
+      <p class="lead">Ich komme nicht aus der Fotografie. Als gelernter Tischler habe ich 2014 nebenberuflich angefangen. Als ich mit einem einzigen Hochzeitsauftrag fast so viel verdiente wie in einem ganzen Monat in der Werkstatt, habe ich den Schritt gewagt.</p>
+      <ul class="timeline">
+        <li><b>Der harte Start</b><p>Erster Monat in der Selbstständigkeit: 400€ netto. Nächtelang die Zweifel – „Bin ich zu blöd dafür?"</p></li>
+        <li><b>Investition in mich</b><p>Bücher, Workshops, Seminare. Ich habe eine Strategie entwickelt, die wirklich funktioniert – statt auf Zufall zu hoffen.</p></li>
+        <li><b>Der Gamechanger</b><p>Hochzeiten im Sommer, Businessfotografie im Winter. Plötzlich war der Kalender das ganze Jahr ausgelastet.</p></li>
+        <li><b>Heute</b><p>Über 826 bezahlte Aufträge, ein eigenes Unternehmen – und der Weg, den ich heute an andere Fotograf:innen weitergebe.</p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE 4 STEPS ============ -->
+<section class="section bg-cream" id="methode">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow is-centered" style="justify-content:center">Der Fahrplan</span>
+      <h2 class="title" style="margin-top:18px">Der Weg in den Hauptberuf – in <span class="serif-italic">4 Schritten.</span></h2>
+      <p class="lead">Es gibt keinen Zufall dahinter, wenn ein Fotograf plötzlich regelmäßig Anfragen hat, höhere Preise durchsetzt und davon leben kann. Es gibt eine Strategie. Und die sieht so aus.</p>
+    </div>
+    <div class="steps">
+      <article class="step reveal">
+        <div class="step__num">01</div>
+        <div>
+          <span class="step__transform">Unsicher <span class="ar">→</span> Selbstbewusst</span>
+          <h3>Das Profifotografen-Denken</h3>
+          <p>Nebenberuflich gibst du vielleicht noch Rabatte, weil du dir nicht sicher bist, was du verlangen kannst. Hier lernst du, was deine Arbeit wirklich wert ist – und stehst ab sofort zu 100% dahinter.</p>
+        </div>
+      </article>
+      <article class="step reveal">
+        <div class="step__num">02</div>
+        <div>
+          <span class="step__transform">Austauschbar <span class="ar">→</span> Unverwechselbar</span>
+          <h3>Das unwiderstehliche Angebot</h3>
+          <p>Die meisten Fotografen bieten dasselbe an wie alle anderen. Wer sein Angebot richtig ausrichtet, hat kaum Konkurrenz mehr. Wir entwickeln ein Angebot, das hochpreisig wahrgenommen wird und sich fast von selbst verkauft.</p>
+        </div>
+      </article>
+      <article class="step reveal">
+        <div class="step__num">03</div>
+        <div>
+          <span class="step__transform">Zufall <span class="ar">→</span> Planbar</span>
+          <h3>Planbar an Kunden kommen</h3>
+          <p>Schluss mit dem Hoffen auf Empfehlungen und Zufallsanfragen. Aus über 20 erprobten Akquisewegen findest du deinen persönlichen Weg – organisch ohne Werbebudget oder automatisiert mit bezahlter Werbung. Damit du weißt, wo dein nächster Auftrag herkommt.</p>
+        </div>
+      </article>
+      <article class="step reveal">
+        <div class="step__num">04</div>
+        <div>
+          <span class="step__transform">Hoffen <span class="ar">→</span> Abschließen</span>
+          <h3>Der Wertkommunikations-Gamechanger</h3>
+          <p>Du weißt, wie du fotografierst – aber wie läuft das Verkaufsgespräch? Mit einem klaren Leitfaden holst du Interessenten von Anfang an richtig ab, kommunizierst deine Preise selbstbewusst und arbeitest nur noch mit Kunden, die deine Arbeit wirklich wertschätzen.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BENEFITS ============ -->
+<section class="section bg-dark">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow is-centered" style="justify-content:center">Das verändert sich</span>
+      <h2 class="title" style="margin-top:18px">Mehr als nur bessere Bilder.</h2>
+    </div>
+    <div class="benefits">
+      <div class="benefit reveal">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 4 3 6-7"/><path d="M14 8h4v4"/></svg>
+        <h3>Planbare Anfragen</h3>
+        <p>Jeden Monat Anfragen von Kunden, die wissen, was gute Fotos wert sind – statt auf Zufall zu warten.</p>
+      </div>
+      <div class="benefit reveal d1">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M8 7h5.5a2.5 2.5 0 010 5H9a2.5 2.5 0 000 5h7"/></svg>
+        <h3>Faire Preise</h3>
+        <p>Preise, die deiner Arbeit entsprechen – selbstbewusst kommuniziert und ohne schlechtes Gewissen.</p>
+      </div>
+      <div class="benefit reveal d2">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10l8-6 8 6v10"/><path d="M9 20v-6h6v6"/></svg>
+        <h3>Vom Nebenjob zum Beruf</h3>
+        <p>Der konkrete Fahrplan, um deine Leidenschaft sicher zu deinem Hauptberuf zu machen.</p>
+      </div>
+      <div class="benefit reveal d3">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <h3>Zeit für Familie</h3>
+        <p>Effiziente Workflows, die deine Nachbearbeitung halbieren – für mehr Zeit mit den Menschen, die zählen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="section bg-ink900" id="erfolge">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow is-centered" style="justify-content:center">Echte Menschen, echte Ergebnisse</span>
+      <h2 class="title" style="margin-top:18px">Fotograf:innen, die den Sprung bereits <span class="serif-italic">gewagt</span> haben.</h2>
+      <p class="lead">Alle haben nebenberuflich angefangen – mit denselben Zweifeln, denselben Fragen wie du sie vielleicht gerade hast. Und alle haben irgendwann den ersten Schritt gemacht.</p>
+    </div>
+    <div class="tcards">
+      <article class="tcard reveal">
+        <div class="tcard__media">
+          <span class="tcard__tag">Hochzeitsfotografin</span>
+          <img src="assets/img/michele-peloza.webp" alt="Michele Peloza mit Elias Kaltenberger" />
+          <div class="tcard__name"><b>Michele Peloza</b><span>Hauptberuflich selbstständig</span></div>
+        </div>
+        <div class="tcard__body">
+          <p class="tcard__quote">Das Feeling, hauptberuflich selbstständig zu sein, ist einfach unbeschreiblich.</p>
+          <p class="tcard__desc">Premium-Positionierung aufgebaut, Angebot neu aufgestellt, Hauptjob nach wenigen Monaten gekündigt. Heute: 15–18 Hochzeiten im Jahr, teils in Mallorca &amp; Deutschland.</p>
+          <div class="tcard__result"><b>3.000€+</b><span>pro Hochzeit statt Preisdiskussionen</span></div>
+        </div>
+      </article>
+      <article class="tcard reveal d1">
+        <div class="tcard__media tcard__mono">
+          <span class="tcard__tag">Businessfotograf</span>
+          <span class="ini">MW</span>
+          <div class="tcard__name"><b>Michael Winter</b><span>Vom 40-Std-Job zur Freiheit</span></div>
+        </div>
+        <div class="tcard__body">
+          <p class="tcard__quote">Kundenakquise war mein großer Punkt – wo kriege ich meine Kunden her.</p>
+          <p class="tcard__desc">Fokus von Hochzeit auf Businessfotografie verlagert, persönlichen Akquiseweg entwickelt, Job wenige Monate nach dem Start gekündigt. „Der Tag gehört mir."</p>
+          <div class="tcard__result"><b>3.000–7.000€</b><span>stabil pro Monat</span></div>
+        </div>
+      </article>
+      <article class="tcard reveal d2">
+        <div class="tcard__media">
+          <span class="tcard__tag">Hochzeitsfotografin</span>
+          <img src="assets/img/claudia-edhofer.webp" alt="Claudia Edhofer mit Elias Kaltenberger" />
+          <div class="tcard__name"><b>Claudia Edhofer</b><span>Von der Lehrerin zur Vollzeit-Fotografin</span></div>
+        </div>
+        <div class="tcard__body">
+          <p class="tcard__quote">Ohne die Zusammenarbeit wäre ich niemals da, wo ich jetzt bin.</p>
+          <p class="tcard__desc">Ziel waren 15 Hochzeiten im ersten Jahr – nach 3 Monaten bereits gebucht. An einem einzigen Messe-Wochenende fünf Hochzeiten verkauft.</p>
+          <div class="tcard__result"><b>~20.000€</b><span>an einem Wochenende</span></div>
+        </div>
+      </article>
+    </div>
+
+    <!-- mini results -->
+    <div class="results-strip">
+      <div class="result-mini reveal"><div class="rb"><span class="before">1.800€/Monat</span><span class="after">10.000€</span><span class="nm">Matthias Auer</span></div><span class="ar">↗</span></div>
+      <div class="result-mini reveal d1"><div class="rb"><span class="before">0€ Fotografie</span><span class="after">10.000€</span><span class="nm">Jessica M.</span></div><span class="ar">↗</span></div>
+      <div class="result-mini reveal d2"><div class="rb"><span class="before">150€/Shooting</span><span class="after">450–600€</span><span class="nm">David Pomberger</span></div><span class="ar">↗</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AUDIENCE FIT ============ -->
+<section class="section bg-cream">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow is-centered" style="justify-content:center">Für wen ist das gedacht?</span>
+      <h2 class="title" style="margin-top:18px">Ist das Strategiegespräch das Richtige für dich?</h2>
+    </div>
+    <div class="fit__grid">
+      <div class="fit-card fit-card--yes reveal">
+        <h3><span class="mk mk-yes">✓</span>Das passt zu dir, wenn …</h3>
+        <ul class="fit-list">
+          <li><span class="mk mk-yes">✓</span>du nebenberuflich fotografierst und es zum Hauptberuf machen möchtest.</li>
+          <li><span class="mk mk-yes">✓</span>du das Gefühl hast, zu wenig zu verlangen – aber nicht weißt, wie du das änderst.</li>
+          <li><span class="mk mk-yes">✓</span>du mehr Anfragen von den richtigen Kunden willst.</li>
+          <li><span class="mk mk-yes">✓</span>du noch unsicher bist, auf welche Nische du dich spezialisieren sollst.</li>
+          <li><span class="mk mk-yes">✓</span>du bereit bist, etwas an deiner aktuellen Situation zu verändern.</li>
+        </ul>
+      </div>
+      <div class="fit-card reveal d1">
+        <h3><span class="mk mk-no">✕</span>Das passt noch nicht, wenn …</h3>
+        <ul class="fit-list">
+          <li><span class="mk mk-no">✕</span>du deine Fotografie nur als Nebenjob siehst.</li>
+          <li><span class="mk mk-no">✕</span>es dir egal ist, ob diesen Monat ein Auftrag reinkommt.</li>
+          <li><span class="mk mk-no">✕</span>du nicht darauf angewiesen bist und nichts verändern möchtest.</li>
+        </ul>
+        <p style="margin-top:28px;color:var(--muted-light);font-size:.98rem">Im kurzen Kennenlern­telefonat findest du in wenigen Minuten heraus, ob das Gespräch für deine Situation Sinn macht – ehrlich und ohne Druck.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS / WHAT HAPPENS ============ -->
+<section class="section bg-dark" id="ablauf">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow is-centered" style="justify-content:center">Ein Gespräch. Ein Plan.</span>
+      <h2 class="title" style="margin-top:18px">So läuft dein kostenloses Strategiegespräch ab.</h2>
+      <p class="lead">Kein Verkaufspitch. Kein einstudiertes Script. Ein ehrliches Gespräch zwischen Fotografen – mit jemandem, der selbst diesen Weg gegangen ist.</p>
+    </div>
+    <div class="proc">
+      <div class="proc-step reveal">
+        <div class="pn"></div>
+        <h3>Kennenlernen</h3>
+        <p>Ein kurzes Telefonat, damit wir verstehen, wo du gerade stehst – und ob das Gespräch für deine Situation Sinn macht.</p>
+        <span class="dur">15–20 Minuten</span>
+      </div>
+      <div class="proc-step reveal d1">
+        <div class="pn"></div>
+        <h3>Strategiegespräch</h3>
+        <p>Wir analysieren deine Situation und beantworten deine Fragen – Positionierung, Angebot, Kundengewinnung oder Preise.</p>
+        <span class="dur">ca. 60 Minuten</span>
+      </div>
+      <div class="proc-step reveal d2">
+        <div class="pn"></div>
+        <h3>Dein Fahrplan</h3>
+        <p>Du gehst mit einem konkreten, auf dich zugeschnittenen Plan raus, den du direkt umsetzen kannst – ob allein oder mit uns.</p>
+        <span class="dur">Zum Mitnehmen</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ELIAS ============ -->
+<section class="section bg-ink900">
+  <div class="container about">
+    <figure class="about__img reveal">
+      <img src="assets/img/studio.webp" alt="Studio von Elias Kaltenberger in St. Pölten" />
+      <div class="frame"></div>
+    </figure>
+    <div class="reveal d1">
+      <span class="eyebrow">Über Elias Kaltenberger</span>
+      <h2 class="title" style="margin:18px 0 18px">Ein Fotograf, der Fotograf:innen coacht.</h2>
+      <p class="lead">Elias hat nicht studiert, wie man ein erfolgreiches Fotobusiness aufbaut – er hat es einfach gemacht. Vom gelernten Tischler zum Premiumfotografen mit Hochzeiten im Luxussegment, internationalen Businesskunden und einem eigenen Studio. Heute gibt er sein System an Fotograf:innen im gesamten DACH-Raum weiter.</p>
+      <div class="about__facts">
+        <div><b>2014</b><span>nebenberuflich gestartet</span></div>
+        <div><b>826+</b><span>bezahlte Aufträge</span></div>
+        <div><b>St.&nbsp;Pölten</b><span>Studio, 30 Min. von Wien</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="section finalcta">
+  <div class="container finalcta__inner reveal">
+    <div class="gold-rule"></div>
+    <span class="eyebrow is-centered" style="justify-content:center">Dein nächster Schritt</span>
+    <h2 class="display">Jetzt wäre ein guter Zeitpunkt, oder?</h2>
+    <p class="lead">Du fotografierst bereits. Du weißt, dass da mehr drinsteckt. Buch dir jetzt dein kostenloses Erstgespräch – wir finden gemeinsam heraus, was bei dir konkret der nächste Schritt ist. Kein Druck. Einfach mal schauen, was möglich ist.</p>
+    <a href="https://www.eliaskaltenberger.com/kontakt/" class="btn btn--primary btn--lg">Kostenloses Strategiegespräch sichern <span class="arrow">→</span></a>
+    <p class="btn-note">Die Plätze sind begrenzt – jedes Gespräch wird individuell vorbereitet.</p>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <img src="assets/img/logo.png" alt="Elias Kaltenberger" />
+        <p>Premiumfotograf &amp; Fotounternehmer aus Österreich. Wir zeigen Fotograf:innen &amp; Videograf:innen, wie sie planbar Wunschkunden gewinnen und sorgenfrei von ihrer Fotografie leben.</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#methode">Die 4 Schritte</a></li>
+          <li><a href="#erfolge">Erfolge</a></li>
+          <li><a href="#ablauf">Ablauf</a></li>
+          <li><a href="#ueber">Über Elias</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="https://www.eliaskaltenberger.com/kontakt/">Strategiegespräch buchen</a></li>
+          <li><a href="https://www.eliaskaltenberger.com/">eliaskaltenberger.com</a></li>
+          <li><a href="#top">Studio St. Pölten · 30 Min. von Wien</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© <span id="year"></span> Kaltenberger Media &amp; Consulting GmbH · Alle Rechte vorbehalten.</p>
+      <div class="legal">
+        <a href="https://www.eliaskaltenberger.com/impressum/">Impressum</a>
+        <a href="https://www.eliaskaltenberger.com/datenschutz/">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ---------- Header scroll state ---------- */
+const header = document.getElementById('header');
+const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
+onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+/* ---------- Mobile menu ---------- */
+const burger = document.getElementById('burger');
+const menu = document.getElementById('mobileMenu');
+const toggleMenu = (open) => {
+  burger.classList.toggle('open', open);
+  menu.classList.toggle('open', open);
+  burger.setAttribute('aria-expanded', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+};
+burger.addEventListener('click', () => toggleMenu(!menu.classList.contains('open')));
+menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
+
+/* ---------- Scroll reveal ---------- */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+}, {threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* ---------- Year ---------- */
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
