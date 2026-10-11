@@ -63,8 +63,8 @@
   --gold-200:#E2CD68;
   --gold-100:#F3E07A;
   --gold-soft:rgba(176,127,44,.14);
-  --grad-gold:linear-gradient(100deg,#B07F2C 0%,#F3E07A 50%,#B07F2C 100%);
-  --grad-gold-btn:linear-gradient(135deg,#9A6F24 0%,#E2CD68 50%,#9A6F24 100%);
+  --grad-gold:linear-gradient(to right,#B07F2C 0%,#F7D105 50%,#B07F2C 100%);
+  --grad-gold-btn:linear-gradient(to right,#9A6F24 0%,#E2CD68 50%,#9A6F24 100%);
 
   /* Text */
   --txt-on-dark:#EDEAE3;
@@ -137,7 +137,8 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.08;letter-spacin
 .display{font-size:clamp(2.3rem,5.4vw,4.4rem);font-weight:800;line-height:1.05;letter-spacing:-.025em}
 h2.title{font-size:clamp(1.9rem,3.8vw,3rem);line-height:1.08;font-weight:800}
 h3{font-size:clamp(1.3rem,2vw,1.7rem);font-weight:700}
-.serif-italic{background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.serif-italic{background:var(--grad-gold);background-size:220% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:shimmer 7s linear infinite}
+@keyframes shimmer{to{background-position:220% center}}
 .bg-cream .serif-italic{background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
 /* metallic gold numbers */
 .trust-metric b,.trust-pill b,.hero__badge b,.story__stat b,.about__facts b,.tcard__result b,.result-mini .after,.proc-step .pn{
@@ -154,9 +155,9 @@ p+p{margin-top:1.1em}
 
 /* ---------- 5. Buttons ---------- */
 .btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:12px;
-  font-family:var(--sans);font-weight:600;font-size:13.5px;letter-spacing:.12em;text-transform:uppercase;
-  padding:18px 34px;border-radius:var(--r);position:relative;overflow:hidden;
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-family:var(--sans);font-weight:600;font-size:16px;letter-spacing:0;text-transform:none;line-height:1.1;
+  padding:16px 30px;border-radius:8px;position:relative;overflow:hidden;
   transition:transform .4s var(--ease),box-shadow .4s var(--ease),background .4s var(--ease),color .3s var(--ease);
   will-change:transform;
 }
@@ -164,7 +165,7 @@ p+p{margin-top:1.1em}
 .btn:hover .arrow{transform:translateX(5px)}
 .btn--primary{
   background:var(--grad-gold-btn);
-  color:#120D04;box-shadow:var(--shadow-gold);
+  color:#FFFFFF;-webkit-text-fill-color:#FFFFFF;box-shadow:var(--shadow-gold);
 }
 .btn--primary::after{
   content:"";position:absolute;inset:0;
@@ -179,7 +180,7 @@ p+p{margin-top:1.1em}
 }
 .btn--ghost:hover{box-shadow:inset 0 0 0 1px var(--gold-300);background:var(--gold-soft);transform:translateY(-2px)}
 .bg-cream .btn--ghost{color:var(--txt-on-light);box-shadow:inset 0 0 0 1px var(--line-gold)}
-.btn--lg{padding:21px 42px;font-size:14px}
+.btn--lg{padding:18px 40px;font-size:17px}
 .btn-note{font-size:12.5px;letter-spacing:.04em;color:var(--muted-dark);margin-top:16px}
 
 /* ---------- 6. Header ---------- */
@@ -200,7 +201,7 @@ p+p{margin-top:1.1em}
 .nav-links a:hover{opacity:1}
 .nav-links a:hover::after{width:100%}
 .nav-cta{display:flex;align-items:center;gap:16px}
-.nav .btn{padding:13px 24px;font-size:12px}
+.nav .btn{padding:12px 24px;font-size:15px}
 .burger{display:none;flex-direction:column;gap:5px;padding:8px;z-index:3}
 .burger span{width:24px;height:2px;background:var(--txt-on-dark);transition:.3s var(--ease);transform-origin:center}
 .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
@@ -238,6 +239,8 @@ p+p{margin-top:1.1em}
   position:absolute;left:-28px;bottom:36px;background:rgba(11,11,12,.86);backdrop-filter:blur(8px);
   border:1px solid var(--line-gold);border-radius:var(--r);padding:16px 20px;box-shadow:var(--shadow);max-width:210px;
 }
+.hero__badge{animation:floaty 4.5s ease-in-out infinite}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
 .hero__badge b{font-family:var(--serif);font-size:1.9rem;color:var(--gold-300);display:block;line-height:1}
 .hero__badge span{font-size:11.5px;color:var(--muted-dark);letter-spacing:.03em}
 .scroll-hint{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:2;font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted-dark);display:flex;flex-direction:column;align-items:center;gap:10px}
@@ -278,6 +281,18 @@ p+p{margin-top:1.1em}
 .timeline li::before{content:"";position:absolute;left:-30px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--ink);border:2px solid var(--gold)}
 .timeline b{display:block;font-family:var(--serif);font-size:1.25rem;color:var(--txt-on-dark);margin-bottom:4px;font-weight:600}
 .timeline p{color:var(--muted-dark);font-size:.98rem}
+
+/* ---------- 10b. Full-bleed story (vertical image covers section) ---------- */
+.storyfull{display:grid;grid-template-columns:42% 1fr;align-items:stretch;padding:0;position:relative;overflow:hidden}
+.storyfull__media{position:relative;min-height:640px}
+.storyfull__media img{position:absolute;left:0;top:-11%;width:100%;height:122%;object-fit:cover;object-position:22% center;will-change:transform}
+.storyfull__media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.15) 0%,transparent 35%,transparent 72%,var(--ink) 100%)}
+.storyfull__stat{position:absolute;left:30px;bottom:30px;z-index:2;background:rgba(0,0,0,.55);backdrop-filter:blur(10px);border:1px solid var(--line-gold);border-radius:8px;padding:14px 22px;box-shadow:var(--shadow)}
+.storyfull__stat b{font-family:var(--serif);font-size:2rem;font-weight:800;line-height:1;display:block;background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.storyfull__stat span{font-size:11.5px;color:var(--muted-dark);letter-spacing:.04em}
+.storyfull__content{display:flex;align-items:center;padding:clamp(64px,8vw,120px) clamp(24px,5.5vw,96px)}
+.storyfull__inner{max-width:620px}
+.storyfull .timeline{margin-top:30px}
 
 /* ---------- 11. Steps (the 4-step plan) ---------- */
 .steps{display:grid;gap:0;counter-reset:step}
@@ -390,9 +405,13 @@ p+p{margin-top:1.1em}
 
 /* ---------- 18. Footer ---------- */
 .footer{background:var(--ink);border-top:1px solid var(--line-dark);padding:64px 0 32px}
-.footer__top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1px solid var(--line-dark)}
+.footer__top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1px solid var(--line-dark)}
 .footer__brand img{height:38px;width:auto;margin-bottom:18px}
-.footer__brand p{color:var(--muted-dark);font-size:.95rem;max-width:320px}
+.footer__brand p{color:var(--muted-dark);font-size:.95rem;max-width:280px}
+.socials{display:flex;gap:12px;margin-top:22px}
+.socials a{width:40px;height:40px;border:1px solid var(--line-dark);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--muted-dark);transition:color .3s,border-color .3s,background .3s,transform .3s var(--ease)}
+.socials a:hover{color:#fff;border-color:var(--line-gold);background:var(--gold-soft);transform:translateY(-3px)}
+.socials svg{width:18px;height:18px}
 .footer h4{font-family:var(--sans);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-300);margin-bottom:18px;font-weight:600}
 .footer ul li{margin-bottom:12px}
 .footer ul a{color:var(--muted-dark);font-size:.95rem;transition:color .3s}
@@ -419,7 +438,11 @@ p+p{margin-top:1.1em}
   .hero__badge{left:auto;right:-10px}
   .story__grid,.about,.problem__wrap{grid-template-columns:1fr}
   .story__stat{right:16px}
+  .storyfull{grid-template-columns:1fr}
+  .storyfull__media{min-height:400px}
   .benefits{grid-template-columns:repeat(2,1fr)}
+  .footer__top{grid-template-columns:repeat(3,1fr)}
+  .footer__brand{grid-column:1/-1}
 }
 @media (max-width:820px){
   .nav-links,.nav-cta .btn{display:none}
@@ -430,7 +453,7 @@ p+p{margin-top:1.1em}
   .tcards{grid-template-columns:1fr;max-width:420px;margin-inline:auto}
   .results-strip,.proc{grid-template-columns:1fr}
   .fit__grid{grid-template-columns:1fr}
-  .footer__top{grid-template-columns:1fr;gap:34px}
+  .footer__top{grid-template-columns:repeat(2,1fr);gap:34px 24px}
   .step{grid-template-columns:1fr;gap:10px}
   .step__num{font-size:3.2rem}
 }
@@ -440,7 +463,10 @@ p+p{margin-top:1.1em}
   .hero__trust{gap:18px}
   .trust-div{display:none}
   .btn{width:100%}
+  .nav .btn,.socials a{width:auto}
+  .socials a{width:40px}
   .hero__cta{flex-direction:column}
+  .footer__top{grid-template-columns:1fr;gap:28px}
 }
 
 /* Mobile menu */
@@ -468,24 +494,20 @@ p+p{margin-top:1.1em}
       <img src="assets/img/logo-wordmark.png" alt="Elias Kaltenberger – Premiumfotograf" />
     </a>
     <nav class="nav-links" aria-label="Hauptnavigation">
-      <a href="#methode">Die 4 Schritte</a>
-      <a href="#erfolge">Erfolge</a>
-      <a href="#ablauf">Ablauf</a>
-      <a href="#ueber">Über Elias</a>
+      <a href="https://www.eliaskaltenberger.com/#uber-uns">Über mich</a>
+      <a href="https://www.eliaskaltenberger.com/erfolgsgeschichten/">Erfolgsgeschichten</a>
     </nav>
     <div class="nav-cta">
-      <a href="https://www.eliaskaltenberger.com/kontakt/" class="btn btn--primary">Strategiegespräch sichern</a>
+      <a href="https://www.eliaskaltenberger.com/kontakt/" class="btn btn--primary">Strategiegespräch buchen</a>
       <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
 
 <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile Navigation">
-  <a href="#methode">Die 4 Schritte</a>
-  <a href="#erfolge">Erfolge</a>
-  <a href="#ablauf">Ablauf</a>
-  <a href="#ueber">Über Elias</a>
-  <a href="https://www.eliaskaltenberger.com/kontakt/" class="btn btn--primary btn--lg">Kostenloses Gespräch</a>
+  <a href="https://www.eliaskaltenberger.com/#uber-uns">Über mich</a>
+  <a href="https://www.eliaskaltenberger.com/erfolgsgeschichten/">Erfolgsgeschichten</a>
+  <a href="https://www.eliaskaltenberger.com/kontakt/" class="btn btn--primary btn--lg">Strategiegespräch buchen</a>
 </nav>
 
 <!-- ============ HERO ============ -->
@@ -555,17 +577,16 @@ p+p{margin-top:1.1em}
 </section>
 
 <!-- ============ STORY / TURNING POINT ============ -->
-<section class="section bg-dark" id="ueber">
-  <div class="container story__grid">
-    <div class="story__media reveal-l">
-      <img src="assets/img/elias-wide.webp" alt="Elias Kaltenberger mit Kamera" />
-      <div class="frame"></div>
-      <div class="story__stat"><b data-count="400" data-suffix="€">400€</b><span>erster Monat in Vollzeit</span></div>
-    </div>
-    <div class="reveal d1">
+<section class="storyfull bg-dark" id="ueber">
+  <div class="storyfull__media reveal-l">
+    <img src="assets/img/elias-rebrand.webp" alt="Elias Kaltenberger bei einem Shooting" data-parallax="0.08" />
+    <div class="storyfull__stat"><b data-count="400" data-suffix="€">400€</b><span>erster Monat in Vollzeit</span></div>
+  </div>
+  <div class="storyfull__content">
+    <div class="storyfull__inner reveal-r">
       <span class="eyebrow">Vom Tischler zum Profifotograf</span>
-      <h2 class="title" style="margin:18px 0 20px">Ich war genau dort, wo du jetzt stehst.</h2>
-      <p class="lead">Ich komme nicht aus der Fotografie. Als gelernter Tischler habe ich 2014 nebenberuflich angefangen. Als ich mit einem einzigen Hochzeitsauftrag fast so viel verdiente wie in einem ganzen Monat in der Werkstatt, habe ich den Schritt gewagt.</p>
+      <h2 class="title" style="margin:18px 0 22px">Ich war genau dort, wo du jetzt stehst.</h2>
+      <p class="lead" style="margin-bottom:10px">Ich komme nicht aus der Fotografie. Als gelernter Tischler habe ich 2014 nebenberuflich angefangen. Als ich mit einem einzigen Hochzeitsauftrag fast so viel verdiente wie in einem ganzen Monat in der Werkstatt, habe ich den Schritt gewagt.</p>
       <ul class="timeline">
         <li><b>Der harte Start</b><p>Erster Monat in der Selbstständigkeit: 400€ netto. Nächtelang die Zweifel – „Bin ich zu blöd dafür?"</p></li>
         <li><b>Investition in mich</b><p>Bücher, Workshops, Seminare. Ich habe eine Strategie entwickelt, die wirklich funktioniert – statt auf Zufall zu hoffen.</p></li>
@@ -809,31 +830,53 @@ p+p{margin-top:1.1em}
     <div class="footer__top">
       <div class="footer__brand">
         <img src="assets/img/logo-wordmark.png" alt="Elias Kaltenberger" />
-        <p>Premiumfotograf &amp; Fotounternehmer aus Österreich. Wir zeigen Fotograf:innen &amp; Videograf:innen, wie sie planbar Wunschkunden gewinnen und sorgenfrei von ihrer Fotografie leben.</p>
+        <p>Premiumfotograf &amp; Fotounternehmer aus Österreich.</p>
+        <div class="socials">
+          <a href="https://www.facebook.com/p/Elias-Kaltenberger-100039394704734/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7h2.3l.4-2.7h-2.7V9.6c0-.8.2-1.3 1.3-1.3h1.4V5.9c-.2 0-1.1-.1-2.1-.1-2.1 0-3.5 1.3-3.5 3.6v1.9H8.3v2.7h2.3V21h2.9z"/></svg></a>
+          <a href="https://www.instagram.com/elias_kaltenberger/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.youtube.com/@EliasKaltenberger" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.8-1.8C19 5 12 5 12 5s-7 0-8.8.5A2.5 2.5 0 0 0 1.4 7.3C1 8.8 1 12 1 12s0 3.2.4 4.7a2.5 2.5 0 0 0 1.8 1.8C5 19 12 19 12 19s7 0 8.8-.5a2.5 2.5 0 0 0 1.8-1.8C23 15.2 23 12 23 12zM9.8 15.3V8.7l6 3.3-6 3.3z"/></svg></a>
+          <a href="https://www.linkedin.com/in/elias-kaltenberger/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.9 8.3H3.6V21h3.3V8.3zM5.2 3.5a1.9 1.9 0 1 0 0 3.8 1.9 1.9 0 0 0 0-3.8zM20.4 21h-3.3v-6.2c0-1.5 0-3.4-2.1-3.4s-2.4 1.6-2.4 3.3V21H9.3V8.3h3.1v1.7h.1c.4-.8 1.5-1.7 3.1-1.7 3.3 0 3.9 2.2 3.9 5V21z"/></svg></a>
+        </div>
       </div>
-      <div>
-        <h4>Navigation</h4>
+      <div class="fcol">
+        <h4>Über uns</h4>
         <ul>
-          <li><a href="#methode">Die 4 Schritte</a></li>
-          <li><a href="#erfolge">Erfolge</a></li>
-          <li><a href="#ablauf">Ablauf</a></li>
-          <li><a href="#ueber">Über Elias</a></li>
+          <li><a href="https://www.eliaskaltenberger.com/#uber-uns">Über Mich</a></li>
+          <li><a href="https://www.eliaskaltenberger.com/kostenloses-erstgespraech/">Erstgespräch vereinbaren</a></li>
+          <li><a href="https://www.eliaskaltenberger.com/#Standort">Standort</a></li>
         </ul>
       </div>
-      <div>
-        <h4>Kontakt</h4>
+      <div class="fcol">
+        <h4>Angebote</h4>
         <ul>
-          <li><a href="https://www.eliaskaltenberger.com/kontakt/">Strategiegespräch buchen</a></li>
-          <li><a href="https://www.eliaskaltenberger.com/">eliaskaltenberger.com</a></li>
-          <li><a href="#top">Studio St. Pölten · 30 Min. von Wien</a></li>
+          <li><a href="https://hotelfotograf-kaltenberger.com/" target="_blank" rel="noopener">Hotelfotografie</a></li>
+          <li><a href="https://businessfotograf-kaltenberger.com/" target="_blank" rel="noopener">Businessfotografie</a></li>
+          <li><a href="https://hochzeitsfotograf-kaltenberger.com/" target="_blank" rel="noopener">Hochzeitsfotografie</a></li>
+        </ul>
+      </div>
+      <div class="fcol">
+        <h4>Erfolge</h4>
+        <ul>
+          <li><a href="https://www.eliaskaltenberger.com/#Fallstudien">Fallstudien</a></li>
+          <li><a href="https://www.eliaskaltenberger.com/erfolgsgeschichten/">Erfolgsgeschichten</a></li>
+        </ul>
+      </div>
+      <div class="fcol">
+        <h4>Rechtliches</h4>
+        <ul>
+          <li><a href="https://www.eliaskaltenberger.com/agb/">AGB</a></li>
+          <li><a href="https://www.eliaskaltenberger.com/impressum/">Impressum</a></li>
+          <li><a href="https://www.eliaskaltenberger.com/datenschutz/">Datenschutzerklärung</a></li>
+          <li><a href="https://www.eliaskaltenberger.com/kontakt/">Kontakt</a></li>
         </ul>
       </div>
     </div>
     <div class="footer__bottom">
-      <p>© <span id="year"></span> Kaltenberger Media &amp; Consulting GmbH · Alle Rechte vorbehalten.</p>
+      <p>Urheberrecht © <span id="year"></span> Elias Kaltenberger</p>
       <div class="legal">
         <a href="https://www.eliaskaltenberger.com/impressum/">Impressum</a>
         <a href="https://www.eliaskaltenberger.com/datenschutz/">Datenschutz</a>
+        <a href="https://www.eliaskaltenberger.com/agb/">AGB</a>
       </div>
     </div>
   </div>
@@ -887,11 +930,19 @@ document.querySelectorAll('[data-count]').forEach(el => countIO.observe(el));
 /* ---------- Hero parallax + scroll progress ---------- */
 const heroBg = document.querySelector('.hero__bg');
 const progress = document.getElementById('progress');
+const parallax = [...document.querySelectorAll('[data-parallax]')];
 let ticking = false;
 const fx = () => {
-  const y = window.scrollY;
+  const y = window.scrollY, vh = window.innerHeight;
   if(heroBg && !reduce) heroBg.style.transform = 'translate3d(0,' + Math.min(y * 0.35, 280) + 'px,0)';
-  if(progress){ const h = document.documentElement.scrollHeight - window.innerHeight; progress.style.transform = 'scaleX(' + (h > 0 ? Math.min(y / h, 1) : 0) + ')'; }
+  if(!reduce) parallax.forEach(el => {
+    const r = el.getBoundingClientRect();
+    if(r.bottom < 0 || r.top > vh) return;
+    const speed = parseFloat(el.dataset.parallax) || 0.08;
+    const off = (r.top + r.height / 2 - vh / 2) * -speed;
+    el.style.transform = 'translate3d(0,' + off.toFixed(1) + 'px,0)';
+  });
+  if(progress){ const h = document.documentElement.scrollHeight - vh; progress.style.transform = 'scaleX(' + (h > 0 ? Math.min(y / h, 1) : 0) + ')'; }
   ticking = false;
 };
 window.addEventListener('scroll', () => { if(!ticking){ requestAnimationFrame(fx); ticking = true; } }, {passive:true});
