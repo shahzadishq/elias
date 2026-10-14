@@ -272,7 +272,11 @@ p+p{margin-top:1.1em}
 .pullquote em{font-style:normal;background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .problem__text p{color:var(--muted-light);font-size:1.05rem}
 .problem__text .first{color:var(--txt-on-light);font-weight:500}
-.problem2{max-width:820px;margin:0 auto}
+.problem2{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(36px,5vw,72px);align-items:start}
+.problem2__media{position:relative;align-self:stretch;min-height:100%}
+.problem2__media img{width:100%;height:100%;min-height:440px;max-height:720px;object-fit:cover;border-radius:var(--r-lg);position:sticky;top:110px}
+.problem2__badge{position:absolute;left:18px;bottom:18px;z-index:2;background:rgba(11,11,12,.72);backdrop-filter:blur(6px);border:1px solid var(--line-gold);color:var(--gold-100);font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:9px 16px;border-radius:999px}
+.problem2__text{max-width:640px}
 .problem2__body{margin-top:4px;column-count:1}
 .problem2__body p{color:var(--muted-light);font-size:1.06rem;margin-bottom:16px}
 .problem2__body .first{color:var(--txt-on-light);font-weight:600;font-size:1.18rem}
@@ -300,9 +304,16 @@ p+p{margin-top:1.1em}
 
 /* ---------- 10b. Full-bleed story (vertical image covers section) ---------- */
 .storyfull{display:grid;grid-template-columns:42% 1fr;align-items:stretch;padding:0;position:relative;overflow:hidden}
-.storyfull__media{position:relative;min-height:640px}
-.storyfull__media img{position:absolute;left:0;top:-11%;width:100%;height:122%;object-fit:cover;object-position:22% center;will-change:transform}
-.storyfull__media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.15) 0%,transparent 35%,transparent 72%,var(--ink) 100%)}
+.storyfull__media{position:relative;min-height:640px;overflow:hidden;background:var(--ink)}
+.storyseq{position:absolute;inset:0;overflow:hidden}
+.storyseq__track{display:flex;flex-direction:column;gap:14px;padding:14px;animation:storyseqScroll 38s linear infinite;will-change:transform}
+.storyseq__shot{position:relative;flex:0 0 auto;height:clamp(300px,42vh,420px);border-radius:12px;overflow:hidden;border:1px solid var(--line-gold)}
+.storyseq__shot img{width:100%;height:100%;object-fit:cover;object-position:center;filter:grayscale(.12) brightness(.9)}
+.storyseq:hover .storyseq__track{animation-play-state:paused}
+@keyframes storyseqScroll{from{transform:translateY(0)}to{transform:translateY(-50%)}}
+.storyfull__media::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:
+  linear-gradient(90deg,rgba(0,0,0,.12) 0%,transparent 30%,transparent 72%,var(--ink) 100%),
+  linear-gradient(180deg,var(--ink) 0%,transparent 14%,transparent 86%,var(--ink) 100%)}
 .storyfull__stat{position:absolute;left:30px;bottom:30px;z-index:2;background:rgba(0,0,0,.55);backdrop-filter:blur(10px);border:1px solid var(--line-gold);border-radius:8px;padding:14px 22px;box-shadow:var(--shadow)}
 .storyfull__stat b{font-family:var(--serif);font-size:2rem;font-weight:800;line-height:1;display:block;background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .storyfull__stat span{font-size:11.5px;color:var(--muted-dark);letter-spacing:.04em}
@@ -313,28 +324,29 @@ p+p{margin-top:1.1em}
 .story-p strong{color:var(--txt-on-dark);font-weight:600}
 .story-quote{margin:4px 0 18px;padding:16px 0 16px 24px;border-left:2px solid var(--gold);font-family:var(--serif);font-weight:700;font-size:clamp(1.2rem,1.7vw,1.5rem);line-height:1.3;color:var(--txt-on-dark);letter-spacing:-.01em}
 
-/* ---------- 11. Steps (the 4-step plan) ---------- */
-.steps{display:grid;gap:0;counter-reset:step;position:relative;padding-left:36px}
-.steps__rail{position:absolute;left:0;top:34px;bottom:34px;width:3px;border-radius:3px;background:rgba(26,25,21,.12);overflow:hidden}
+/* ---------- 11. Steps (the 4-step plan — center-line zigzag) ---------- */
+.steps{position:relative;display:flex;flex-direction:column;gap:clamp(44px,6vw,96px);padding:24px 0;max-width:1080px;margin:0 auto}
+.steps__rail{position:absolute;left:50%;transform:translateX(-50%);top:24px;bottom:24px;width:3px;border-radius:3px;background:rgba(26,25,21,.12);overflow:hidden;z-index:1}
 .bg-dark .steps__rail{background:var(--line-dark)}
 .steps__rail span{position:absolute;left:0;top:0;width:100%;height:0;border-radius:3px;background:var(--grad-gold-btn);transition:height .12s linear}
-.step{
-  display:grid;grid-template-columns:120px 1fr;gap:clamp(24px,4vw,56px);align-items:start;
-  padding:clamp(36px,4.5vw,56px) 0;border-top:1px solid var(--line-light);
-  transition:background .4s var(--ease);
-}
-.bg-dark .step{border-top:1px solid var(--line-dark)}
-.step:last-child{border-bottom:1px solid var(--line-light)}
-.bg-dark .step:last-child{border-bottom:1px solid var(--line-dark)}
-.step__num{font-family:var(--serif);font-size:clamp(3rem,6vw,5rem);line-height:.9;color:transparent;-webkit-text-stroke:1px var(--gold);font-weight:600}
-.step h3{margin-bottom:12px}
-.step__transform{display:inline-flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:14px}
-.step__transform .ar{opacity:.7}
-.step p{color:var(--muted-light);max-width:620px}
+.step{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,72px);align-items:center;position:relative}
+.step::before{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:16px;height:16px;border-radius:50%;background:var(--grad-gold-btn);box-shadow:0 0 0 6px var(--cream, #fff);z-index:2}
+.bg-dark .step::before{box-shadow:0 0 0 6px var(--ink)}
+.step__media{position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/3;border:1px solid var(--line-gold);box-shadow:var(--shadow)}
+.step__media img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease);filter:grayscale(.08)}
+.step:hover .step__media img{transform:scale(1.05)}
+.step__media::after{content:"";position:absolute;inset:0;background:linear-gradient(130deg,transparent 55%,rgba(0,0,0,.4))}
+.step__chip{position:absolute;left:16px;top:16px;z-index:2;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-200);background:rgba(0,0,0,.6);border:1px solid var(--line-gold);padding:7px 14px;border-radius:40px;font-weight:600}
+.step__body{padding:0 8px}
+.step--rev .step__media{order:2}
+.step--rev .step__body{order:1}
+.step__num{font-family:var(--serif);font-size:clamp(2.6rem,5vw,4.4rem);line-height:.9;color:transparent;-webkit-text-stroke:1px var(--gold);font-weight:700;margin-bottom:10px}
+.bg-dark .step__num{-webkit-text-stroke:1px var(--gold-300)}
+.step h3{margin-bottom:12px;font-size:clamp(1.25rem,2vw,1.6rem)}
+.step p{color:var(--muted-light);max-width:560px}
 .bg-dark .step p{color:var(--muted-dark)}
 .step p strong{color:var(--txt-on-light);font-weight:600}
 .step__quote{margin-top:14px;padding-left:16px;border-left:2px solid var(--gold);font-family:var(--serif);font-style:normal;font-weight:600;font-size:1.05rem;color:var(--txt-on-light)!important}
-.bg-dark .step__num{-webkit-text-stroke:1px var(--gold-300)}
 
 /* ---------- 12. Benefits grid ---------- */
 .benefits{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
@@ -406,11 +418,11 @@ p+p{margin-top:1.1em}
 
 /* ---------- 15. Process (what happens in call) ---------- */
 .proc{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;counter-reset:p}
-.proc-step{position:relative;padding:40px 30px;border:1px solid var(--line-dark);border-radius:var(--r-lg);background:var(--ink-800)}
+.proc-step{position:relative;padding:40px 30px;border:1px solid var(--line-light);border-radius:var(--r-lg);background:#fff}
 .proc-step .pn{counter-increment:p;font-family:var(--serif);font-size:2.6rem;color:var(--gold-300);line-height:1;margin-bottom:16px}
 .proc-step .pn::before{content:"0" counter(p)}
-.proc-step h3{font-size:1.25rem;margin-bottom:10px}
-.proc-step p{font-size:.95rem;color:var(--muted-dark)}
+.proc-step h3{font-size:1.25rem;margin-bottom:10px;color:var(--txt-on-light)}
+.proc-step p{font-size:.95rem;color:var(--muted-light)}
 .proc-step .dur{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-top:14px;display:block}
 .proc-note{max-width:760px;margin:44px auto 0;text-align:center}
 .proc-note p{color:var(--muted-dark);font-size:1rem}
@@ -423,7 +435,7 @@ p+p{margin-top:1.1em}
 /* ---------- 16. About strip ---------- */
 .about{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(40px,5vw,72px);align-items:center}
 .about__img{position:relative}
-.about__img img{border-radius:var(--r-lg);box-shadow:var(--shadow)}
+.about__img img{border-radius:var(--r-lg)}
 .about__img .frame{position:absolute;inset:18px -18px -18px 18px;border:1px solid var(--line-gold);border-radius:12px;z-index:-1}
 .about__facts{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:30px;padding-top:30px;border-top:1px solid var(--line-dark)}
 .about__facts b{font-family:var(--serif);font-size:2rem;color:var(--gold-300);display:block;line-height:1}
@@ -494,6 +506,15 @@ body::after{content:"";position:fixed;inset:0;z-index:300;pointer-events:none;op
 .marquee i{color:var(--gold);font-style:normal;font-size:.8rem;opacity:.6}
 @keyframes marquee{to{transform:translateX(-50%)}}
 
+/* hero diagonal photo strip (like the live site) */
+.photostrip-wrap{overflow:hidden;width:100%;background:var(--ink)}
+.photostrip{display:flex;gap:8px;height:clamp(150px,19vw,240px);background:var(--ink);overflow:hidden;width:112%;margin-left:-6%;padding:0}
+.photostrip__item{flex:1;overflow:hidden;transform:skewX(-11deg);position:relative;transition:flex .5s var(--ease)}
+.photostrip__item img{position:absolute;inset:0;width:128%;height:100%;object-fit:cover;object-position:center;transform:skewX(11deg) translateX(-11%);filter:grayscale(.1) brightness(.92);transition:transform .8s var(--ease),filter .5s}
+.photostrip__item:hover{flex:1.5}
+.photostrip__item:hover img{filter:none;transform:skewX(11deg) translateX(-11%) scale(1.04)}
+@media (max-width:700px){.photostrip{height:120px;gap:5px}.photostrip__item:nth-child(n+5){display:none}}
+
 /* card hover glow + sheen */
 .benefit,.proc-step{position:relative;overflow:hidden}
 .benefit::after,.proc-step::after{content:"";position:absolute;top:0;left:-120%;width:70%;height:100%;background:linear-gradient(100deg,transparent,rgba(247,209,5,.08),transparent);transform:skewX(-18deg);transition:left .7s var(--ease);pointer-events:none}
@@ -541,8 +562,8 @@ body.vmodal-open{overflow:hidden}
 .has-bg{position:relative;overflow:hidden}
 .has-bg>.container{position:relative;z-index:2}
 .secbg{position:absolute;inset:0;z-index:0}
-.secbg img{width:100%;height:100%;object-fit:cover;opacity:.16}
-.secbg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--ink),rgba(0,0,0,.7) 50%,var(--ink))}
+.secbg img{width:100%;height:100%;object-fit:cover;opacity:.5}
+.secbg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#212121 0%,rgba(33,33,33,.55) 55%,rgba(0,0,0,.2) 120%)}
 
 /* case studies */
 .cases{display:grid;gap:clamp(44px,6vw,86px)}
@@ -567,7 +588,9 @@ body.vmodal-open{overflow:hidden}
   .hero__grid{grid-template-columns:1fr;gap:48px}
   .hero__figure{justify-self:start;max-width:360px}
   .hero__badge{left:auto;right:-10px}
-  .story__grid,.about,.problem__wrap{grid-template-columns:1fr}
+  .story__grid,.about,.problem__wrap,.problem2{grid-template-columns:1fr}
+  .problem2__media img{position:static;min-height:0;aspect-ratio:3/2;max-height:none}
+  .problem2__text{max-width:none}
   .story__stat{right:16px}
   .storyfull{grid-template-columns:1fr}
   .storyfull__media{min-height:400px}
@@ -589,8 +612,13 @@ body.vmodal-open{overflow:hidden}
   .results-strip,.proc{grid-template-columns:1fr}
   .fit__grid{grid-template-columns:1fr}
   .footer__top{grid-template-columns:repeat(2,1fr);gap:34px 24px}
-  .step{grid-template-columns:1fr;gap:10px}
-  .step__num{font-size:3.2rem}
+  .steps{gap:40px}
+  .steps__rail{left:22px;transform:none}
+  .step{grid-template-columns:1fr;gap:18px;padding-left:52px}
+  .step::before{left:22px;top:28px;transform:translate(-50%,0)}
+  .step__media{order:0!important;aspect-ratio:16/10}
+  .step--rev .step__body{order:0}
+  .step__num{font-size:3rem;margin-bottom:6px}
 }
 @media (max-width:520px){
   .benefits{grid-template-columns:1fr}
@@ -669,31 +697,41 @@ body.vmodal-open{overflow:hidden}
   <div class="scroll-hint" aria-hidden="true">Scroll<span></span></div>
 </section>
 
-<!-- ============ MARQUEE ============ -->
-<div class="marquee">
-  <div class="marquee__track">
-    <span>Hochzeit</span><i>✦</i><span>Business</span><i>✦</i><span>Hotel</span><i>✦</i><span>Boudoir</span><i>✦</i><span>Immobilien</span><i>✦</i><span>Familie</span><i>✦</i>
-    <span>Hochzeit</span><i>✦</i><span>Business</span><i>✦</i><span>Hotel</span><i>✦</i><span>Boudoir</span><i>✦</i><span>Immobilien</span><i>✦</i><span>Familie</span><i>✦</i>
-  </div>
+<!-- ============ HERO PHOTO STRIP ============ -->
+<div class="photostrip-wrap">
+<div class="photostrip" aria-hidden="true">
+  <div class="photostrip__item"><img src="assets/img/elias-rebrand.webp" alt="" loading="lazy" /></div>
+  <div class="photostrip__item"><img src="assets/img/planning.webp" alt="" loading="lazy" /></div>
+  <div class="photostrip__item"><img src="assets/img/consult.webp" alt="" loading="lazy" /></div>
+  <div class="photostrip__item"><img src="assets/img/helicopter.webp" alt="" loading="lazy" /></div>
+  <div class="photostrip__item"><img src="assets/img/studio.webp" alt="" loading="lazy" /></div>
+  <div class="photostrip__item"><img src="assets/img/teaching.webp" alt="" loading="lazy" /></div>
+</div>
 </div>
 
 <!-- ============ PROBLEM / EMPATHY ============ -->
 <section class="section bg-cream">
   <div class="container problem2">
-    <span class="eyebrow reveal">Kennst du das?</span>
-    <h2 class="title reveal d1" style="margin:18px 0 26px">Du machst bereits tolle Bilder. Nur das <span class="serif-italic">Business drumherum</span> funktioniert noch nicht.</h2>
-    <div class="problem2__body reveal d1">
-      <p class="first">Du machst bereits tolle Bilder und vom Hobby bist du auch schon weit entfernt. Aber irgendwie fühlt es sich noch nicht wie ein richtiges Business an.</p>
-      <p>Die Anfragen kommen ab und zu. Durch Empfehlungen, durch Zufall, manchmal gar nicht. Du hast vielleicht schon mal Werbung ausprobiert, irgendwas gepostet, Preise neu kalkuliert. Aber einen echten Plan, wie du regelmäßig an Aufträge kommst und was du dafür wirklich verlangen kannst, den hat dir noch niemand gegeben.</p>
-      <p>Manchmal kommt ein Auftrag rein. Du freust dich kurz. Und dann merkst du: Das Geld ist schon wieder weg, bevor du es richtig gesehen hast. Miete, Versicherung, Ausgaben. Und nächsten Monat fängst du wieder bei null an.</p>
-      <p>Dabei ist das Feedback durchweg positiv. Die Kunden sind begeistert. Nur das Business drumherum funktioniert noch nicht so, wie es sollte.</p>
-      <p>Das liegt nicht an deinem fotografischen Talent. Es liegt daran, dass Fotografieren und wirklich davon leben können, zwei komplett verschiedene Dinge sind und das zweite hat dir einfach noch niemand beigebracht.</p>
-      <p>Es geht nicht nur ums Geld. Es geht darum, dass du deinem Kind oder deiner Familie etwas ermöglichen kannst ohne drei Tage überlegen zu müssen, ob du es dir leisten kannst.</p>
-      <p class="problem2__emph">Ich kenne dieses Gefühl. Nicht aus Büchern, sondern weil ich selbst dort gestanden bin.</p>
+    <div class="problem2__media reveal-l">
+      <img src="assets/img/problem-claudia.webp" alt="Elias Kaltenberger bei einem Businessshooting" data-parallax="0.06" />
+      <span class="problem2__badge">Ehrlich. Ohne Verkaufspitch.</span>
     </div>
-    <div class="sig reveal d2">
-      <img src="assets/img/elias-portrait.webp" alt="Elias Kaltenberger" />
-      <div><b>Elias Kaltenberger</b><span>Premiumfotograf &amp; Fotounternehmer aus Österreich</span></div>
+    <div class="problem2__text">
+      <span class="eyebrow reveal">Kennst du das?</span>
+      <h2 class="title reveal d1" style="margin:16px 0 22px">Du machst bereits tolle Bilder. Nur das <span class="serif-italic">Business drumherum</span> funktioniert noch nicht.</h2>
+      <div class="problem2__body reveal d1">
+        <p class="first">Du machst bereits tolle Bilder und vom Hobby bist du auch schon weit entfernt. Aber irgendwie fühlt es sich noch nicht wie ein richtiges Business an.</p>
+        <p>Die Anfragen kommen ab und zu. Durch Empfehlungen, durch Zufall, manchmal gar nicht. Du hast vielleicht schon mal Werbung ausprobiert, irgendwas gepostet, Preise neu kalkuliert. Aber einen echten Plan, wie du regelmäßig an Aufträge kommst und was du dafür wirklich verlangen kannst, den hat dir noch niemand gegeben.</p>
+        <p>Manchmal kommt ein Auftrag rein. Du freust dich kurz. Und dann merkst du: Das Geld ist schon wieder weg, bevor du es richtig gesehen hast. Miete, Versicherung, Ausgaben. Und nächsten Monat fängst du wieder bei null an.</p>
+        <p>Dabei ist das Feedback durchweg positiv. Die Kunden sind begeistert. Nur das Business drumherum funktioniert noch nicht so, wie es sollte.</p>
+        <p>Das liegt nicht an deinem fotografischen Talent. Es liegt daran, dass Fotografieren und wirklich davon leben können, zwei komplett verschiedene Dinge sind und das zweite hat dir einfach noch niemand beigebracht.</p>
+        <p>Es geht nicht nur ums Geld. Es geht darum, dass du deinem Kind oder deiner Familie etwas ermöglichen kannst ohne drei Tage überlegen zu müssen, ob du es dir leisten kannst.</p>
+        <p class="problem2__emph">Ich kenne dieses Gefühl. Nicht aus Büchern, sondern weil ich selbst dort gestanden bin.</p>
+      </div>
+      <div class="sig reveal d2">
+        <img src="assets/img/elias-portrait.webp" alt="Elias Kaltenberger" />
+        <div><b>Elias Kaltenberger</b><span>Premiumfotograf &amp; Fotounternehmer aus Österreich</span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -701,7 +739,21 @@ body.vmodal-open{overflow:hidden}
 <!-- ============ STORY / TURNING POINT ============ -->
 <section class="storyfull bg-dark" id="ueber">
   <div class="storyfull__media reveal-l">
-    <img src="assets/img/elias-rebrand.webp" alt="Elias Kaltenberger bei einem Shooting" data-parallax="0.08" />
+    <div class="storyseq" aria-hidden="true">
+      <div class="storyseq__track">
+        <figure class="storyseq__shot"><img src="assets/img/elias-rebrand.webp" alt="" loading="lazy" /></figure>
+        <figure class="storyseq__shot"><img src="assets/img/planning.webp" alt="" loading="lazy" /></figure>
+        <figure class="storyseq__shot"><img src="assets/img/consult.webp" alt="" loading="lazy" /></figure>
+        <figure class="storyseq__shot"><img src="assets/img/helicopter.webp" alt="" loading="lazy" /></figure>
+        <figure class="storyseq__shot"><img src="assets/img/studio.webp" alt="" loading="lazy" /></figure>
+        <!-- duplicate for seamless loop -->
+        <figure class="storyseq__shot"><img src="assets/img/elias-rebrand.webp" alt="" loading="lazy" /></figure>
+        <figure class="storyseq__shot"><img src="assets/img/planning.webp" alt="" loading="lazy" /></figure>
+        <figure class="storyseq__shot"><img src="assets/img/consult.webp" alt="" loading="lazy" /></figure>
+        <figure class="storyseq__shot"><img src="assets/img/helicopter.webp" alt="" loading="lazy" /></figure>
+        <figure class="storyseq__shot"><img src="assets/img/studio.webp" alt="" loading="lazy" /></figure>
+      </div>
+    </div>
     <div class="storyfull__stat"><b data-count="400" data-suffix="€">400€</b><span>erster Monat in Vollzeit</span></div>
   </div>
   <div class="storyfull__content">
@@ -731,31 +783,35 @@ body.vmodal-open{overflow:hidden}
     </div>
     <div class="steps" id="steps">
       <div class="steps__rail" aria-hidden="true"><span id="stepsFill"></span></div>
-      <article class="step reveal-l">
-        <div class="step__num">01</div>
-        <div>
+      <article class="step reveal">
+        <div class="step__media"><img src="assets/img/helicopter.webp" alt="" loading="lazy" /><span class="step__chip">Schritt 01</span></div>
+        <div class="step__body">
+          <div class="step__num">01</div>
           <h3>Das Profifotografen-Denken</h3>
           <p>Nebenberuflich gibst du vielleicht noch Rabatte, weil du dir nicht sicher bist was du verlangen kannst. Das ändert sich hier. Du musst lernen, was deine Arbeit wirklich wert ist und stehst ab sofort zu 100% dahinter.</p>
         </div>
       </article>
-      <article class="step reveal-l">
-        <div class="step__num">02</div>
-        <div>
+      <article class="step step--rev reveal">
+        <div class="step__media"><img src="assets/img/planning.webp" alt="" loading="lazy" /><span class="step__chip">Schritt 02</span></div>
+        <div class="step__body">
+          <div class="step__num">02</div>
           <h3>Das unwiderstehliche Angebot</h3>
           <p>Die meisten nebenberuflichen Fotografen bieten dasselbe an wie alle anderen. Wer sein Angebot richtig ausrichtet, hat kaum Konkurrenz mehr. Du musst ein Angebot entwickeln, das hochpreisig wahrgenommen wird und sich fast von selbst verkauft.</p>
         </div>
       </article>
-      <article class="step reveal-l">
-        <div class="step__num">03</div>
-        <div>
+      <article class="step reveal">
+        <div class="step__media"><img src="assets/img/consult.webp" alt="" loading="lazy" /><span class="step__chip">Schritt 03</span></div>
+        <div class="step__body">
+          <div class="step__num">03</div>
           <h3>Planbar an Kunden kommen</h3>
           <p>Schluss mit Hoffen auf Empfehlungen und Zufallsanfragen. Es gibt bei uns mittlerweile über 20 verschiedene Strategien, wie du als Fotograf/in deine Anfragen selbst steuern kannst – ob nur mit Einsatz deiner eigenen Zeit über Netzwerktreffen und Social-Media-Kanäle, oder mit bezahlter Werbung und gezielten Marketingmaßnahmen, damit du weißt, wo dein nächster Auftrag herkommt. Bevor du deinen Hauptjob kündigst.</p>
           <p class="step__quote">„Fotografieren ist vielleicht 10% des Ganzen, der Rest ist Marketing, Sichtbarkeit und Kundengewinnung."</p>
         </div>
       </article>
-      <article class="step reveal-l">
-        <div class="step__num">04</div>
-        <div>
+      <article class="step step--rev reveal">
+        <div class="step__media"><img src="assets/img/studio.webp" alt="" loading="lazy" /><span class="step__chip">Schritt 04</span></div>
+        <div class="step__body">
+          <div class="step__num">04</div>
           <h3>Der Wertkommunikations-Gamechanger</h3>
           <p>Du weißt wie du fotografierst, aber wie läuft das Verkaufsgespräch ab, wenn jemand Interesse hat? Viele nebenberufliche Fotografen improvisieren da noch. Du benötigst einen klaren Leitfaden, wie du Interessenten von Anfang an richtig abholst, damit du deine Preise selbstbewusst kommunizierst und am Ende nur noch mit Kunden arbeitest, die deine Arbeit wirklich wertschätzen und nicht nur den günstigsten Fotografen suchen.</p>
         </div>
