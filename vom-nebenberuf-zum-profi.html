@@ -63,7 +63,7 @@
   --gold-200:#E2CD68;
   --gold-100:#F3E07A;
   --gold-soft:rgba(176,127,44,.14);
-  --grad-gold:linear-gradient(to right,#B07F2C 0%,#F7D105 50%,#B07F2C 100%);
+  --grad-gold:linear-gradient(to right,#b07f2c,#f3e07a,#b07f2c);
   --grad-gold-btn:linear-gradient(to right,#9A6F24 0%,#E2CD68 50%,#9A6F24 100%);
 
   /* Text */
@@ -137,7 +137,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.08;letter-spacin
 .display{font-size:clamp(2.3rem,5.4vw,4.4rem);font-weight:800;line-height:1.05;letter-spacing:-.025em}
 h2.title{font-size:clamp(1.9rem,3.8vw,3rem);line-height:1.08;font-weight:800}
 h3{font-size:clamp(1.3rem,2vw,1.7rem);font-weight:700}
-.serif-italic{background:linear-gradient(to right,#b07f2c,#f7d105,#b07f2c);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.serif-italic{background:linear-gradient(to right,#b07f2c,#f3e07a,#b07f2c);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
 .bg-cream .serif-italic{background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
 /* metallic gold numbers */
 .trust-metric b,.trust-pill b,.hero__badge b,.story__stat b,.about__facts b,.tcard__result b,.result-mini .after,.proc-step .pn{
@@ -171,7 +171,7 @@ p+p{margin-top:1.1em}
   background:linear-gradient(120deg,transparent 20%,rgba(255,255,255,.45) 50%,transparent 80%);
   transform:translateX(-120%);transition:transform .7s var(--ease);
 }
-.btn--primary:hover{transform:translateY(-3px);box-shadow:0 26px 56px -18px rgba(176,127,44,.6)}
+.btn--primary:hover{transform:translateY(-2px);filter:brightness(1.06);box-shadow:0 22px 48px -20px rgba(176,127,44,.55)}
 .btn--primary:hover::after{transform:translateX(120%)}
 .btn--ghost{
   background:transparent;color:var(--txt-on-dark);
@@ -185,15 +185,14 @@ p+p{margin-top:1.1em}
 /* ---------- 6. Header ---------- */
 .header{
   position:fixed;top:0;left:0;right:0;z-index:100;
-  padding:22px 0;transition:padding .4s var(--ease),background .4s var(--ease),box-shadow .4s var(--ease),backdrop-filter .4s;
+  padding:14px 0;background:rgba(0,0,0,.78);backdrop-filter:blur(14px) saturate(1.2);
+  border-bottom:1px solid var(--line-dark);
+  transition:padding .4s var(--ease),background .4s var(--ease),box-shadow .4s var(--ease);
 }
-.header::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,12,.6),transparent);pointer-events:none;transition:opacity .4s}
-.header.scrolled{padding:12px 0;background:rgba(11,11,12,.82);backdrop-filter:blur(14px) saturate(1.2);box-shadow:0 1px 0 var(--line-dark)}
-.header.scrolled::before{opacity:0}
+.header.scrolled{padding:10px 0;background:rgba(0,0,0,.92);box-shadow:0 10px 30px -18px rgba(0,0,0,.8)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:24px;position:relative;z-index:2}
 .brand{display:flex;align-items:center;gap:12px}
-.brand img{height:30px;width:auto;transition:height .4s var(--ease);filter:drop-shadow(0 2px 8px rgba(0,0,0,.35))}
-.header.scrolled .brand img{height:24px}
+.brand img{height:46px;width:auto;filter:drop-shadow(0 2px 8px rgba(0,0,0,.35))}
 .nav-links{display:flex;align-items:center;gap:34px}
 .nav-links a{font-size:13.5px;font-weight:500;letter-spacing:.04em;color:var(--txt-on-dark);opacity:.85;position:relative;padding:4px 0;transition:opacity .3s}
 .nav-links a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--gold-300);transition:width .35s var(--ease)}
@@ -210,14 +209,21 @@ p+p{margin-top:1.1em}
 /* ---------- 7. Hero ---------- */
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;padding-top:120px;padding-bottom:60px;overflow:hidden}
 .hero__bg{position:absolute;inset:0;z-index:0}
-.hero__bg img{width:100%;height:100%;object-fit:cover;object-position:center 22%;opacity:.5;transform:scale(1.05);animation:slowzoom 18s var(--ease) forwards}
+.hero__bg img{width:100%;height:100%;object-fit:cover;object-position:center 30%;opacity:.42;transform:scale(1.05);animation:slowzoom 18s var(--ease) forwards}
 .hero__bg::after{content:"";position:absolute;inset:0;background:
-  linear-gradient(100deg,var(--ink) 20%,rgba(11,11,12,.72) 52%,rgba(11,11,12,.45) 100%),
-  radial-gradient(120% 90% at 85% 10%,rgba(176,127,44,.22),transparent 55%);}
+  linear-gradient(180deg,rgba(0,0,0,.74),rgba(0,0,0,.6) 45%,rgba(0,0,0,.82)),
+  radial-gradient(90% 70% at 50% 0,rgba(176,127,44,.18),transparent 58%);}
 @keyframes slowzoom{to{transform:scale(1)}}
 .hero__grid{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center;width:100%}
 .hero__content{max-width:640px}
-.hero .display{margin:22px 0 24px}
+/* centered hero */
+.hero--center{text-align:center}
+.hero__inner{position:relative;z-index:2;max-width:940px;margin:0 auto;display:flex;flex-direction:column;align-items:center;width:100%}
+.hero--center .hero__sub{margin:22px auto 0;max-width:720px}
+.hero--center .hero__list{margin:30px auto 0;max-width:720px;text-align:left}
+.hero--center .hero__cta{justify-content:center}
+.hero--center .hero__cta-note{text-align:center;margin-inline:auto}
+.hero .display{margin:22px 0 4px}
 .hero__sub{font-size:clamp(1.05rem,1.4vw,1.22rem);color:var(--txt-on-dark);opacity:.92;font-weight:300;max-width:560px}
 .hero__sub strong{font-weight:600;color:#fff}
 .hero__list{margin:26px 0 0;max-width:560px;display:grid;gap:14px}
@@ -266,6 +272,11 @@ p+p{margin-top:1.1em}
 .pullquote em{font-style:normal;background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .problem__text p{color:var(--muted-light);font-size:1.05rem}
 .problem__text .first{color:var(--txt-on-light);font-weight:500}
+.problem2{max-width:820px;margin:0 auto}
+.problem2__body{margin-top:4px;column-count:1}
+.problem2__body p{color:var(--muted-light);font-size:1.06rem;margin-bottom:16px}
+.problem2__body .first{color:var(--txt-on-light);font-weight:600;font-size:1.18rem}
+.problem2__emph{color:var(--txt-on-light)!important;font-weight:600;font-family:var(--serif)}
 .sig{margin-top:28px;display:flex;align-items:center;gap:16px}
 .sig img{width:56px;height:56px;border-radius:50%;object-fit:cover;border:1px solid var(--line-gold)}
 .sig b{font-size:14px;font-weight:600;display:block}
@@ -303,7 +314,10 @@ p+p{margin-top:1.1em}
 .story-quote{margin:4px 0 18px;padding:16px 0 16px 24px;border-left:2px solid var(--gold);font-family:var(--serif);font-weight:700;font-size:clamp(1.2rem,1.7vw,1.5rem);line-height:1.3;color:var(--txt-on-dark);letter-spacing:-.01em}
 
 /* ---------- 11. Steps (the 4-step plan) ---------- */
-.steps{display:grid;gap:0;counter-reset:step}
+.steps{display:grid;gap:0;counter-reset:step;position:relative;padding-left:36px}
+.steps__rail{position:absolute;left:0;top:34px;bottom:34px;width:3px;border-radius:3px;background:rgba(26,25,21,.12);overflow:hidden}
+.bg-dark .steps__rail{background:var(--line-dark)}
+.steps__rail span{position:absolute;left:0;top:0;width:100%;height:0;border-radius:3px;background:var(--grad-gold-btn);transition:height .12s linear}
 .step{
   display:grid;grid-template-columns:120px 1fr;gap:clamp(24px,4vw,56px);align-items:start;
   padding:clamp(36px,4.5vw,56px) 0;border-top:1px solid var(--line-light);
@@ -401,6 +415,10 @@ p+p{margin-top:1.1em}
 .proc-note{max-width:760px;margin:44px auto 0;text-align:center}
 .proc-note p{color:var(--muted-dark);font-size:1rem}
 .proc-note__em{margin-top:16px;font-family:var(--serif);font-weight:700;font-size:clamp(1.15rem,1.8vw,1.5rem);color:var(--txt-on-dark);letter-spacing:-.01em}
+.ablauf-text{max-width:840px;margin:0 auto;text-align:center}
+.ablauf-text p{color:var(--muted-dark);font-size:1.06rem;margin-bottom:16px}
+.ablauf-text strong{color:var(--txt-on-dark);font-weight:600}
+.ablauf-em{max-width:780px;margin:48px auto 0;text-align:center;font-family:var(--serif);font-weight:700;font-size:clamp(1.2rem,1.9vw,1.6rem);letter-spacing:-.01em;color:var(--txt-on-dark)}
 
 /* ---------- 16. About strip ---------- */
 .about{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(40px,5vw,72px);align-items:center}
@@ -410,6 +428,8 @@ p+p{margin-top:1.1em}
 .about__facts{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:30px;padding-top:30px;border-top:1px solid var(--line-dark)}
 .about__facts b{font-family:var(--serif);font-size:2rem;color:var(--gold-300);display:block;line-height:1}
 .about__facts span{font-size:12px;color:var(--muted-dark);letter-spacing:.03em}
+.bg-cream .about__facts{border-top-color:var(--line-light)}
+.bg-cream .about__facts span{color:var(--muted-light)}
 
 /* ---------- 17. Final CTA ---------- */
 .finalcta{position:relative;overflow:hidden;background:var(--ink)}
@@ -470,7 +490,7 @@ body::after{content:"";position:fixed;inset:0;z-index:300;pointer-events:none;op
 .marquee{overflow:hidden;background:var(--ink);border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark);padding:20px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .marquee__track{display:inline-flex;align-items:center;gap:0;white-space:nowrap;animation:marquee 44s linear infinite;will-change:transform}
 .marquee:hover .marquee__track{animation-play-state:paused}
-.marquee span{font-family:var(--serif);font-weight:700;font-size:clamp(1.3rem,2.2vw,1.9rem);letter-spacing:-.01em;padding:0 30px;background:linear-gradient(to right,#b07f2c,#f7d105,#b07f2c);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.marquee span{font-family:var(--serif);font-weight:700;font-size:clamp(1.3rem,2.2vw,1.9rem);letter-spacing:-.01em;padding:0 30px;background:linear-gradient(to right,#b07f2c,#f3e07a,#b07f2c);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .marquee i{color:var(--gold);font-style:normal;font-size:.8rem;opacity:.6}
 @keyframes marquee{to{transform:translateX(-50%)}}
 
@@ -484,7 +504,7 @@ body::after{content:"";position:fixed;inset:0;z-index:300;pointer-events:none;op
 /* ---------- 19c. Polish: anchors, section accent, dividers, index ---------- */
 section[id]{scroll-margin-top:92px}
 /* gold accent line under centered section titles */
-.section-head.center .title::after{content:"";display:block;width:58px;height:3px;margin:22px auto 0;border-radius:2px;background:linear-gradient(to right,#b07f2c,#f7d105,#b07f2c)}
+.section-head.center .title::after{content:"";display:block;width:58px;height:3px;margin:22px auto 0;border-radius:2px;background:linear-gradient(to right,#b07f2c,#f3e07a,#b07f2c)}
 /* trust-bar dividers */
 .trust-metric{position:relative}
 .trust-metric::after{content:"";position:absolute;right:-15px;top:14%;height:72%;width:1px;background:var(--line-dark)}
@@ -502,7 +522,7 @@ section[id]{scroll-margin-top:92px}
 
 /* step number ignites gold on scroll-in */
 .step__num{transition:color .6s var(--ease)}
-.step.in .step__num{color:transparent;-webkit-text-stroke:0;background:linear-gradient(to right,#b07f2c,#f7d105,#b07f2c);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.step.in .step__num{color:transparent;-webkit-text-stroke:0;background:linear-gradient(to right,#b07f2c,#f3e07a,#b07f2c);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 
 /* video lightbox */
 .vmodal{position:fixed;inset:0;z-index:400;display:flex;align-items:center;justify-content:center;padding:24px}
@@ -517,6 +537,31 @@ section[id]{scroll-margin-top:92px}
 @keyframes popin{from{opacity:0;transform:scale(.95) translateY(12px)}to{opacity:1;transform:none}}
 body.vmodal-open{overflow:hidden}
 
+/* section background image + overlay (dark sections) */
+.has-bg{position:relative;overflow:hidden}
+.has-bg>.container{position:relative;z-index:2}
+.secbg{position:absolute;inset:0;z-index:0}
+.secbg img{width:100%;height:100%;object-fit:cover;opacity:.16}
+.secbg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--ink),rgba(0,0,0,.7) 50%,var(--ink))}
+
+/* case studies */
+.cases{display:grid;gap:clamp(44px,6vw,86px)}
+.case{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(28px,4vw,60px);align-items:center}
+.case:nth-child(even) .case__media{order:2}
+.case__media{position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/5;box-shadow:var(--shadow);border:1px solid var(--line-gold)}
+.case__media img{width:100%;height:100%;object-fit:cover;object-position:center 18%;transition:transform .9s var(--ease)}
+.case:hover .case__media img{transform:scale(1.04)}
+.case__media::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(0,0,0,.82))}
+.case__tag{position:absolute;left:18px;top:18px;z-index:2;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-200);background:rgba(0,0,0,.6);border:1px solid var(--line-gold);padding:7px 13px;border-radius:40px}
+.case__name{position:absolute;left:22px;bottom:18px;z-index:2}
+.case__name b{font-family:var(--serif);font-weight:800;font-size:1.5rem;display:block;line-height:1}
+.case__name span{font-size:12.5px;color:var(--gold-200)}
+.case__quote{font-family:var(--serif);font-weight:800;font-size:clamp(1.4rem,2.3vw,2rem);line-height:1.22;letter-spacing:-.012em;margin-bottom:22px}
+.case__block{margin-bottom:18px}
+.case__block .lbl{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-300);font-weight:600;margin-bottom:6px}
+.case__block p{color:var(--muted-dark);font-size:.98rem;line-height:1.62}
+.case .tcard__video{margin-top:8px}
+
 /* ---------- 20. Responsive ---------- */
 @media (max-width:1024px){
   .hero__grid{grid-template-columns:1fr;gap:48px}
@@ -529,6 +574,9 @@ body.vmodal-open{overflow:hidden}
   .benefits{grid-template-columns:repeat(2,1fr)}
   .footer__top{grid-template-columns:repeat(3,1fr)}
   .footer__brand{grid-column:1/-1}
+  .case{grid-template-columns:1fr;gap:26px}
+  .case:nth-child(even) .case__media{order:0}
+  .case__media{aspect-ratio:16/11;max-width:620px}
 }
 @media (max-width:820px){
   .nav-links,.nav-cta .btn{display:none}
@@ -598,58 +646,27 @@ body.vmodal-open{overflow:hidden}
 </nav>
 
 <!-- ============ HERO ============ -->
-<section class="hero" id="top">
+<section class="hero hero--center" id="top">
   <div class="hero__bg">
     <img src="assets/img/elias-wide.webp" alt="Elias Kaltenberger bei einem Shooting im Studio" fetchpriority="high" />
   </div>
   <div class="hero__orbs" aria-hidden="true"><span></span><span></span><span></span></div>
   <div class="hero__spot" id="heroSpot" aria-hidden="true"></div>
-  <div class="container hero__grid">
-    <div class="hero__content">
-      <span class="eyebrow reveal">Für nebenberufliche Fotograf:innen</span>
-      <h1 class="display reveal d1">Vom Nebenberuf zum <span class="serif-italic">hochbezahlten</span> Profifotografen.</h1>
-      <p class="hero__sub reveal d2">Du fotografierst bereits, aber die Anfragen bleiben aus und du kannst noch nicht wirklich davon leben. Erfahre exakt, welche Schritte nötig sind, um deine <strong>Leidenschaft zum Hauptberuf</strong> zu machen.</p>
-      <ul class="hero__list reveal d2">
-        <li><span class="hl-ic">✓</span><span>Praxis-Methoden, mit denen du planbar <strong>3–4 Neukunden pro Monat</strong> gewinnst, die <strong>3.000–5.000&nbsp;€ pro Auftrag</strong> zahlen.</span></li>
-        <li><span class="hl-ic">✓</span><span>Nur noch Kunden, die dich <strong>wertschätzen und fair bezahlen</strong> – mit abwechslungsreichen Aufträgen an den schönsten Locations.</span></li>
-        <li><span class="hl-ic">✓</span><span>Die <strong>Workflows der Profis</strong>, mit denen du die Nachbearbeitung halbierst und mehr Zeit für deine Familie gewinnst.</span></li>
-      </ul>
-      <div class="hero__cta reveal d3">
-        <a href="https://www.eliaskaltenberger.com/kontakt/" class="btn btn--primary btn--lg">Jetzt kostenloses Strategiegespräch vereinbaren <span class="arrow">→</span></a>
-        <a href="#erfolge" class="btn btn--ghost btn--lg">Erfolge ansehen</a>
-      </div>
-      <p class="hero__cta-note reveal d3">… und erhalte einen individuellen Fahrplan, um hauptberuflich Fotograf zu werden.</p>
-      <div class="hero__trust reveal d4">
-        <div class="trust-stars">
-          <span class="stars">★★★★★</span>
-          <small>107 Bewertungen auf Trustpilot</small>
-        </div>
-        <div class="trust-div"></div>
-        <div class="trust-pill"><b data-count="238" data-suffix="+">238+</b><span>begleitete Fotograf:innen</span></div>
-      </div>
+  <div class="container hero__inner">
+    <span class="eyebrow is-centered reveal">Für nebenberufliche Fotograf:innen</span>
+    <h1 class="display reveal d1">Vom nebenberuflichen Fotografen zum <span class="serif-italic">hochbezahlten Profifotografen</span></h1>
+    <p class="hero__sub reveal d2">Du fotografierst bereits, aber die Kundenanfragen bleiben aus und du kannst noch nicht wirklich davon leben. Erfahre exakt, welche Schritte notwendig sind, um deine <strong>Leidenschaft zum Hauptberuf</strong> zu machen.</p>
+    <ul class="hero__list reveal d2">
+      <li><span class="hl-ic">✓</span><span>Entdecke die Praxis-Methoden, mit denen Fotografen &amp; Videografen planbar monatlich 3-4 Neukunden gewinnen, die 3.000-5.000€ pro Auftrag zahlen.</span></li>
+      <li><span class="hl-ic">✓</span><span>Erfahre, wie du nur noch Kunden gewinnst, die dich wertschätzen und fair bezahlen - mit abwechslungsreichen Aufträgen, den schönsten Locations und dem Gefühl, jeden Morgen mit echter Freude zur Kamera zu greifen.</span></li>
+      <li><span class="hl-ic">✓</span><span>Lerne die Workflows und Tricks der Profifotografen, mit denen du die Nachbearbeitung deiner Shootings halbierst und mehr Zeit für dich und deine Familie gewinnst.</span></li>
+    </ul>
+    <div class="hero__cta reveal d3">
+      <a href="https://www.eliaskaltenberger.com/kontakt/" class="btn btn--primary btn--lg">Jetzt kostenloses Strategiegespräch vereinbaren <span class="arrow">→</span></a>
     </div>
-    <figure class="hero__figure reveal-r">
-      <img src="assets/img/elias-portrait.webp" alt="Porträt von Elias Kaltenberger" />
-      <div class="hero__badge">
-        <b data-count="826" data-suffix="+">826+</b>
-        <span>bezahlte Aufträge fotografiert</span>
-      </div>
-    </figure>
+    <p class="hero__cta-note reveal d3">und erhalte einen individuellen Fahrplan um hauptberuflich Fotograf zu werden</p>
   </div>
   <div class="scroll-hint" aria-hidden="true">Scroll<span></span></div>
-</section>
-
-<!-- ============ TRUST BAR ============ -->
-<section class="trustbar">
-  <div class="container trustbar__grid">
-    <div class="trust-metric reveal"><b data-count="238" data-suffix="+">238+</b><span>Fotograf:innen begleitet</span></div>
-    <div class="trust-metric reveal d1">
-      <img class="tp" src="assets/img/trustpilot-white.svg" alt="Trustpilot" />
-      <b data-count="107">107</b><span>ungefilterte Bewertungen</span>
-    </div>
-    <div class="trust-metric reveal d2"><b>3.000–6.000€</b><span>typische Auftragswerte</span></div>
-    <div class="trust-metric reveal d3"><b>100%</b><span>transparent &amp; ehrlich</span></div>
-  </div>
 </section>
 
 <!-- ============ MARQUEE ============ -->
@@ -662,21 +679,21 @@ body.vmodal-open{overflow:hidden}
 
 <!-- ============ PROBLEM / EMPATHY ============ -->
 <section class="section bg-cream">
-  <div class="container problem__wrap">
-    <div class="reveal">
-      <span class="eyebrow">Kennst du das?</span>
-      <p class="pullquote" style="margin-top:22px">Du machst bereits tolle Bilder. Aber es fühlt sich noch nicht wie ein <em>Business</em> an.</p>
-      <div class="sig" style="margin-top:30px">
-        <img src="assets/img/elias-portrait.webp" alt="Elias Kaltenberger" />
-        <div><b>Elias Kaltenberger</b><span>Premiumfotograf &amp; Fotounternehmer</span></div>
-      </div>
-    </div>
-    <div class="problem__text reveal d1">
-      <p class="first">Vom Hobby bist du längst entfernt. Aber irgendwie fühlt es sich noch nicht wie ein richtiges Business an.</p>
-      <p>Die Anfragen kommen ab und zu – durch Empfehlungen, durch Zufall, manchmal gar nicht. Du hast Werbung ausprobiert, etwas gepostet, Preise neu kalkuliert. Aber einen echten Plan, wie du regelmäßig an Aufträge kommst und was du wirklich verlangen kannst, hat dir noch niemand gegeben.</p>
+  <div class="container problem2">
+    <span class="eyebrow reveal">Kennst du das?</span>
+    <h2 class="title reveal d1" style="margin:18px 0 26px">Du machst bereits tolle Bilder. Nur das <span class="serif-italic">Business drumherum</span> funktioniert noch nicht.</h2>
+    <div class="problem2__body reveal d1">
+      <p class="first">Du machst bereits tolle Bilder und vom Hobby bist du auch schon weit entfernt. Aber irgendwie fühlt es sich noch nicht wie ein richtiges Business an.</p>
+      <p>Die Anfragen kommen ab und zu. Durch Empfehlungen, durch Zufall, manchmal gar nicht. Du hast vielleicht schon mal Werbung ausprobiert, irgendwas gepostet, Preise neu kalkuliert. Aber einen echten Plan, wie du regelmäßig an Aufträge kommst und was du dafür wirklich verlangen kannst, den hat dir noch niemand gegeben.</p>
       <p>Manchmal kommt ein Auftrag rein. Du freust dich kurz. Und dann merkst du: Das Geld ist schon wieder weg, bevor du es richtig gesehen hast. Miete, Versicherung, Ausgaben. Und nächsten Monat fängst du wieder bei null an.</p>
-      <p>Dabei ist das Feedback durchweg positiv. Die Kunden sind begeistert. Nur das <strong>Business drumherum</strong> funktioniert noch nicht so, wie es sollte. Das liegt nicht an deinem Talent – sondern daran, dass <strong>Fotografieren</strong> und <strong>davon leben können</strong> zwei komplett verschiedene Dinge sind.</p>
-      <p>Es geht nicht nur ums Geld. Es geht darum, dass du deiner Familie etwas ermöglichen kannst, ohne drei Tage überlegen zu müssen, ob du es dir leisten kannst. <strong>Ich kenne dieses Gefühl</strong> – nicht aus Büchern, sondern weil ich selbst dort gestanden bin.</p>
+      <p>Dabei ist das Feedback durchweg positiv. Die Kunden sind begeistert. Nur das Business drumherum funktioniert noch nicht so, wie es sollte.</p>
+      <p>Das liegt nicht an deinem fotografischen Talent. Es liegt daran, dass Fotografieren und wirklich davon leben können, zwei komplett verschiedene Dinge sind und das zweite hat dir einfach noch niemand beigebracht.</p>
+      <p>Es geht nicht nur ums Geld. Es geht darum, dass du deinem Kind oder deiner Familie etwas ermöglichen kannst ohne drei Tage überlegen zu müssen, ob du es dir leisten kannst.</p>
+      <p class="problem2__emph">Ich kenne dieses Gefühl. Nicht aus Büchern, sondern weil ich selbst dort gestanden bin.</p>
+    </div>
+    <div class="sig reveal d2">
+      <img src="assets/img/elias-portrait.webp" alt="Elias Kaltenberger" />
+      <div><b>Elias Kaltenberger</b><span>Premiumfotograf &amp; Fotounternehmer aus Österreich</span></div>
     </div>
   </div>
 </section>
@@ -691,10 +708,14 @@ body.vmodal-open{overflow:hidden}
     <div class="storyfull__inner reveal-r">
       <span class="eyebrow">Meine Geschichte</span>
       <h2 class="title" style="margin:18px 0 22px">Vom Tischler zum Profifotograf – und was ich dabei gelernt habe.</h2>
-      <p class="lead" style="margin-bottom:14px">Ich komme nicht aus der Fotografie. Ich bin ursprünglich gelernter Tischler. Als ich meinen ersten Hochzeitsauftrag fotografiert und fast so viel verdient habe wie in einem ganzen Monat in der Werkstatt, dachte ich: Das gibt's nicht.</p>
-      <p class="story-p">Also habe ich den Schritt gewagt. Und dann kam der erste Monat: <strong>400&nbsp;€ netto.</strong> Nächtelang konnte ich nicht schlafen – „Bin ich zu blöd dafür?" Aber ich habe nicht aufgehört, sondern angefangen, in mich zu investieren: Bücher, Workshops, Seminare. Ich habe eine Strategie entwickelt, die wirklich funktioniert.</p>
-      <blockquote class="story-quote">„Hochzeiten im Sommer, Businessfotografie im Winter. Auf einmal war der Kalender das ganze Jahr ausgelastet."</blockquote>
-      <p class="story-p">Heute bin ich in der Region als Premiumfotograf bekannt, habe <strong>über 826 bezahlte Aufträge</strong> fotografiert und ein ganzes Unternehmen aufgebaut. Immer mehr Fotografen fragten: „Wie schaffst du das?" Genau diese Abkürzung gebe ich heute weiter – deshalb ist das Strategiegespräch auch kostenlos.</p>
+      <p class="lead" style="margin-bottom:14px">Ich komme nicht aus der Fotografie. Ich bin ursprünglich gelernter Tischler.</p>
+      <p class="story-p">Als ich den ersten Hochzeitsauftrag fotografiert habe und fast das gleiche verdient habe wie einen ganzen Monat Arbeit in der Tischlerei, habe ich gedacht: Das gibt's nicht. Einen Monat schuften oder einen Auftrag, der mir wirklich Spaß macht. Dasselbe Ergebnis.</p>
+      <p class="story-p">Also habe ich den Schritt gewagt. Mich hauptberuflich selbständig zu machen. Da gab es viele Zweifel. Geht sich das finanziell aus? Wo kommt der nächste Auftrag her? Was muss ich konkret dafür tun?</p>
+      <p class="story-p">Und dann kam der erste Monat. <strong>400€ netto.</strong> Ich habe Nächtelang nicht schlafen können. Habe die ganze Zeit gegrübelt: Bin ich zu blöd dafür? Mache ich irgendwas falsch? In der Tischlerei habe ich mehr verdient und da habe ich wenigstens gewusst, was ich tue.</p>
+      <p class="story-p">Aber ich habe nicht aufgehört. Ich habe angefangen in mich zu investieren. Bücher, Workshops, Seminare. Ich habe eine Strategie entwickelt, die wirklich funktioniert.</p>
+      <blockquote class="story-quote">„Hochzeiten im Sommer, Businessfotografie im Winter. Auf einmal war der Kalender das ganze Jahr ausgelastet und die Kreativität blieb trotzdem erhalten."</blockquote>
+      <p class="story-p">Heute bin ich in der Region als Premiumfotograf bekannt, habe <strong>über 826 bezahlte Aufträge</strong> fotografiert und ein ganzes Unternehmen aufgebaut. Und dann haben mich immer mehr Fotografen gefragt: „Elias, wie schaffst du das in den jungen Jahren, so viele Aufträge zu bekommen?"</p>
+      <p class="story-p">Genau das zeige ich jetzt anderen Fotografen. Deswegen sind die Strategiegespräche auch kostenlos. Weil ich am eigenen Leib erfahren habe, wie brutal der Businesspart im Fotografiegeschäft sein kann. Diese Abkürzung gebe ich heute weiter.</p>
       <a href="https://www.eliaskaltenberger.com/kontakt/" class="btn btn--primary btn--lg" style="margin-top:12px">Kostenloses Strategiegespräch sichern <span class="arrow">→</span></a>
     </div>
   </div>
@@ -704,103 +725,100 @@ body.vmodal-open{overflow:hidden}
 <section class="section bg-cream" id="methode">
   <div class="container">
     <div class="section-head center reveal">
-      <span class="eyebrow is-centered" style="justify-content:center">Der Fahrplan</span>
-      <h2 class="title" style="margin-top:18px">Der Weg in den Hauptberuf – in <span class="serif-italic">4 Schritten.</span></h2>
-      <p class="lead">Es gibt keinen Zufall dahinter, wenn ein Fotograf plötzlich regelmäßig Anfragen hat, höhere Preise durchsetzt und davon leben kann. Es gibt eine Strategie. Und die sieht so aus.</p>
+      <span class="eyebrow is-centered" style="justify-content:center">Unsere Methode</span>
+      <h2 class="title" style="margin-top:18px">Der Weg vom nebenberuflichen Fotografen zum <span class="serif-italic">Vollzeit-Fotografen</span> in 4 Schritten</h2>
+      <p class="lead">Es gibt keinen Zufall dahinter, wenn ein Fotograf plötzlich regelmäßig Anfragen hat, höhere Preise durchsetzt und wirklich davon leben kann. Es gibt eine Strategie. Und die sieht so aus:</p>
     </div>
-    <div class="steps">
-      <article class="step reveal">
+    <div class="steps" id="steps">
+      <div class="steps__rail" aria-hidden="true"><span id="stepsFill"></span></div>
+      <article class="step reveal-l">
         <div class="step__num">01</div>
         <div>
-          <span class="step__transform">Unsicher <span class="ar">→</span> Selbstbewusst</span>
           <h3>Das Profifotografen-Denken</h3>
-          <p>Nebenberuflich gibst du vielleicht noch Rabatte, weil du dir nicht sicher bist, was du verlangen kannst. Hier lernst du, was deine Arbeit wirklich wert ist – und stehst ab sofort zu 100% dahinter.</p>
+          <p>Nebenberuflich gibst du vielleicht noch Rabatte, weil du dir nicht sicher bist was du verlangen kannst. Das ändert sich hier. Du musst lernen, was deine Arbeit wirklich wert ist und stehst ab sofort zu 100% dahinter.</p>
         </div>
       </article>
-      <article class="step reveal">
+      <article class="step reveal-l">
         <div class="step__num">02</div>
         <div>
-          <span class="step__transform">Austauschbar <span class="ar">→</span> Unverwechselbar</span>
           <h3>Das unwiderstehliche Angebot</h3>
-          <p>Die meisten Fotografen bieten dasselbe an wie alle anderen. Wer sein Angebot richtig ausrichtet, hat kaum Konkurrenz mehr. Wir entwickeln ein Angebot, das hochpreisig wahrgenommen wird und sich fast von selbst verkauft.</p>
+          <p>Die meisten nebenberuflichen Fotografen bieten dasselbe an wie alle anderen. Wer sein Angebot richtig ausrichtet, hat kaum Konkurrenz mehr. Du musst ein Angebot entwickeln, das hochpreisig wahrgenommen wird und sich fast von selbst verkauft.</p>
         </div>
       </article>
-      <article class="step reveal">
+      <article class="step reveal-l">
         <div class="step__num">03</div>
         <div>
-          <span class="step__transform">Zufall <span class="ar">→</span> Planbar</span>
           <h3>Planbar an Kunden kommen</h3>
-          <p>Schluss mit dem Hoffen auf Empfehlungen und Zufallsanfragen. Aus <strong>über 20 erprobten Akquisewegen</strong> findest du deinen persönlichen Weg – organisch ohne Werbebudget oder automatisiert mit bezahlter Werbung. Damit du weißt, wo dein nächster Auftrag herkommt, bevor du deinen Hauptjob kündigst.</p>
-          <p class="step__quote">„Fotografieren ist vielleicht 10% des Ganzen – der Rest ist Marketing, Sichtbarkeit und Kundengewinnung."</p>
+          <p>Schluss mit Hoffen auf Empfehlungen und Zufallsanfragen. Es gibt bei uns mittlerweile über 20 verschiedene Strategien, wie du als Fotograf/in deine Anfragen selbst steuern kannst – ob nur mit Einsatz deiner eigenen Zeit über Netzwerktreffen und Social-Media-Kanäle, oder mit bezahlter Werbung und gezielten Marketingmaßnahmen, damit du weißt, wo dein nächster Auftrag herkommt. Bevor du deinen Hauptjob kündigst.</p>
+          <p class="step__quote">„Fotografieren ist vielleicht 10% des Ganzen, der Rest ist Marketing, Sichtbarkeit und Kundengewinnung."</p>
         </div>
       </article>
-      <article class="step reveal">
+      <article class="step reveal-l">
         <div class="step__num">04</div>
         <div>
-          <span class="step__transform">Hoffen <span class="ar">→</span> Abschließen</span>
           <h3>Der Wertkommunikations-Gamechanger</h3>
-          <p>Du weißt, wie du fotografierst – aber wie läuft das Verkaufsgespräch? Mit einem klaren Leitfaden holst du Interessenten von Anfang an richtig ab, kommunizierst deine Preise selbstbewusst und arbeitest nur noch mit Kunden, die deine Arbeit wirklich wertschätzen.</p>
+          <p>Du weißt wie du fotografierst, aber wie läuft das Verkaufsgespräch ab, wenn jemand Interesse hat? Viele nebenberufliche Fotografen improvisieren da noch. Du benötigst einen klaren Leitfaden, wie du Interessenten von Anfang an richtig abholst, damit du deine Preise selbstbewusst kommunizierst und am Ende nur noch mit Kunden arbeitest, die deine Arbeit wirklich wertschätzen und nicht nur den günstigsten Fotografen suchen.</p>
         </div>
       </article>
+    </div>
+    <div class="center reveal" style="margin-top:48px">
+      <a href="https://www.eliaskaltenberger.com/kontakt/" class="btn btn--primary btn--lg">Kostenloses Strategiegespräch sichern <span class="arrow">→</span></a>
     </div>
   </div>
 </section>
 
-<!-- ============ TESTIMONIALS ============ -->
-<section class="section bg-ink900" id="erfolge">
+<!-- ============ TESTIMONIALS / CASE STUDIES ============ -->
+<section class="section bg-dark has-bg" id="erfolge">
+  <div class="secbg" aria-hidden="true"><img src="assets/img/studio.webp" alt="" loading="lazy" /></div>
   <div class="container">
     <div class="section-head center reveal">
-      <span class="eyebrow is-centered" style="justify-content:center">Echte Menschen, echte Ergebnisse</span>
-      <h2 class="title" style="margin-top:18px">Fotograf:innen, die den Sprung bereits <span class="serif-italic">gewagt</span> haben.</h2>
-      <p class="lead">Alle haben nebenberuflich angefangen – mit denselben Zweifeln, denselben Fragen wie du sie vielleicht gerade hast. Und alle haben irgendwann den ersten Schritt gemacht.</p>
+      <span class="eyebrow is-centered" style="justify-content:center">Vom Nebenberuf in die Vollzeit</span>
+      <h2 class="title" style="margin-top:18px">Fotografen, die den Weg zur <span class="serif-italic">Vollzeit-Fotografie</span> bereits gegangen sind</h2>
+      <p class="lead">Du siehst hier 3 Fotografen mit denen ich eine Strategiesession gemacht habe und wo wir den Plan darauf hin umgesetzt haben. Alle drei haben nebenberuflich angefangen mit denselben Zweifeln, denselben Problemen, denselben Fragen wie du sie vielleicht gerade hast. Und alle drei haben irgendwann einfach den ersten Schritt gemacht.</p>
     </div>
-    <div class="tcards">
-      <article class="tcard reveal">
-        <div class="tcard__media">
-          <span class="tcard__tag">Hochzeitsfotografin</span>
+    <div class="cases">
+      <article class="case reveal">
+        <div class="case__media">
+          <span class="case__tag">Hochzeitsfotografin</span>
           <img src="assets/img/michele-peloza.webp" alt="Michele Peloza mit Elias Kaltenberger" />
-          <div class="tcard__name"><b>Michele Peloza</b><span>Hauptberuflich selbstständig</span></div>
+          <div class="case__name"><b>Michele Peloza</b><span>Hochzeitsfotografin</span></div>
         </div>
-        <div class="tcard__body">
-          <p class="tcard__quote">Das Feeling, hauptberuflich selbstständig zu sein, ist einfach unbeschreiblich.</p>
-          <p class="tcard__desc"><strong>Vorher:</strong> Höherpreisige Angebote ließen sich kaum durchsetzen, der Hauptjob lief parallel. <strong>Heute:</strong> Hauptjob gekündigt, 15–18 Hochzeiten im Jahr – teils auf Mallorca &amp; in Deutschland.</p>
-          <div class="tcard__result"><b>3.000€+</b><span>pro Hochzeit statt Preisdiskussionen</span></div>
+        <div class="case__body">
+          <p class="case__quote">„Das Feeling, hauptberuflich selbständig zu sein, ist einfach unbeschreiblich."</p>
+          <div class="case__block"><span class="lbl">Ausgangssituation</span><p>Michele fotografierte bereits Hochzeiten, aber die Kunden, die kamen, haben ihre Arbeit nicht wirklich wertgeschätzt. Höherpreisige Angebote waren kaum möglich durchzusetzen, da die Kunden nicht den Wert gesehen haben und somit oft abgesagt haben. Der Hauptjob lief nebenher, weil sie sich nicht sicher war, ob die Fotografie alleine die Fixkosten stemmen kann.</p></div>
+          <div class="case__block"><span class="lbl">Was wir konkret gemacht haben</span><p>Wir haben gemeinsam eine Premium-Positionierung bei ihr etabliert, ihr Angebot neu aufgestellt und einen klaren Weg entwickelt, wie sie regelmäßig an die richtigen Kunden kommt. Sprich Kunden, die ihre Arbeit wirklich schätzen und bereit sind, dafür fair zu zahlen.</p></div>
+          <div class="case__block"><span class="lbl">Aktuelle Situation</span><p>Michele hat ihren Hauptjob nach wenigen Monaten gekündigt und ist sehr froh darüber. Heute fotografiert sie 15 bis 18 Hochzeiten im Jahr, teilweise in Mallorca und Deutschland, und verlangt 3.000€ oder mehr pro Hochzeit.</p></div>
           <a class="tcard__video" href="https://www.youtube.com/watch?v=GFINK9SyL2c" target="_blank" rel="noopener" data-video="GFINK9SyL2c" aria-label="Video von Michele Peloza ansehen"><span class="pl">▶</span> Video ansehen</a>
         </div>
       </article>
-      <article class="tcard reveal d1">
-        <div class="tcard__media">
-          <span class="tcard__tag">Businessfotograf</span>
+      <article class="case reveal">
+        <div class="case__media">
+          <span class="case__tag">Businessfotograf</span>
           <img src="assets/img/michael-winter.webp" alt="Michael Winter mit Elias Kaltenberger" style="object-position:center 26%" />
-          <div class="tcard__name"><b>Michael Winter</b><span>Vom 40-Std-Job zur Freiheit</span></div>
+          <div class="case__name"><b>Michael Winter</b><span>Businessfotograf</span></div>
         </div>
-        <div class="tcard__body">
-          <p class="tcard__quote">Kundenakquise war mein großer Punkt – wo kriege ich meine Kunden her.</p>
-          <p class="tcard__desc"><strong>Vorher:</strong> Hochzeiten neben einem 40-Stunden-Job, keine planbare Kundengewinnung. <strong>Heute:</strong> Fokus auf Businessfotografie, Job gekündigt. „Der Tag gehört mir."</p>
-          <div class="tcard__result"><b>3.000–7.000€</b><span>stabil pro Monat</span></div>
+        <div class="case__body">
+          <p class="case__quote">„Kundenakquise war mein großer Punkt… wo kriege ich meine Kunden her."</p>
+          <div class="case__block"><span class="lbl">Ausgangssituation</span><p>Michael hat mit Hochzeitsfotografie angefangen, mit einem 40-Stunden-Job als Backup. Er wusste, dass er davon leben will, aber hatte keinen Plan wie. Kundengewinnung war sein größtes Problem. Er hat vieles ausprobiert, aber nichts hat wirklich planbar funktioniert.</p></div>
+          <div class="case__block"><span class="lbl">Was wir konkret gemacht haben</span><p>Michael hat seinen Fokus von Hochzeiten auf Businessfotografie verlagert, ein bewusster strategischer Schritt für stabile, ganzjährige Einnahmen unabhängig von der Saison. Wir haben gemeinsam seinen persönlichen Akquiseweg entwickelt, mit dem er heute gezielt Firmenkunden gewinnt ohne auf Empfehlungen zu hoffen.</p></div>
+          <div class="case__block"><span class="lbl">Aktuelle Situation</span><p>Michael hat seinen Job wenige Monate nach dem Start unserer Zusammenarbeit gekündigt. Heute generiert er stabil zwischen 3.000€ und 7.000€ im Monat, fotografiert Autohäuser, Firmen und Unternehmen und plant seinen Tag selbst. „Statt um 6 Uhr früh aufstehen und ins Büro zu fahren, stehe ich jetzt meistens um 7 auf, aber der Tag gehört mir."</p></div>
           <a class="tcard__video" href="https://www.youtube.com/watch?v=C_-OC-2gAXA" target="_blank" rel="noopener" data-video="C_-OC-2gAXA" aria-label="Video von Michael Winter ansehen"><span class="pl">▶</span> Video ansehen</a>
         </div>
       </article>
-      <article class="tcard reveal d2">
-        <div class="tcard__media">
-          <span class="tcard__tag">Hochzeitsfotografin</span>
+      <article class="case reveal">
+        <div class="case__media">
+          <span class="case__tag">Hochzeitsfotografin</span>
           <img src="assets/img/claudia-edhofer.webp" alt="Claudia Edhofer mit Elias Kaltenberger" />
-          <div class="tcard__name"><b>Claudia Edhofer</b><span>Von der Lehrerin zur Vollzeit-Fotografin</span></div>
+          <div class="case__name"><b>Claudia Edhofer</b><span>Hochzeitsfotografin</span></div>
         </div>
-        <div class="tcard__body">
-          <p class="tcard__quote">Ohne die Zusammenarbeit wäre ich niemals da, wo ich jetzt bin.</p>
-          <p class="tcard__desc"><strong>Vorher:</strong> Lehrerin, Hochzeiten um ~1.500&nbsp;€, Vollzeit fühlte sich weit weg an. <strong>Heute:</strong> Ziel von 15 Hochzeiten nach nur 3 Monaten erreicht, vollzeit selbstständig.</p>
-          <div class="tcard__result"><b>~20.000€</b><span>an einem Messe-Wochenende</span></div>
+        <div class="case__body">
+          <p class="case__quote">„Bin mir ganz sicher, ohne die Zusammenarbeit wäre ich niemals da, wo ich jetzt bin."</p>
+          <div class="case__block"><span class="lbl">Ausgangssituation</span><p>Claudia war Lehrerin und fotografierte Hochzeiten nebenberuflich. Sie wusste, dass sie in die hauptberufliche Selbständigkeit will, aber hatte noch keine Strategie für die Kundengewinnung. Hochzeiten um 1.500€ zu verkaufen war irgendwie möglich, aber davon wirklich gut zu leben, fühlte sich noch extrem weit weg an.</p></div>
+          <div class="case__block"><span class="lbl">Was wir konkret gemacht haben</span><p>Claudia hat von Anfang an klare Ziele definiert: 15 Hochzeiten im ersten Jahr. Wir haben gemeinsam ihren Verkaufsprozess aufgebaut, ihre Dienstleistung hochpreisig positioniert und einen konkreten Weg entwickelt, wie sie auf Messen und online die richtigen Kunden anzieht.</p></div>
+          <div class="case__block"><span class="lbl">Aktuelle Situation</span><p>Nach 3 Monaten hatte Claudia ihre 15 Hochzeiten bereits gebucht, das war ihr Ziel für das gesamte Jahr. An einem einzigen Wochenende hat sie auf einer Messe fünf Hochzeiten im Wert von knapp 20.000€ verkauft. Heute ist sie vollzeit Selbständig, schneller als sie selbst gedacht hätte.</p></div>
           <a class="tcard__video" href="https://www.youtube.com/watch?v=-p4wahe9gWY" target="_blank" rel="noopener" data-video="-p4wahe9gWY" aria-label="Video von Claudia Edhofer ansehen"><span class="pl">▶</span> Video ansehen</a>
         </div>
       </article>
-    </div>
-
-    <!-- mini results -->
-    <div class="results-strip">
-      <div class="result-mini reveal"><div class="rb"><span class="before">1.800€/Monat</span><span class="after">10.000€</span><span class="nm">Matthias Auer</span></div><span class="ar">↗</span></div>
-      <div class="result-mini reveal d1"><div class="rb"><span class="before">0€ Fotografie</span><span class="after">10.000€</span><span class="nm">Jessica M.</span></div><span class="ar">↗</span></div>
-      <div class="result-mini reveal d2"><div class="rb"><span class="before">150€/Shooting</span><span class="after">450–600€</span><span class="nm">David Pomberger</span></div><span class="ar">↗</span></div>
     </div>
   </div>
 </section>
@@ -810,79 +828,77 @@ body.vmodal-open{overflow:hidden}
   <div class="container">
     <div class="section-head center reveal">
       <span class="eyebrow is-centered" style="justify-content:center">Für wen ist das gedacht?</span>
-      <h2 class="title" style="margin-top:18px">Ist das Strategiegespräch das Richtige für dich?</h2>
-      <p class="lead">Es richtet sich an Fotograf:innen, die es satt haben, hoffen zu müssen, wo der nächste Auftrag herkommt. Tagsüber im Hauptjob, abends neben der Familie noch die Fotos bearbeiten – du machst so viel, aber der Knoten will einfach nicht aufgehen. Genau da setzen wir an.</p>
+      <h2 class="title" style="margin-top:18px">Für welche Fotografen ist das kostenlose Strategiegespräch gedacht?</h2>
+      <p class="lead">Das Strategiegespräch ist für dich, wenn du fotografierst und weißt, dass da mehr drinsteckt aber noch nicht genau weißt wie. Es richtet sich an Fotografen, die es satt haben, weiterhin hoffen zu müssen, wie sie die nächsten Aufträge gewinnen können. Tagsüber im Hauptjob und abends neben der Familie noch irgendwie die Fotos bearbeiten oder die Website weiter optimieren. Das ist einfach mühsam und vor allem macht man so viel, aber irgendwie will der Knoten nicht aufgehen, dass endlich die richtigen Kunden kommen.</p>
     </div>
     <div class="fit__grid">
       <div class="fit-card fit-card--yes reveal">
-        <h3><span class="mk mk-yes">✓</span>Das passt zu dir, wenn …</h3>
+        <h3><span class="mk mk-yes">✓</span>Das passt zu dir, wenn:</h3>
         <ul class="fit-list">
-          <li><span class="mk mk-yes">✓</span>du nebenberuflich fotografierst und es zum Hauptberuf machen möchtest.</li>
-          <li><span class="mk mk-yes">✓</span>du das Gefühl hast, zu wenig zu verlangen – aber nicht weißt, wie du das änderst.</li>
-          <li><span class="mk mk-yes">✓</span>du mehr Anfragen von den richtigen Kunden willst.</li>
-          <li><span class="mk mk-yes">✓</span>du noch unsicher bist, auf welche Nische du dich spezialisieren sollst.</li>
-          <li><span class="mk mk-yes">✓</span>du bereit bist, etwas an deiner aktuellen Situation zu verändern.</li>
+          <li><span class="mk mk-yes">✓</span>Du nebenberuflich fotografierst und das irgendwann zu deinem Hauptberuf machen möchtest</li>
+          <li><span class="mk mk-yes">✓</span>Du das Gefühl hast, dass du zu wenig verlangst, aber nicht weißt, wie du das änderst</li>
+          <li><span class="mk mk-yes">✓</span>Du gerne mehr Anfragen von den richtigen Kunden haben willst</li>
+          <li><span class="mk mk-yes">✓</span>Du noch nicht genau weißt, auf welchen Bereich du dich spezialisieren sollst: Hochzeit, Business, Familie, Newborn oder etwas ganz anderes und genau das gemeinsam klären möchtest</li>
+          <li><span class="mk mk-yes">✓</span>Du bereit bist, etwas an deiner aktuellen Situation zu verändern</li>
         </ul>
       </div>
       <div class="fit-card reveal d1">
-        <h3><span class="mk mk-no">✕</span>Das passt noch nicht, wenn …</h3>
+        <h3><span class="mk mk-no">✕</span>Das passt noch nicht, wenn:</h3>
         <ul class="fit-list">
-          <li><span class="mk mk-no">✕</span>du deine Fotografie nur als Nebenjob siehst.</li>
-          <li><span class="mk mk-no">✕</span>es dir egal ist, ob diesen Monat ein Auftrag reinkommt.</li>
-          <li><span class="mk mk-no">✕</span>du nicht darauf angewiesen bist und nichts verändern möchtest.</li>
+          <li><span class="mk mk-no">✕</span>Du deine Fotografie nur als Nebenjob siehst und es dir egal ist, ob diesen Monat ein Auftrag reinkommt oder nicht, da du nicht darauf angewiesen bist</li>
         </ul>
-        <p style="margin-top:28px;color:var(--muted-light);font-size:.98rem">Im kurzen Kennenlern­telefonat findest du in wenigen Minuten heraus, ob das Gespräch für deine Situation Sinn macht – ehrlich und ohne Druck.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ PROCESS / WHAT HAPPENS ============ -->
-<section class="section bg-dark" id="ablauf">
+<!-- ============ WAS PASSIERT WIRKLICH ============ -->
+<section class="section bg-dark has-bg" id="ablauf">
+  <div class="secbg" aria-hidden="true"><img src="assets/img/elias-wide.webp" alt="" loading="lazy" /></div>
   <div class="container">
     <div class="section-head center reveal">
       <span class="eyebrow is-centered" style="justify-content:center">Ein Gespräch. Ein Plan.</span>
-      <h2 class="title" style="margin-top:18px">So läuft dein kostenloses Strategiegespräch ab.</h2>
-      <p class="lead">Kein Verkaufspitch. Kein einstudiertes Script. Ein ehrliches Gespräch zwischen Fotografen – mit jemandem, der selbst diesen Weg gegangen ist.</p>
+      <h2 class="title" style="margin-top:18px">Was passiert in dem Strategiegespräch wirklich?</h2>
+    </div>
+    <div class="ablauf-text reveal d1">
+      <p>Die meisten Fotografen denken, da will ihnen jemand was verkaufen. Verständlich. Aber der wahre Grund, warum wir dieses Gespräch anbieten, ist ein anderer: Wir wissen aus eigener Erfahrung, wie frustrierend es ist, nicht zu wissen, wie du aus deiner Leidenschaft ein Business aufbaust. Eines, das dir am Ende des Monats auch wirklich genug bringt, um voll davon leben zu können.</p>
+      <p><strong>Was wirklich passiert:</strong> Wir schauen uns gemeinsam an, wo du gerade stehst, wo du hin willst und was der konkrete nächste Schritt für dich ist. Nicht irgendein allgemeiner Tipp, sondern ein klarer und individueller Fahrplan, der zu deiner Situation passt.</p>
     </div>
     <div class="proc">
       <div class="proc-step reveal">
         <div class="pn"></div>
-        <h3>Kennenlernen</h3>
-        <p>Ein kurzes Telefonat, damit wir verstehen, wo du gerade stehst – und ob das Gespräch für deine Situation Sinn macht.</p>
+        <h3>Kennenlern­telefonat</h3>
+        <p>Zuerst machen wir ein kurzes Telefonat, damit wir verstehen, wo du gerade stehst und ob das Gespräch für dich Sinn macht.</p>
         <span class="dur">15–20 Minuten</span>
       </div>
       <div class="proc-step reveal d1">
         <div class="pn"></div>
         <h3>Strategiegespräch</h3>
-        <p>Wir analysieren deine Situation und beantworten deine Fragen – Positionierung, Angebot, Kundengewinnung oder Preise.</p>
+        <p>Wir analysieren deine aktuelle Situation und beantworten alle deine offenen Fragen – mit Elias persönlich oder einem Experten aus dem Team.</p>
         <span class="dur">ca. 60 Minuten</span>
       </div>
       <div class="proc-step reveal d2">
         <div class="pn"></div>
         <h3>Dein Fahrplan</h3>
-        <p>Du gehst mit einem konkreten, auf dich zugeschnittenen Plan raus, den du direkt umsetzen kannst – ob allein oder mit uns.</p>
+        <p>Du gehst mit einem konkreten, individuellen Plan raus, den du direkt umsetzen kannst – und weißt endlich, wo du konkret ansetzen musst.</p>
         <span class="dur">Zum Mitnehmen</span>
       </div>
     </div>
-    <div class="proc-note reveal d2">
-      <p>Viele denken, da will ihnen jemand etwas verkaufen. Der wahre Grund ist ein anderer: Wir wissen aus eigener Erfahrung, wie frustrierend es ist, nicht zu wissen, wie man aus seiner Leidenschaft ein Business aufbaut. Du sprichst mit Elias persönlich oder einem Experten aus dem Team – jemandem, der das Fotografie-Business selbst erlebt hat.</p>
-      <p class="proc-note__em">Du hast nichts zu verlieren. Außer vielleicht dem Gefühl, nicht zu wissen, wie es weitergehen soll.</p>
-    </div>
+    <p class="ablauf-em reveal d2">So oder so verlässt du das Gespräch anders als du reingekommen bist. Du hast nichts zu verlieren. Außer vielleicht dem Gefühl, nicht zu wissen, wie es weitergehen soll.</p>
   </div>
 </section>
 
-<!-- ============ ABOUT ELIAS ============ -->
-<section class="section bg-ink900">
+<!-- ============ ÜBER ELIAS ============ -->
+<section class="section bg-cream">
   <div class="container about">
     <figure class="about__img reveal-l">
-      <img src="assets/img/studio.webp" alt="Studio von Elias Kaltenberger in St. Pölten" />
+      <img src="assets/img/elias-portrait.webp" alt="Elias Kaltenberger – Premiumfotograf" />
       <div class="frame"></div>
     </figure>
     <div class="reveal d1">
       <span class="eyebrow">Über Elias Kaltenberger</span>
-      <h2 class="title" style="margin:18px 0 18px">Ein Fotograf, der Fotograf:innen coacht.</h2>
-      <p class="lead">Elias hat nicht studiert, wie man ein erfolgreiches Fotobusiness aufbaut – er hat es einfach gemacht. Vom gelernten Tischler zum Premiumfotografen mit Hochzeiten im Luxussegment, internationalen Businesskunden und einem eigenen Studio. Heute gibt er sein System an Fotograf:innen im gesamten DACH-Raum weiter.</p>
+      <h2 class="title" style="margin:18px 0 18px">Premiumfotograf &amp; Fotounternehmer aus Österreich.</h2>
+      <p class="lead">Elias hat nicht studiert, wie man ein erfolgreiches Fotobusiness aufbaut – er hat es einfach gemacht. Als gelernter Tischler startete er 2014 nebenberuflich, fotografierte innerhalb weniger Jahre bis zu 40 Hochzeiten im Premiumsegment und etablierte sich später im Business-Bereich. Heute gibt er sein System an Fotograf:innen &amp; Videograf:innen im gesamten DACH-Raum weiter.</p>
       <div class="about__facts">
         <div><b>2014</b><span>nebenberuflich gestartet</span></div>
         <div><b data-count="826" data-suffix="+">826+</b><span>bezahlte Aufträge</span></div>
@@ -899,7 +915,7 @@ body.vmodal-open{overflow:hidden}
     <div class="gold-rule"></div>
     <span class="eyebrow is-centered" style="justify-content:center">Erfolgreich zum Aufstieg</span>
     <h2 class="display">Jetzt wäre ein guter Zeitpunkt für den nächsten Schritt.</h2>
-    <p class="lead">Du fotografierst bereits. Du weißt, dass da mehr drinsteckt. Und du fragst dich schon länger, wann es endlich richtig losgeht. Buch dir jetzt dein kostenloses Strategiegespräch – wir finden gemeinsam heraus, was bei dir konkret der nächste Schritt ist. Kein allgemeines Gespräch. Kein Druck.</p>
+    <p class="lead">Du fotografierst bereits. Du weißt, dass da mehr drinsteckt. Und du fragst dich schon länger, wann es endlich richtig losgeht. Buch dir jetzt dein kostenloses Strategiegespräch, in dem wir gemeinsam herausfinden, was bei dir konkret der nächste Schritt ist. Kein allgemeines Gespräch. Kein Druck. Einfach mal schauen, was bei dir möglich ist.</p>
     <a href="https://www.eliaskaltenberger.com/kontakt/" class="btn btn--primary btn--lg">Kostenloses Strategiegespräch sichern <span class="arrow">→</span></a>
     <p class="btn-note">Kein Verkaufsgespräch. Nur ein ehrliches Gespräch zwischen Fotografen, über deine nächsten Schritte.</p>
   </div>
@@ -1021,6 +1037,8 @@ document.querySelectorAll('[data-count]').forEach(el => countIO.observe(el));
 const heroBg = document.querySelector('.hero__bg');
 const progress = document.getElementById('progress');
 const parallax = [...document.querySelectorAll('[data-parallax]')];
+const stepsEl = document.getElementById('steps');
+const stepsFill = document.getElementById('stepsFill');
 let ticking = false;
 const fx = () => {
   const y = window.scrollY, vh = window.innerHeight;
@@ -1032,24 +1050,16 @@ const fx = () => {
     const off = (r.top + r.height / 2 - vh / 2) * -speed;
     el.style.transform = 'translate3d(0,' + off.toFixed(1) + 'px,0)';
   });
+  if(stepsEl && stepsFill){
+    const r = stepsEl.getBoundingClientRect();
+    const p = Math.min(Math.max((vh * 0.55 - r.top) / r.height, 0), 1);
+    stepsFill.style.height = (p * 100).toFixed(1) + '%';
+  }
   if(progress){ const h = document.documentElement.scrollHeight - vh; progress.style.transform = 'scaleX(' + (h > 0 ? Math.min(y / h, 1) : 0) + ')'; }
   ticking = false;
 };
 window.addEventListener('scroll', () => { if(!ticking){ requestAnimationFrame(fx); ticking = true; } }, {passive:true});
 fx();
-
-/* ---------- Magnetic buttons ---------- */
-if(!reduce && window.matchMedia('(pointer:fine)').matches){
-  document.querySelectorAll('.btn').forEach(btn => {
-    btn.addEventListener('mousemove', e => {
-      const r = btn.getBoundingClientRect();
-      const mx = (e.clientX - r.left - r.width / 2) * 0.18;
-      const my = (e.clientY - r.top - r.height / 2) * 0.28;
-      btn.style.transform = 'translate(' + mx.toFixed(1) + 'px,' + my.toFixed(1) + 'px)';
-    });
-    btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
-  });
-}
 
 /* ---------- Hero cursor spotlight ---------- */
 const heroEl = document.querySelector('.hero');
