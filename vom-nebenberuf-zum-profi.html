@@ -551,8 +551,6 @@ section[id]{scroll-margin-top:92px}
 .tcard:focus-within{border-color:var(--line-gold)}
 
 /* hero cursor spotlight */
-.hero__spot{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:0;transition:opacity .45s ease;background:radial-gradient(280px circle at var(--mx,50%) var(--my,40%),rgba(247,209,5,.15),transparent 62%)}
-.hero:hover .hero__spot{opacity:1}
 
 /* step number ignites gold on scroll-in */
 .step__num{transition:color .6s var(--ease)}
@@ -692,7 +690,6 @@ body.vmodal-open{overflow:hidden}
     <img src="assets/img/elias-wide.webp" alt="Elias Kaltenberger bei einem Shooting im Studio" fetchpriority="high" />
   </div>
   <div class="hero__orbs" aria-hidden="true"><span></span><span></span><span></span></div>
-  <div class="hero__spot" id="heroSpot" aria-hidden="true"></div>
   <div class="container hero__grid">
     <div class="hero__content">
       <span class="eyebrow reveal">Für nebenberufliche Fotograf:innen</span>
@@ -1129,17 +1126,6 @@ const fx = () => {
 };
 window.addEventListener('scroll', () => { if(!ticking){ requestAnimationFrame(fx); ticking = true; } }, {passive:true});
 fx();
-
-/* ---------- Hero cursor spotlight ---------- */
-const heroEl = document.querySelector('.hero');
-const spot = document.getElementById('heroSpot');
-if(heroEl && spot && !reduce && window.matchMedia('(pointer:fine)').matches){
-  heroEl.addEventListener('mousemove', e => {
-    const r = heroEl.getBoundingClientRect();
-    spot.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
-    spot.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
-  }, {passive:true});
-}
 
 /* ---------- Video lightbox ---------- */
 const vmodal = document.getElementById('videoModal');
