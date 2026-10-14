@@ -219,20 +219,41 @@ p+p{margin-top:1.1em}
 .compare__line{text-align:center;max-width:760px;margin:44px auto 0;font-family:var(--serif);font-size:clamp(1.2rem,2.1vw,1.65rem);font-weight:700;letter-spacing:-.015em;line-height:1.4;color:var(--txt-on-light)}
 .compare__line b{font-style:normal;font-weight:700;background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
 
-/* ---------- 11. Process (5-step — light numbered card grid) ---------- */
-.proc5{display:grid;grid-template-columns:repeat(6,1fr);gap:22px}
-.p5{grid-column:span 2;position:relative;overflow:hidden;background:#fff;border:1px solid var(--line-light);border-radius:var(--r-lg);padding:34px 30px 32px;box-shadow:0 14px 40px -28px rgba(0,0,0,.28);transition:transform .45s var(--ease),border-color .45s,box-shadow .45s}
-/* 5 cards: 3 on top row, last 2 centered on second row */
-.p5:nth-child(4){grid-column:2/4}
-.p5:nth-child(5){grid-column:4/6}
-.p5::before{content:"";position:absolute;top:0;left:0;width:100%;height:3px;background:var(--grad-gold);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
-.p5:hover{transform:translateY(-6px);border-color:var(--line-gold);box-shadow:0 26px 60px -30px rgba(0,0,0,.35)}
-.p5:hover::before{transform:scaleX(1)}
-.p5__node{display:inline-block;font-family:var(--serif);font-weight:800;font-size:3rem;line-height:1;margin-bottom:14px;background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
-.p5__node::before{content:"0"}
-.p5__body .st{display:block;font-size:14px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;width:fit-content;background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
-.p5__body h3{font-size:20px;margin:6px 0 10px;color:var(--txt-on-light)}
-.p5__body p{color:var(--muted-light);font-size:16px}
+/* ---------- 11. Process (scroll-pinned one-step-at-a-time slider) ---------- */
+.procsl{position:relative;background:var(--cream);color:var(--txt-on-light)}
+.js .procsl{height:520vh}
+.procsl__stage{padding:clamp(72px,9vw,120px) 0}
+.js .procsl__stage{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding:88px 0 40px}
+.procsl__head{text-align:center;margin-bottom:clamp(22px,3vw,44px)}
+.procsl__viewport{position:relative}
+.js .procsl__viewport{height:clamp(380px,54vh,540px)}
+.psl{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,72px);align-items:center}
+.js .psl{position:absolute;inset:0;z-index:1;opacity:0;background:var(--cream);transform:translateY(24px);pointer-events:none;transition:opacity .4s var(--ease),transform .5s var(--ease)}
+.js .psl.is-active{z-index:2;opacity:1;transform:none;pointer-events:auto}
+.psl:not(:last-child){margin-bottom:56px}
+.js .psl:not(:last-child){margin-bottom:0}
+.psl__num{font-family:var(--serif);font-weight:800;font-size:clamp(3.4rem,7vw,6rem);line-height:.85;margin-bottom:8px;background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.psl__label{display:inline-block;font-size:14px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;margin-bottom:14px;background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.psl__text h3{font-size:clamp(1.5rem,2.8vw,2.3rem);line-height:1.15;margin-bottom:16px;color:var(--txt-on-light)}
+.psl__text p{font-size:17px;line-height:1.65;color:var(--muted-light);max-width:560px}
+.psl__media{position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/3;box-shadow:0 30px 70px -34px rgba(0,0,0,.4);border:1px solid var(--line-gold)}
+.psl__media img{width:100%;height:100%;object-fit:cover}
+.psl__media::after{content:"";position:absolute;inset:0;background:linear-gradient(130deg,transparent 55%,rgba(0,0,0,.28))}
+.procsl__nav{display:flex;align-items:center;gap:18px;justify-content:center;margin-top:clamp(26px,3.4vw,46px)}
+.pdot{display:flex;align-items:center;gap:8px;font-family:var(--serif);font-weight:700;font-size:14px;color:#b7b2a8;background:none;padding:0;transition:color .4s var(--ease)}
+.pdot i{width:30px;height:2px;border-radius:2px;background:var(--line-light);transition:background .4s var(--ease),width .4s var(--ease)}
+.pdot.on{color:var(--txt-on-light)}
+.pdot.on i{background:var(--grad-gold);width:46px}
+@media (max-width:860px){
+  .procsl__nav{display:none}
+  .js .procsl{height:auto}
+  .js .procsl__stage{position:static;height:auto;display:block;padding:72px 0}
+  .js .procsl__viewport{height:auto}
+  .js .psl{position:relative;opacity:1;transform:none;pointer-events:auto}
+  .js .psl:not(:last-child){margin-bottom:48px}
+  .psl{grid-template-columns:1fr;gap:28px}
+  .psl__media{max-width:520px}
+}
 
 /* ---------- 12. Systems grid (unique) ---------- */
 .systems{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
@@ -244,29 +265,31 @@ p+p{margin-top:1.1em}
 .sys h3{font-size:20px;margin-bottom:10px}
 .sys p{font-size:16px;color:var(--muted-dark)}
 
-/* ---------- 13. Case studies (LP2 — light cards, image + report) ---------- */
-.trows{display:grid;grid-template-columns:1fr;gap:28px}
-.trow{display:grid;grid-template-columns:300px minmax(0,1fr);gap:0;border:1px solid var(--line-light);border-radius:var(--r-lg);overflow:hidden;background:#fff;box-shadow:0 16px 44px -30px rgba(0,0,0,.3);transition:border-color .5s,box-shadow .5s,transform .5s var(--ease)}
-.trow:nth-child(even){grid-template-columns:minmax(0,1fr) 300px}
+/* ---------- 13. Case studies (LP2 — premium editorial feature cards) ---------- */
+.trows{display:grid;grid-template-columns:1fr;gap:clamp(32px,4vw,56px)}
+.trow{display:grid;grid-template-columns:minmax(0,420px) minmax(0,1fr);gap:0;border:1px solid var(--line-light);border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 30px 70px -44px rgba(0,0,0,.4);transition:border-color .5s,box-shadow .5s,transform .5s var(--ease)}
+.trow:nth-child(even){grid-template-columns:minmax(0,1fr) minmax(0,420px)}
 .trow:nth-child(even) .trow__media{order:2}
 .trow>*{min-width:0}
-.trow:hover{border-color:var(--line-gold);box-shadow:0 30px 70px -34px rgba(0,0,0,.4);transform:translateY(-4px)}
-.trow__media{position:relative;overflow:hidden;background:#eee;min-height:320px}
-.trow__media img{width:100%;height:100%;object-fit:cover;object-position:center;position:absolute;inset:0;transition:transform .9s var(--ease)}
-.trow:hover .trow__media img{transform:scale(1.05)}
-.trow__body{padding:clamp(28px,3vw,44px);display:flex;flex-direction:column;justify-content:center}
-.trow__tag{font-size:14px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;margin-bottom:14px;width:fit-content;background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
-.trow__quote{font-family:var(--serif);font-size:clamp(1.25rem,1.9vw,1.55rem);font-weight:700;line-height:1.36;margin-bottom:18px;color:var(--txt-on-light)}
-.trow__quote::before{content:"\201C";color:var(--gold);margin-right:2px}
-.trow__block{margin-bottom:14px;max-width:660px}
-.trow__block .lbl{display:block;width:fit-content;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;margin-bottom:4px;background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
-.trow__block p{font-size:16px;color:var(--muted-light);line-height:1.6;margin:0}
-.trow__foot{display:flex;align-items:center;gap:26px;flex-wrap:wrap;margin-top:6px;padding-top:18px;border-top:1px solid var(--line-light)}
-.trow__foot .nm b{font-family:var(--serif);font-size:1.25rem;display:block;line-height:1.1;color:var(--txt-on-light)}
-.trow__foot .nm span{font-size:12px;color:var(--muted-light)}
-.trow__foot .res{margin-left:auto;text-align:right}
-.trow__foot .res b{font-family:var(--serif);font-size:1.9rem;line-height:1;display:block;background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
-.trow__foot .res span{font-size:11.5px;color:var(--muted-light);letter-spacing:.03em}
+.trow:hover{border-color:var(--line-gold);box-shadow:0 44px 90px -46px rgba(0,0,0,.5);transform:translateY(-5px)}
+.trow__media{position:relative;overflow:hidden;background:#eee;min-height:420px}
+.trow__media img{width:100%;height:100%;object-fit:cover;object-position:center;position:absolute;inset:0;transition:transform 1s var(--ease)}
+.trow:hover .trow__media img{transform:scale(1.06)}
+.trow__media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.72))}
+.trow__badge{position:absolute;top:18px;left:18px;z-index:2;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:#120D04;background:var(--grad-gold-btn);padding:7px 14px;border-radius:999px}
+.trow__person{position:absolute;left:24px;right:24px;bottom:22px;z-index:2}
+.trow__person b{font-family:var(--serif);font-weight:800;font-size:1.5rem;color:#fff;display:block;line-height:1.05}
+.trow__person span{font-size:12.5px;color:var(--gold-200);letter-spacing:.03em}
+.trow__body{padding:clamp(30px,3.2vw,52px);display:flex;flex-direction:column;justify-content:center}
+.trow__tag{font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;margin-bottom:16px;width:fit-content;background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.trow__quote{position:relative;font-family:var(--serif);font-size:clamp(1.4rem,2.1vw,1.9rem);font-weight:700;line-height:1.3;margin-bottom:24px;color:var(--txt-on-light);padding-left:24px}
+.trow__quote::before{content:"\201C";position:absolute;left:-4px;top:-10px;font-size:3rem;line-height:1;background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.trow__result{display:flex;align-items:baseline;gap:12px;margin-bottom:24px;padding-bottom:22px;border-bottom:1px solid var(--line-light)}
+.trow__result b{font-family:var(--serif);font-weight:800;font-size:clamp(2.4rem,4vw,3.4rem);line-height:.9;background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.trow__result span{font-size:13px;color:var(--muted-light);letter-spacing:.02em;max-width:160px;line-height:1.3}
+.trow__block{margin-bottom:16px;max-width:640px;padding-left:16px;border-left:2px solid var(--line-gold)}
+.trow__block .lbl{display:block;width:fit-content;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;margin-bottom:4px;background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.trow__block p{font-size:15.5px;color:var(--muted-light);line-height:1.6;margin:0}
 
 /* ---------- 14. About ---------- */
 .about2{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(40px,5vw,72px);align-items:start}
@@ -568,20 +591,68 @@ body::after{content:"";position:fixed;inset:0;z-index:300;pointer-events:none;op
   </div>
 </section>
 
-<!-- ============ 5-STEP PROCESS ============ -->
-<section class="section bg-cream" id="prozess">
-  <div class="container">
-    <div class="section-head center reveal">
-      <span class="eyebrow is-centered">Der Prozess</span>
-      <h2 class="title" style="margin-top:18px">In <span class="serif-italic">5 Schritten</span> zum Fotounternehmen.</h2>
-      <p class="lead">Es gibt keinen Zufall dahinter, wenn ein Fotograf planbare Umsätze hat, ein Team das funktioniert und trotzdem mehr Freizeit als je zuvor. Es gibt einen klaren Prozess.</p>
-    </div>
-    <div class="proc5" id="proc5">
-      <div class="p5 reveal"><div class="p5__node">1</div><div class="p5__body"><span class="st">Analyse &amp; Klarheit</span><h3>Wo stehst du wirklich?</h3><p>Welche Arbeitsschritte kosten nur Zeit? Wo verlierst du Geld, ohne es zu merken? Wir analysieren deine Kunden nach dem Pareto-Prinzip – welche bringen wirklich etwas und welche kosten mehr, als sie einbringen.</p></div></div>
-      <div class="p5 reveal"><div class="p5__node">2</div><div class="p5__body"><span class="st">Planbare Kundengewinnung</span><h3>Jeden Monat die richtigen Anfragen.</h3><p>Umsatzschwankungen entstehen fast immer durch dasselbe Problem: kein planbares System. Mit bezahlter Werbung, optimiertem SEO oder einem Retainer-Modell mit Firmenkunden kommen die Anfragen jeden Monat – unabhängig von Saison, Empfehlungen oder Glück. Die meisten Fotografen scheitern genau daran, weil sie ständig damit beschäftigt sind, Aufträge zu generieren, dann abzuarbeiten, dann wieder neu zu generieren.</p></div></div>
-      <div class="p5 reveal"><div class="p5__node">3</div><div class="p5__body"><span class="st">Prozesse, die ohne dich laufen</span><h3>Systematisieren statt selbst machen.</h3><p>Bildbearbeitung, Kundenkommunikation, Buchhaltung, Galerie-Versand – alles, was nicht dein kreatives Herzstück ist, lässt sich systematisieren, digitalisieren oder delegieren, ohne dass die Qualität leidet. Durch moderne Digitalisierungslösungen, Freelancer oder Mitarbeiter und klare Abläufe fokussierst du dich wieder auf das Fotografieren und Filmen – und hast mehr Zeit für die Menschen, die dir wichtig sind. Der Kunde merkt nichts davon.</p></div></div>
-      <div class="p5 reveal"><div class="p5__node">4</div><div class="p5__body"><span class="st">Premium-Positionierung</span><h3>Preise im Hochpreissegment.</h3><p>Um hochpreisiger verkaufen zu können, musst du nicht besser argumentieren – du musst dich besser positionieren. Dein Internetauftritt, dein Angebot und deine Reputation müssen klar ein Problem deiner Zielgruppe lösen. Eines, für das überdurchschnittlich bezahlt wird. Die meisten kopieren nur eine mittelmäßige Positionierung und wundern sich, warum sich nichts verändert.</p></div></div>
-      <div class="p5 reveal"><div class="p5__node">5</div><div class="p5__body"><span class="st">Ein Team, das funktioniert</span><h3>Vom Einzelkämpfer zum Unternehmen.</h3><p>Die erste Einstellung ist immer die schwierigste. Wen holt man ins Boot, was gibt man ab? Die meisten kennen den Gedanken: „Bis die Person das kann, mach ich es lieber gleich selbst." Genau diese Denkweise hält die meisten vom nächsten Schritt ab. Dabei bringt dir ein Team Geld und wertvolle Ressourcen – es braucht nur klare Strukturen und Rollen, die von Anfang an passen.</p></div></div>
+<!-- ============ 5-STEP PROCESS (scroll slider) ============ -->
+<section class="procsl" id="prozess">
+  <div class="procsl__stage">
+    <div class="container">
+      <div class="procsl__head">
+        <span class="eyebrow is-centered">Der Prozess</span>
+        <h2 class="title" style="margin-top:16px">In <span class="serif-italic">5 Schritten</span> zum Fotounternehmen.</h2>
+      </div>
+      <div class="procsl__viewport" id="procsl">
+        <article class="psl is-active" data-i="0">
+          <div class="psl__text">
+            <div class="psl__num">01</div>
+            <span class="psl__label">Analyse &amp; Klarheit</span>
+            <h3>Wo stehst du wirklich?</h3>
+            <p>Welche Arbeitsschritte kosten dich nur Zeit? Wo verlierst du Geld, ohne es zu merken? Wir analysieren deine Kunden nach dem Pareto-Prinzip – welche bringen wirklich etwas und welche kosten mehr, als sie einbringen.</p>
+          </div>
+          <div class="psl__media"><img src="assets/img/planning.webp" alt="" loading="lazy" /></div>
+        </article>
+        <article class="psl" data-i="1">
+          <div class="psl__text">
+            <div class="psl__num">02</div>
+            <span class="psl__label">Planbare Kundengewinnung</span>
+            <h3>Jeden Monat die richtigen Anfragen.</h3>
+            <p>Umsatzschwankungen entstehen fast immer durch dasselbe Problem: kein planbares System. Mit bezahlter Werbung, optimiertem SEO oder einem Retainer-Modell mit Firmenkunden kommen die Anfragen jeden Monat – unabhängig von Saison, Empfehlungen oder Glück.</p>
+          </div>
+          <div class="psl__media"><img src="assets/img/consult.webp" alt="" loading="lazy" /></div>
+        </article>
+        <article class="psl" data-i="2">
+          <div class="psl__text">
+            <div class="psl__num">03</div>
+            <span class="psl__label">Prozesse, die ohne dich laufen</span>
+            <h3>Systematisieren statt selbst machen.</h3>
+            <p>Bildbearbeitung, Kundenkommunikation, Buchhaltung, Galerie-Versand – alles, was nicht dein kreatives Herzstück ist, lässt sich digitalisieren oder delegieren, ohne dass die Qualität leidet. Du fokussierst dich wieder aufs Fotografieren – und der Kunde merkt nichts davon.</p>
+          </div>
+          <div class="psl__media"><img src="assets/img/studio.webp" alt="" loading="lazy" /></div>
+        </article>
+        <article class="psl" data-i="3">
+          <div class="psl__text">
+            <div class="psl__num">04</div>
+            <span class="psl__label">Premium-Positionierung</span>
+            <h3>Preise im Hochpreissegment.</h3>
+            <p>Um hochpreisiger zu verkaufen, musst du nicht besser argumentieren – du musst dich besser positionieren. Dein Auftritt, dein Angebot und deine Reputation lösen klar ein Problem, für das überdurchschnittlich bezahlt wird.</p>
+          </div>
+          <div class="psl__media"><img src="assets/img/elias-rebrand.webp" alt="" loading="lazy" /></div>
+        </article>
+        <article class="psl" data-i="4">
+          <div class="psl__text">
+            <div class="psl__num">05</div>
+            <span class="psl__label">Ein Team, das funktioniert</span>
+            <h3>Vom Einzelkämpfer zum Unternehmen.</h3>
+            <p>Die erste Einstellung ist die schwierigste. Wen holst du ins Boot, was gibst du ab? Ein Team bringt dir Geld und wertvolle Ressourcen – wenn klare Strukturen und Rollen von Anfang an passen.</p>
+          </div>
+          <div class="psl__media"><img src="assets/img/michael-winter.webp" alt="" loading="lazy" /></div>
+        </article>
+      </div>
+      <div class="procsl__nav" aria-hidden="true">
+        <button class="pdot on" data-i="0"><i></i>01</button>
+        <button class="pdot" data-i="1"><i></i>02</button>
+        <button class="pdot" data-i="2"><i></i>03</button>
+        <button class="pdot" data-i="3"><i></i>04</button>
+        <button class="pdot" data-i="4"><i></i>05</button>
+      </div>
     </div>
   </div>
 </section>
@@ -630,47 +701,47 @@ body::after{content:"";position:fixed;inset:0;z-index:300;pointer-events:none;op
     </div>
     <div class="trows">
       <article class="trow reveal">
-        <div class="trow__media"><img src="assets/img/anna-von-hafenbradl.webp" alt="Anna von Hafenbrädl" /></div>
+        <div class="trow__media"><span class="trow__badge">Erfolgsgeschichte</span><img src="assets/img/anna-von-hafenbradl.webp" alt="Anna von Hafenbrädl" /><div class="trow__person"><b>Anna von Hafenbrädl</b><span>Vom Einzelkämpfer zum Team</span></div></div>
         <div class="trow__body">
           <span class="trow__tag">Studio- &amp; Familienfotografie</span>
           <p class="trow__quote">Jetzt kann ich heimfahren, schnell essen machen – und in der Zeit wird meine Arbeit gemacht.</p>
-          <div class="trow__block"><span class="lbl">Ausgangssituation</span><p>Anna war seit sieben Jahren selbständig und erfolgreich. Shootings hatte sie genug – aber irgendwann war der Kalender so voll, dass keine Zeit mehr für irgendetwas anderes blieb. Das Business hing komplett an ihr. Ihre Preise lagen bei 350–520€ pro Shooting.</p></div>
-          <div class="trow__block"><span class="lbl">Was wir konkret gemacht haben</span><p>Preisstruktur neu aufgestellt, einen klaren Verkaufsprozess entwickelt und die ersten Schritte gemacht, um Aufgaben abzugeben. Weg vom Einzelkämpfer-Modus hin zu einem Business, das auch ohne sie läuft.</p></div>
-          <div class="trow__block"><span class="lbl">Aktuelle Situation</span><p>Anna hat ihre Preise angehoben und neue Angebote implementiert. Sie hat eine Mitarbeiterin im Team, die ihr den Back-Office-Bereich und die Fotobearbeitung abnimmt. Erreichter Jahresumsatz: 200.000€.</p></div>
-          <div class="trow__foot"><div class="nm"><b>Anna von Hafenbrädl</b><span>Vom Einzelkämpfer zum Team</span></div><div class="res"><b data-count="200000" data-suffix="€">200.000€</b><span>Jahresumsatz</span></div></div>
+          <div class="trow__result"><b data-count="200000" data-suffix="€">200.000€</b><span>Jahresumsatz mit Team</span></div>
+          <div class="trow__block"><span class="lbl">Ausgangssituation</span><p>Seit sieben Jahren selbständig und erfolgreich. Shootings hatte sie genug – aber der Kalender war so voll, dass keine Zeit mehr für etwas anderes blieb. Das Business hing komplett an ihr. Preise: 350–520€ pro Shooting.</p></div>
+          <div class="trow__block"><span class="lbl">Was wir konkret gemacht haben</span><p>Preisstruktur neu aufgestellt, einen klaren Verkaufsprozess entwickelt und die ersten Aufgaben abgegeben. Weg vom Einzelkämpfer-Modus hin zu einem Business, das auch ohne sie läuft.</p></div>
+          <div class="trow__block"><span class="lbl">Aktuelle Situation</span><p>Preise angehoben, neue Angebote implementiert und eine Mitarbeiterin im Team, die Back-Office und Fotobearbeitung übernimmt. Erreichter Jahresumsatz: 200.000€.</p></div>
         </div>
       </article>
       <article class="trow reveal">
-        <div class="trow__media"><img src="assets/img/elias-barbara.jpeg" alt="Barbara Frieß mit Elias Kaltenberger" /></div>
+        <div class="trow__media"><span class="trow__badge">Erfolgsgeschichte</span><img src="assets/img/elias-barbara.jpeg" alt="Barbara Frieß mit Elias Kaltenberger" /><div class="trow__person"><b>Barbara Frieß</b><span>Mit Team aus Fotografinnen &amp; Videografen</span></div></div>
         <div class="trow__body">
           <span class="trow__tag">Hochzeitsfotografie</span>
           <p class="trow__quote">Es kamen genau die Kunden, die ich will. Wirklich meine Lieblingskunden, die 100% zu mir passen.</p>
-          <div class="trow__block"><span class="lbl">Ausgangssituation</span><p>Barbara war bereits hauptberuflich selbständig mit einem klaren Ziel: professionell wachsen. Sie hatte schon mehrere Workshops besucht, aber beim höherpreisigen Verkaufen kamen regelmäßig Absagen – und sie war gedeckelt auf maximal 20–25 Hochzeiten im Jahr.</p></div>
-          <div class="trow__block"><span class="lbl">Was wir konkret gemacht haben</span><p>Elias hat vor Ort ihre Verkaufsgespräche analysiert. Barbara hatte in jedem Gespräch die eine entscheidende Abschlussfrage vergessen – die Paare konnten gar nicht richtig Ja sagen. Wir haben das Verkaufsskript komplett auf ihre Sprache angepasst und den gesamten Workflow digitalisiert und optimiert.</p></div>
-          <div class="trow__block"><span class="lbl">Aktuelle Situation</span><p>Barbara fotografiert heute knapp 60 Hochzeiten im Jahr – mit einem Team aus zwei weiteren Fotografinnen und externen Videografen. „Es war viel einfacher. Mir ist es dann nur noch so zugeflogen."</p></div>
-          <div class="trow__foot"><div class="nm"><b>Barbara Frieß</b><span>Mit Team aus Fotografinnen &amp; Videografen</span></div><div class="res"><b>~60</b><span>Hochzeiten / Jahr</span></div></div>
+          <div class="trow__result"><b>~60</b><span>Hochzeiten pro Jahr mit Team</span></div>
+          <div class="trow__block"><span class="lbl">Ausgangssituation</span><p>Hauptberuflich selbständig mit dem Ziel, professionell zu wachsen. Mehrere Workshops besucht, aber beim höherpreisigen Verkaufen kamen regelmäßig Absagen – gedeckelt auf maximal 20–25 Hochzeiten im Jahr.</p></div>
+          <div class="trow__block"><span class="lbl">Was wir konkret gemacht haben</span><p>Elias hat vor Ort ihre Verkaufsgespräche analysiert: Die eine entscheidende Abschlussfrage fehlte in jedem Gespräch. Verkaufsskript auf ihre Sprache angepasst, den gesamten Workflow digitalisiert und optimiert.</p></div>
+          <div class="trow__block"><span class="lbl">Aktuelle Situation</span><p>Barbara fotografiert heute knapp 60 Hochzeiten im Jahr – mit einem Team aus zwei weiteren Fotografinnen und externen Videografen. „Mir ist es dann nur noch so zugeflogen."</p></div>
         </div>
       </article>
       <article class="trow reveal">
-        <div class="trow__media"><img src="assets/img/case-steve.webp" alt="Steve Meinhardt" /></div>
+        <div class="trow__media"><span class="trow__badge">Erfolgsgeschichte</span><img src="assets/img/case-steve.webp" alt="Steve Meinhardt" /><div class="trow__person"><b>Steve Meinhardt</b><span>Vom Zufall zum System</span></div></div>
         <div class="trow__body">
           <span class="trow__tag">Business- &amp; Eventfotografie</span>
           <p class="trow__quote">Sich unter Wert zu verkaufen bringt dir nichts – und dem Kunden auch nicht die Wertschätzung, die deine Arbeit verdient.</p>
-          <div class="trow__block"><span class="lbl">Ausgangssituation</span><p>Steve hatte bereits eine Werbeagentur, aber die Fotografie lief noch auf Empfehlungsbasis mit Aufträgen im dreistelligen Bereich. Das Portfolio war top – aber die Strategie, wie man die richtigen Kunden erreicht und seinen Wert klar kommuniziert, fehlte noch.</p></div>
-          <div class="trow__block"><span class="lbl">Was wir konkret gemacht haben</span><p>Seine Zielgruppe scharf definiert, den Verkaufsprozess strukturiert und einen klaren Akquiseweg entwickelt – weg von Empfehlungen, hin zu einem planbaren System. Der erste Magic Moment: ein B2B-Kunde im vierstelligen Bereich, ohne Einwände abgeschlossen.</p></div>
-          <div class="trow__block"><span class="lbl">Aktuelle Situation</span><p>Steve generiert heute stabil 15.000–20.000€ pro Monat. „Man sollte sich genaue Ziele setzen, in sich selbst investieren und sich an die Leute wenden, die schon dort sind, wo man hin möchte."</p></div>
-          <div class="trow__foot"><div class="nm"><b>Steve Meinhardt</b><span>Vom Zufall zum System</span></div><div class="res"><b>15–20k€</b><span>stabil pro Monat</span></div></div>
+          <div class="trow__result"><b>15–20k€</b><span>stabil pro Monat</span></div>
+          <div class="trow__block"><span class="lbl">Ausgangssituation</span><p>Steve hatte bereits eine Werbeagentur, aber die Fotografie lief auf Empfehlungsbasis mit Aufträgen im dreistelligen Bereich. Das Portfolio war top – die Strategie für die richtigen Kunden und den eigenen Wert fehlte noch.</p></div>
+          <div class="trow__block"><span class="lbl">Was wir konkret gemacht haben</span><p>Zielgruppe scharf definiert, Verkaufsprozess strukturiert, klaren Akquiseweg entwickelt – weg von Empfehlungen, hin zu einem planbaren System. Erster Magic Moment: ein B2B-Kunde im vierstelligen Bereich, ohne Einwände abgeschlossen.</p></div>
+          <div class="trow__block"><span class="lbl">Aktuelle Situation</span><p>Steve generiert heute stabil 15.000–20.000€ pro Monat. „Man sollte sich genaue Ziele setzen, in sich selbst investieren und sich an die Leute wenden, die schon dort sind, wo man hin will."</p></div>
         </div>
       </article>
       <article class="trow reveal">
-        <div class="trow__media"><img src="assets/img/case-claudia.webp" alt="Claudia Brandl" /></div>
+        <div class="trow__media"><span class="trow__badge">Erfolgsgeschichte</span><img src="assets/img/case-claudia.webp" alt="Claudia Brandl" /><div class="trow__person"><b>Claudia Brandl</b><span>Preise fast verdreifacht</span></div></div>
         <div class="trow__body">
           <span class="trow__tag">High-End-Boudoirfotografie</span>
           <p class="trow__quote">Wenn man immer das Gleiche macht wie immer, braucht man sich nicht wundern, wenn sich nichts verändert.</p>
-          <div class="trow__block"><span class="lbl">Ausgangssituation</span><p>Claudia fotografiert seit 29 Jahren – mit Ausbildung und Meisterbrief. Aber Kundengewinnung wurde nie aktiv betrieben. Das ging jahrelang gut, bis die Aufträge irgendwann nicht mehr so kamen wie früher. Ihre Preise für Boudoir-Shootings lagen bei 500–800€.</p></div>
-          <div class="trow__block"><span class="lbl">Was wir konkret gemacht haben</span><p>Die Positionierung auf High-End-Boudoir-Fotografie für echte Frauen zwischen 40 und 60 Jahren geschärft. Einen aktiven Weg über Social Media entwickelt, damit sie nachhaltig sichtbar bleibt – ohne auf Aufträge warten zu müssen.</p></div>
-          <div class="trow__block"><span class="lbl">Aktuelle Situation</span><p>Claudia verlangt heute 2.000€ pro Shooting – fast das Dreifache von früher. Ihre Kundinnen zahlen es, weil sie genau wissen, was sie bekommen und warum es das wert ist.</p></div>
-          <div class="trow__foot"><div class="nm"><b>Claudia Brandl</b><span>Preise fast verdreifacht</span></div><div class="res"><b data-count="2000" data-suffix="€">2.000€</b><span>pro Shooting</span></div></div>
+          <div class="trow__result"><b data-count="2000" data-suffix="€">2.000€</b><span>pro Shooting – fast 3×</span></div>
+          <div class="trow__block"><span class="lbl">Ausgangssituation</span><p>Claudia fotografiert seit 29 Jahren – mit Ausbildung und Meisterbrief. Aber Kundengewinnung wurde nie aktiv betrieben. Das ging jahrelang gut, bis die Aufträge nicht mehr so kamen wie früher. Preise für Boudoir-Shootings: 500–800€.</p></div>
+          <div class="trow__block"><span class="lbl">Was wir konkret gemacht haben</span><p>Positionierung auf High-End-Boudoir für echte Frauen zwischen 40 und 60 geschärft. Einen aktiven Weg über Social Media entwickelt, damit sie nachhaltig sichtbar bleibt – ohne auf Aufträge warten zu müssen.</p></div>
+          <div class="trow__block"><span class="lbl">Aktuelle Situation</span><p>Claudia verlangt heute 2.000€ pro Shooting – fast das Dreifache. Ihre Kundinnen zahlen es, weil sie genau wissen, was sie bekommen und warum es das wert ist.</p></div>
         </div>
       </article>
     </div>
@@ -705,7 +776,7 @@ body::after{content:"";position:fixed;inset:0;z-index:300;pointer-events:none;op
       </div>
     </div>
     <figure class="about2__img reveal d1">
-      <img src="assets/img/elias-rebrand.webp" alt="Elias Kaltenberger bei der Arbeit" />
+      <img src="assets/img/about-elias.webp" alt="Elias Kaltenberger" />
       <div class="frame"></div>
     </figure>
   </div>
@@ -901,21 +972,38 @@ document.querySelectorAll('[data-count]').forEach(el => countIO.observe(el));
 /* hero parallax + scroll progress */
 const heroBg = document.querySelector('.hero2__bg');
 const progress = document.getElementById('progress');
-const proc5 = document.getElementById('proc5');
-const proc5Fill = document.getElementById('proc5Fill');
+/* process scroll-slider */
+const procSec = document.getElementById('prozess');
+const psls = [...document.querySelectorAll('.psl')];
+const pdots = [...document.querySelectorAll('.pdot')];
+let curPsl = 0;
+const setPsl = (idx) => {
+  if(idx === curPsl) return;
+  curPsl = idx;
+  psls.forEach((s,i)=>s.classList.toggle('is-active', i===idx));
+  pdots.forEach((d,i)=>d.classList.toggle('on', i===idx));
+};
 let ticking = false;
 const fx = () => {
   const y = window.scrollY;
   if(heroBg && !reduce) heroBg.style.transform = 'translate3d(0,' + Math.min(y * 0.28, 240) + 'px,0)';
   if(progress){ const h = document.documentElement.scrollHeight - window.innerHeight; progress.style.transform = 'scaleX(' + (h > 0 ? Math.min(y / h, 1) : 0) + ')'; }
-  if(proc5 && proc5Fill){
-    const r = proc5.getBoundingClientRect(), vh = window.innerHeight;
-    const p = Math.max(0, Math.min(1, (vh * 0.6 - r.top) / (r.height * 0.82)));
-    proc5Fill.style.height = (p * 100).toFixed(1) + '%';
+  if(procSec && psls.length && window.innerWidth > 860){
+    const total = procSec.offsetHeight - window.innerHeight;
+    const prog = total > 0 ? Math.min(0.9999, Math.max(0, -procSec.getBoundingClientRect().top / total)) : 0;
+    setPsl(Math.min(psls.length-1, Math.floor(prog * psls.length)));
   }
   ticking = false;
 };
 window.addEventListener('scroll', () => { if(!ticking){ requestAnimationFrame(fx); ticking = true; } }, {passive:true});
+/* dot click → scroll to that step */
+if(procSec && psls.length){
+  pdots.forEach(d => d.addEventListener('click', () => {
+    const i = +d.dataset.i, total = procSec.offsetHeight - window.innerHeight;
+    const targetTop = procSec.offsetTop + total * ((i + 0.5) / psls.length);
+    window.scrollTo({top: targetTop, behavior: reduce ? 'auto' : 'smooth'});
+  }));
+}
 fx();
 
 document.getElementById('year').textContent = new Date().getFullYear();
