@@ -1,3 +1,8 @@
 node_modules/
 .DS_Store
 *.log
+
+# Reference screenshots dropped into the project root (not deliverables)
+/contact.png
+/contact2.png
+/*.png
