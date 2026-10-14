@@ -127,11 +127,11 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .eyebrow{
   display:inline-flex;align-items:center;gap:10px;
   font-size:12px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;
-  color:var(--gold-300);
+  background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
 }
-.bg-cream .eyebrow{color:var(--gold)}
-.eyebrow::before{content:"";width:28px;height:1px;background:currentColor;opacity:.7}
-.eyebrow.is-centered::after{content:"";width:28px;height:1px;background:currentColor;opacity:.7}
+.eyebrow::before{content:"";width:28px;height:1px;background:var(--gold-300);opacity:.85;flex:none}
+.eyebrow.is-centered::after{content:"";width:28px;height:1px;background:var(--gold-300);opacity:.85;flex:none}
+.bg-cream .eyebrow::before,.bg-cream .eyebrow.is-centered::after{background:var(--gold)}
 
 h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.08;letter-spacing:-.02em}
 .display{font-size:clamp(2.3rem,5.4vw,4.4rem);font-weight:800;line-height:1.05;letter-spacing:-.025em}
@@ -145,6 +145,7 @@ h3{font-size:clamp(1.3rem,2vw,1.7rem);font-weight:700}
 
 .lead{font-size:clamp(1.05rem,1.5vw,1.28rem);color:var(--muted-dark);font-weight:300;line-height:1.7}
 .bg-cream .lead{color:var(--muted-light)}
+.bg-dark .lead,.storyfull .lead{color:#E9E6DF}
 .kicker-num{font-family:var(--serif);font-weight:600}
 
 p+p{margin-top:1.1em}
@@ -304,6 +305,10 @@ p+p{margin-top:1.1em}
 
 /* ---------- 10b. Full-bleed story (vertical image covers section) ---------- */
 .storyfull{display:grid;grid-template-columns:42% 1fr;align-items:stretch;padding:0;position:relative;overflow:hidden}
+.storyfull--rev{grid-template-columns:1fr 42%}
+.storyfull--rev .storyfull__media::after{background:
+  linear-gradient(90deg,var(--ink) 0%,transparent 26%,transparent 100%),
+  linear-gradient(180deg,var(--ink) 0%,transparent 14%,transparent 86%,var(--ink) 100%)!important}
 .storyfull__media{position:relative;min-height:640px;overflow:hidden;background:var(--ink)}
 .storyseq{position:absolute;inset:0;overflow:hidden}
 .storyseq__track{display:flex;flex-direction:column;gap:14px;padding:14px;animation:storyseqScroll 38s linear infinite;will-change:transform}
@@ -320,7 +325,7 @@ p+p{margin-top:1.1em}
 .storyfull__content{display:flex;align-items:center;padding:clamp(64px,8vw,120px) clamp(24px,5.5vw,96px)}
 .storyfull__inner{max-width:620px}
 .storyfull .timeline{margin-top:30px}
-.story-p{color:var(--muted-dark);font-size:1rem;margin-bottom:16px}
+.story-p{color:#F1EFEA;font-size:1rem;margin-bottom:16px}
 .story-p strong{color:var(--txt-on-dark);font-weight:600}
 .story-quote{margin:4px 0 18px;padding:16px 0 16px 24px;border-left:2px solid var(--gold);font-family:var(--serif);font-weight:700;font-size:clamp(1.2rem,1.7vw,1.5rem);line-height:1.3;color:var(--txt-on-dark);letter-spacing:-.01em}
 
@@ -423,7 +428,7 @@ p+p{margin-top:1.1em}
 .proc-step .pn::before{content:"0" counter(p)}
 .proc-step h3{font-size:1.25rem;margin-bottom:10px;color:var(--txt-on-light)}
 .proc-step p{font-size:.95rem;color:var(--muted-light)}
-.proc-step .dur{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-top:14px;display:block}
+.proc-step .dur{font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-top:14px;display:block;width:fit-content;background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
 .proc-note{max-width:760px;margin:44px auto 0;text-align:center}
 .proc-note p{color:var(--muted-dark);font-size:1rem}
 .proc-note__em{margin-top:16px;font-family:var(--serif);font-weight:700;font-size:clamp(1.15rem,1.8vw,1.5rem);color:var(--txt-on-dark);letter-spacing:-.01em}
@@ -507,13 +512,20 @@ body::after{content:"";position:fixed;inset:0;z-index:300;pointer-events:none;op
 @keyframes marquee{to{transform:translateX(-50%)}}
 
 /* hero diagonal photo strip (like the live site) */
-.photostrip-wrap{overflow:hidden;width:100%;background:var(--ink)}
-.photostrip{display:flex;gap:8px;height:clamp(150px,19vw,240px);background:var(--ink);overflow:hidden;width:112%;margin-left:-6%;padding:0}
-.photostrip__item{flex:1;overflow:hidden;transform:skewX(-11deg);position:relative;transition:flex .5s var(--ease)}
-.photostrip__item img{position:absolute;inset:0;width:128%;height:100%;object-fit:cover;object-position:center;transform:skewX(11deg) translateX(-11%);filter:grayscale(.1) brightness(.92);transition:transform .8s var(--ease),filter .5s}
-.photostrip__item:hover{flex:1.5}
-.photostrip__item:hover img{filter:none;transform:skewX(11deg) translateX(-11%) scale(1.04)}
-@media (max-width:700px){.photostrip{height:120px;gap:5px}.photostrip__item:nth-child(n+5){display:none}}
+/* hero video media (right side) */
+.hero__media{position:relative;justify-self:end;width:100%;max-width:520px}
+.hero__video{display:block;position:relative;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line-gold);box-shadow:var(--shadow);aspect-ratio:16/10}
+.hero__video img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.hero__video:hover img{transform:scale(1.05)}
+.hero__video::after{content:"";position:absolute;inset:0;background:linear-gradient(130deg,rgba(0,0,0,.15),rgba(0,0,0,.45))}
+.hero__play{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center}
+.hero__play .tri{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;color:#120D04;padding-left:4px;background:var(--grad-gold-btn);box-shadow:0 12px 34px -8px rgba(0,0,0,.6);transition:transform .4s var(--ease)}
+.hero__play::before{content:"";position:absolute;width:72px;height:72px;border-radius:50%;border:1px solid var(--gold-300);animation:heroPulse 2.4s ease-out infinite}
+.hero__video:hover .hero__play .tri{transform:scale(1.08)}
+@keyframes heroPulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.6);opacity:0}}
+.hero__media-badge{position:absolute;left:-18px;bottom:22px;z-index:3;background:rgba(11,11,12,.86);backdrop-filter:blur(8px);border:1px solid var(--line-gold);border-radius:var(--r);padding:12px 18px;box-shadow:var(--shadow)}
+.hero__media-badge b{font-family:var(--serif);font-size:1.5rem;color:var(--gold-300);display:block;line-height:1}
+.hero__media-badge span{font-size:11px;color:var(--muted-dark);letter-spacing:.03em}
 
 /* card hover glow + sheen */
 .benefit,.proc-step{position:relative;overflow:hidden}
@@ -579,8 +591,8 @@ body.vmodal-open{overflow:hidden}
 .case__name span{font-size:12.5px;color:var(--gold-200)}
 .case__quote{font-family:var(--serif);font-weight:800;font-size:clamp(1.4rem,2.3vw,2rem);line-height:1.22;letter-spacing:-.012em;margin-bottom:22px}
 .case__block{margin-bottom:18px}
-.case__block .lbl{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-300);font-weight:600;margin-bottom:6px}
-.case__block p{color:var(--muted-dark);font-size:.98rem;line-height:1.62}
+.case__block .lbl{display:block;width:fit-content;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;margin-bottom:6px;background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.case__block p{color:#F1EFEA;font-size:.98rem;line-height:1.62}
 .case .tcard__video{margin-top:8px}
 
 /* ---------- 20. Responsive ---------- */
@@ -592,8 +604,8 @@ body.vmodal-open{overflow:hidden}
   .problem2__media img{position:static;min-height:0;aspect-ratio:3/2;max-height:none}
   .problem2__text{max-width:none}
   .story__stat{right:16px}
-  .storyfull{grid-template-columns:1fr}
-  .storyfull__media{min-height:400px}
+  .storyfull,.storyfull--rev{grid-template-columns:1fr}
+  .storyfull__media{min-height:420px}
   .benefits{grid-template-columns:repeat(2,1fr)}
   .footer__top{grid-template-columns:repeat(3,1fr)}
   .footer__brand{grid-column:1/-1}
@@ -674,40 +686,38 @@ body.vmodal-open{overflow:hidden}
 </nav>
 
 <!-- ============ HERO ============ -->
-<section class="hero hero--center" id="top">
+<section class="hero" id="top">
   <div class="hero__bg">
     <img src="assets/img/elias-wide.webp" alt="Elias Kaltenberger bei einem Shooting im Studio" fetchpriority="high" />
   </div>
   <div class="hero__orbs" aria-hidden="true"><span></span><span></span><span></span></div>
   <div class="hero__spot" id="heroSpot" aria-hidden="true"></div>
-  <div class="container hero__inner">
-    <span class="eyebrow is-centered reveal">Für nebenberufliche Fotograf:innen</span>
-    <h1 class="display reveal d1">Vom nebenberuflichen Fotografen zum <span class="serif-italic">hochbezahlten Profifotografen</span></h1>
-    <p class="hero__sub reveal d2">Du fotografierst bereits, aber die Kundenanfragen bleiben aus und du kannst noch nicht wirklich davon leben. Erfahre exakt, welche Schritte notwendig sind, um deine <strong>Leidenschaft zum Hauptberuf</strong> zu machen.</p>
-    <ul class="hero__list reveal d2">
-      <li><span class="hl-ic">✓</span><span>Entdecke die Praxis-Methoden, mit denen Fotografen &amp; Videografen planbar monatlich 3-4 Neukunden gewinnen, die 3.000-5.000€ pro Auftrag zahlen.</span></li>
-      <li><span class="hl-ic">✓</span><span>Erfahre, wie du nur noch Kunden gewinnst, die dich wertschätzen und fair bezahlen - mit abwechslungsreichen Aufträgen, den schönsten Locations und dem Gefühl, jeden Morgen mit echter Freude zur Kamera zu greifen.</span></li>
-      <li><span class="hl-ic">✓</span><span>Lerne die Workflows und Tricks der Profifotografen, mit denen du die Nachbearbeitung deiner Shootings halbierst und mehr Zeit für dich und deine Familie gewinnst.</span></li>
-    </ul>
-    <div class="hero__cta reveal d3">
-      <a href="https://www.eliaskaltenberger.com/kontakt/" class="btn btn--primary btn--lg">Jetzt kostenloses Strategiegespräch vereinbaren <span class="arrow">→</span></a>
+  <div class="container hero__grid">
+    <div class="hero__content">
+      <span class="eyebrow reveal">Für nebenberufliche Fotograf:innen</span>
+      <h1 class="display reveal d1">Vom nebenberuflichen Fotografen zum <span class="serif-italic">hochbezahlten Profifotografen</span></h1>
+      <p class="hero__sub reveal d2">Du fotografierst bereits, aber die Kundenanfragen bleiben aus und du kannst noch nicht wirklich davon leben. Erfahre exakt, welche Schritte notwendig sind, um deine <strong>Leidenschaft zum Hauptberuf</strong> zu machen.</p>
+      <ul class="hero__list reveal d2">
+        <li><span class="hl-ic">✓</span><span>Entdecke die Praxis-Methoden, mit denen Fotografen &amp; Videografen planbar monatlich 3-4 Neukunden gewinnen, die 3.000-5.000€ pro Auftrag zahlen.</span></li>
+        <li><span class="hl-ic">✓</span><span>Erfahre, wie du nur noch Kunden gewinnst, die dich wertschätzen und fair bezahlen - mit abwechslungsreichen Aufträgen, den schönsten Locations und dem Gefühl, jeden Morgen mit echter Freude zur Kamera zu greifen.</span></li>
+        <li><span class="hl-ic">✓</span><span>Lerne die Workflows und Tricks der Profifotografen, mit denen du die Nachbearbeitung deiner Shootings halbierst und mehr Zeit für dich und deine Familie gewinnst.</span></li>
+      </ul>
+      <div class="hero__cta reveal d3">
+        <a href="https://www.eliaskaltenberger.com/kontakt/" class="btn btn--primary btn--lg">Jetzt kostenloses Strategiegespräch vereinbaren <span class="arrow">→</span></a>
+      </div>
+      <p class="hero__cta-note reveal d3">und erhalte einen individuellen Fahrplan um hauptberuflich Fotograf zu werden</p>
     </div>
-    <p class="hero__cta-note reveal d3">und erhalte einen individuellen Fahrplan um hauptberuflich Fotograf zu werden</p>
+    <div class="hero__media reveal-r d2">
+      <a class="hero__video" data-video="mw9swBI7rWk" href="https://www.youtube.com/watch?v=mw9swBI7rWk" target="_blank" rel="noopener" aria-label="Video ansehen: Erfolgreich als Fotograf">
+        <img src="assets/img/hero-video-poster.webp" alt="Elias Kaltenberger – Erfolgreich als Fotograf" fetchpriority="high" />
+        <span class="hero__play" aria-hidden="true"><span class="tri">▶</span></span>
+      </a>
+      <div class="hero__media-badge"><b>826+</b><span>bezahlte Aufträge</span></div>
+    </div>
   </div>
   <div class="scroll-hint" aria-hidden="true">Scroll<span></span></div>
 </section>
 
-<!-- ============ HERO PHOTO STRIP ============ -->
-<div class="photostrip-wrap">
-<div class="photostrip" aria-hidden="true">
-  <div class="photostrip__item"><img src="assets/img/elias-rebrand.webp" alt="" loading="lazy" /></div>
-  <div class="photostrip__item"><img src="assets/img/planning.webp" alt="" loading="lazy" /></div>
-  <div class="photostrip__item"><img src="assets/img/consult.webp" alt="" loading="lazy" /></div>
-  <div class="photostrip__item"><img src="assets/img/helicopter.webp" alt="" loading="lazy" /></div>
-  <div class="photostrip__item"><img src="assets/img/studio.webp" alt="" loading="lazy" /></div>
-  <div class="photostrip__item"><img src="assets/img/teaching.webp" alt="" loading="lazy" /></div>
-</div>
-</div>
 
 <!-- ============ PROBLEM / EMPATHY ============ -->
 <section class="section bg-cream">
@@ -737,27 +747,9 @@ body.vmodal-open{overflow:hidden}
 </section>
 
 <!-- ============ STORY / TURNING POINT ============ -->
-<section class="storyfull bg-dark" id="ueber">
-  <div class="storyfull__media reveal-l">
-    <div class="storyseq" aria-hidden="true">
-      <div class="storyseq__track">
-        <figure class="storyseq__shot"><img src="assets/img/elias-rebrand.webp" alt="" loading="lazy" /></figure>
-        <figure class="storyseq__shot"><img src="assets/img/planning.webp" alt="" loading="lazy" /></figure>
-        <figure class="storyseq__shot"><img src="assets/img/consult.webp" alt="" loading="lazy" /></figure>
-        <figure class="storyseq__shot"><img src="assets/img/helicopter.webp" alt="" loading="lazy" /></figure>
-        <figure class="storyseq__shot"><img src="assets/img/studio.webp" alt="" loading="lazy" /></figure>
-        <!-- duplicate for seamless loop -->
-        <figure class="storyseq__shot"><img src="assets/img/elias-rebrand.webp" alt="" loading="lazy" /></figure>
-        <figure class="storyseq__shot"><img src="assets/img/planning.webp" alt="" loading="lazy" /></figure>
-        <figure class="storyseq__shot"><img src="assets/img/consult.webp" alt="" loading="lazy" /></figure>
-        <figure class="storyseq__shot"><img src="assets/img/helicopter.webp" alt="" loading="lazy" /></figure>
-        <figure class="storyseq__shot"><img src="assets/img/studio.webp" alt="" loading="lazy" /></figure>
-      </div>
-    </div>
-    <div class="storyfull__stat"><b data-count="400" data-suffix="€">400€</b><span>erster Monat in Vollzeit</span></div>
-  </div>
+<section class="storyfull storyfull--rev bg-dark" id="ueber">
   <div class="storyfull__content">
-    <div class="storyfull__inner reveal-r">
+    <div class="storyfull__inner reveal-l">
       <span class="eyebrow">Meine Geschichte</span>
       <h2 class="title" style="margin:18px 0 22px">Vom Tischler zum Profifotograf – und was ich dabei gelernt habe.</h2>
       <p class="lead" style="margin-bottom:14px">Ich komme nicht aus der Fotografie. Ich bin ursprünglich gelernter Tischler.</p>
@@ -770,6 +762,26 @@ body.vmodal-open{overflow:hidden}
       <p class="story-p">Genau das zeige ich jetzt anderen Fotografen. Deswegen sind die Strategiegespräche auch kostenlos. Weil ich am eigenen Leib erfahren habe, wie brutal der Businesspart im Fotografiegeschäft sein kann. Diese Abkürzung gebe ich heute weiter.</p>
       <a href="https://www.eliaskaltenberger.com/kontakt/" class="btn btn--primary btn--lg" style="margin-top:12px">Kostenloses Strategiegespräch sichern <span class="arrow">→</span></a>
     </div>
+  </div>
+  <div class="storyfull__media reveal-r">
+    <div class="storyseq" aria-hidden="true">
+      <div class="storyseq__track">
+        <figure class="storyseq__shot"><img src="assets/img/story-1.webp" alt="" loading="lazy" /></figure>
+        <figure class="storyseq__shot"><img src="assets/img/story-2.webp" alt="" loading="lazy" /></figure>
+        <figure class="storyseq__shot"><img src="assets/img/story-3.webp" alt="" loading="lazy" /></figure>
+        <figure class="storyseq__shot"><img src="assets/img/story-4.webp" alt="" loading="lazy" /></figure>
+        <figure class="storyseq__shot"><img src="assets/img/story-5.webp" alt="" loading="lazy" /></figure>
+        <figure class="storyseq__shot"><img src="assets/img/story-6.webp" alt="" loading="lazy" /></figure>
+        <!-- duplicate for seamless loop -->
+        <figure class="storyseq__shot"><img src="assets/img/story-1.webp" alt="" loading="lazy" /></figure>
+        <figure class="storyseq__shot"><img src="assets/img/story-2.webp" alt="" loading="lazy" /></figure>
+        <figure class="storyseq__shot"><img src="assets/img/story-3.webp" alt="" loading="lazy" /></figure>
+        <figure class="storyseq__shot"><img src="assets/img/story-4.webp" alt="" loading="lazy" /></figure>
+        <figure class="storyseq__shot"><img src="assets/img/story-5.webp" alt="" loading="lazy" /></figure>
+        <figure class="storyseq__shot"><img src="assets/img/story-6.webp" alt="" loading="lazy" /></figure>
+      </div>
+    </div>
+    <div class="storyfull__stat"><b data-count="400" data-suffix="€">400€</b><span>erster Monat in Vollzeit</span></div>
   </div>
 </section>
 
