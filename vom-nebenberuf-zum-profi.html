@@ -496,6 +496,27 @@ section[id]{scroll-margin-top:92px}
 /* keyboard focus ring on cards/links that move */
 .tcard:focus-within{border-color:var(--line-gold)}
 
+/* hero cursor spotlight */
+.hero__spot{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:0;transition:opacity .45s ease;background:radial-gradient(280px circle at var(--mx,50%) var(--my,40%),rgba(247,209,5,.15),transparent 62%)}
+.hero:hover .hero__spot{opacity:1}
+
+/* step number ignites gold on scroll-in */
+.step__num{transition:color .6s var(--ease)}
+.step.in .step__num{color:transparent;-webkit-text-stroke:0;background:linear-gradient(to right,#b07f2c,#f7d105,#b07f2c);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* video lightbox */
+.vmodal{position:fixed;inset:0;z-index:400;display:flex;align-items:center;justify-content:center;padding:24px}
+.vmodal[hidden]{display:none}
+.vmodal__backdrop{position:absolute;inset:0;background:rgba(0,0,0,.82);backdrop-filter:blur(8px);animation:fadein .3s ease;cursor:pointer}
+.vmodal__dialog{position:relative;z-index:2;width:min(960px,100%);animation:popin .45s var(--ease)}
+.vmodal__frame{position:relative;aspect-ratio:16/9;border-radius:10px;overflow:hidden;box-shadow:0 40px 90px -30px rgba(0,0,0,.8),0 0 0 1px var(--line-gold)}
+.vmodal__frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vmodal__close{position:absolute;top:-50px;right:0;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid var(--line-gold);color:#fff;font-size:26px;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .3s,transform .3s var(--ease)}
+.vmodal__close:hover{background:var(--gold-soft);transform:rotate(90deg)}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+@keyframes popin{from{opacity:0;transform:scale(.95) translateY(12px)}to{opacity:1;transform:none}}
+body.vmodal-open{overflow:hidden}
+
 /* ---------- 20. Responsive ---------- */
 @media (max-width:1024px){
   .hero__grid{grid-template-columns:1fr;gap:48px}
@@ -582,6 +603,7 @@ section[id]{scroll-margin-top:92px}
     <img src="assets/img/elias-wide.webp" alt="Elias Kaltenberger bei einem Shooting im Studio" fetchpriority="high" />
   </div>
   <div class="hero__orbs" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="hero__spot" id="heroSpot" aria-hidden="true"></div>
   <div class="container hero__grid">
     <div class="hero__content">
       <span class="eyebrow reveal">Für nebenberufliche Fotograf:innen</span>
@@ -724,38 +746,6 @@ section[id]{scroll-margin-top:92px}
   </div>
 </section>
 
-<!-- ============ BENEFITS ============ -->
-<section class="section bg-dark">
-  <div class="container">
-    <div class="section-head center reveal">
-      <span class="eyebrow is-centered" style="justify-content:center">Das verändert sich</span>
-      <h2 class="title" style="margin-top:18px">Mehr als nur bessere Bilder.</h2>
-    </div>
-    <div class="benefits">
-      <div class="benefit reveal">
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 4 3 6-7"/><path d="M14 8h4v4"/></svg>
-        <h3>Planbare Anfragen</h3>
-        <p>Jeden Monat Anfragen von Kunden, die wissen, was gute Fotos wert sind – statt auf Zufall zu warten.</p>
-      </div>
-      <div class="benefit reveal d1">
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M8 7h5.5a2.5 2.5 0 010 5H9a2.5 2.5 0 000 5h7"/></svg>
-        <h3>Faire Preise</h3>
-        <p>Preise, die deiner Arbeit entsprechen – selbstbewusst kommuniziert und ohne schlechtes Gewissen.</p>
-      </div>
-      <div class="benefit reveal d2">
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10l8-6 8 6v10"/><path d="M9 20v-6h6v6"/></svg>
-        <h3>Vom Nebenjob zum Beruf</h3>
-        <p>Der konkrete Fahrplan, um deine Leidenschaft sicher zu deinem Hauptberuf zu machen.</p>
-      </div>
-      <div class="benefit reveal d3">
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-        <h3>Zeit für Familie</h3>
-        <p>Effiziente Workflows, die deine Nachbearbeitung halbieren – für mehr Zeit mit den Menschen, die zählen.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ============ TESTIMONIALS ============ -->
 <section class="section bg-ink900" id="erfolge">
   <div class="container">
@@ -775,7 +765,7 @@ section[id]{scroll-margin-top:92px}
           <p class="tcard__quote">Das Feeling, hauptberuflich selbstständig zu sein, ist einfach unbeschreiblich.</p>
           <p class="tcard__desc"><strong>Vorher:</strong> Höherpreisige Angebote ließen sich kaum durchsetzen, der Hauptjob lief parallel. <strong>Heute:</strong> Hauptjob gekündigt, 15–18 Hochzeiten im Jahr – teils auf Mallorca &amp; in Deutschland.</p>
           <div class="tcard__result"><b>3.000€+</b><span>pro Hochzeit statt Preisdiskussionen</span></div>
-          <a class="tcard__video" href="https://www.youtube.com/watch?v=GFINK9SyL2c" target="_blank" rel="noopener"><span class="pl">▶</span> Video ansehen</a>
+          <a class="tcard__video" href="https://www.youtube.com/watch?v=GFINK9SyL2c" target="_blank" rel="noopener" data-video="GFINK9SyL2c" aria-label="Video von Michele Peloza ansehen"><span class="pl">▶</span> Video ansehen</a>
         </div>
       </article>
       <article class="tcard reveal d1">
@@ -788,7 +778,7 @@ section[id]{scroll-margin-top:92px}
           <p class="tcard__quote">Kundenakquise war mein großer Punkt – wo kriege ich meine Kunden her.</p>
           <p class="tcard__desc"><strong>Vorher:</strong> Hochzeiten neben einem 40-Stunden-Job, keine planbare Kundengewinnung. <strong>Heute:</strong> Fokus auf Businessfotografie, Job gekündigt. „Der Tag gehört mir."</p>
           <div class="tcard__result"><b>3.000–7.000€</b><span>stabil pro Monat</span></div>
-          <a class="tcard__video" href="https://www.youtube.com/watch?v=C_-OC-2gAXA" target="_blank" rel="noopener"><span class="pl">▶</span> Video ansehen</a>
+          <a class="tcard__video" href="https://www.youtube.com/watch?v=C_-OC-2gAXA" target="_blank" rel="noopener" data-video="C_-OC-2gAXA" aria-label="Video von Michael Winter ansehen"><span class="pl">▶</span> Video ansehen</a>
         </div>
       </article>
       <article class="tcard reveal d2">
@@ -801,7 +791,7 @@ section[id]{scroll-margin-top:92px}
           <p class="tcard__quote">Ohne die Zusammenarbeit wäre ich niemals da, wo ich jetzt bin.</p>
           <p class="tcard__desc"><strong>Vorher:</strong> Lehrerin, Hochzeiten um ~1.500&nbsp;€, Vollzeit fühlte sich weit weg an. <strong>Heute:</strong> Ziel von 15 Hochzeiten nach nur 3 Monaten erreicht, vollzeit selbstständig.</p>
           <div class="tcard__result"><b>~20.000€</b><span>an einem Messe-Wochenende</span></div>
-          <a class="tcard__video" href="https://www.youtube.com/watch?v=-p4wahe9gWY" target="_blank" rel="noopener"><span class="pl">▶</span> Video ansehen</a>
+          <a class="tcard__video" href="https://www.youtube.com/watch?v=-p4wahe9gWY" target="_blank" rel="noopener" data-video="-p4wahe9gWY" aria-label="Video von Claudia Edhofer ansehen"><span class="pl">▶</span> Video ansehen</a>
         </div>
       </article>
     </div>
@@ -914,6 +904,15 @@ section[id]{scroll-margin-top:92px}
     <p class="btn-note">Kein Verkaufsgespräch. Nur ein ehrliches Gespräch zwischen Fotografen, über deine nächsten Schritte.</p>
   </div>
 </section>
+
+<!-- ============ VIDEO LIGHTBOX ============ -->
+<div class="vmodal" id="videoModal" role="dialog" aria-modal="true" aria-label="Video" hidden>
+  <div class="vmodal__backdrop" data-close></div>
+  <div class="vmodal__dialog">
+    <button class="vmodal__close" id="videoClose" aria-label="Video schließen">&times;</button>
+    <div class="vmodal__frame"><div id="videoMount"></div></div>
+  </div>
+</div>
 
 <!-- ============ FOOTER ============ -->
 <footer class="footer">
@@ -1051,6 +1050,40 @@ if(!reduce && window.matchMedia('(pointer:fine)').matches){
     btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
   });
 }
+
+/* ---------- Hero cursor spotlight ---------- */
+const heroEl = document.querySelector('.hero');
+const spot = document.getElementById('heroSpot');
+if(heroEl && spot && !reduce && window.matchMedia('(pointer:fine)').matches){
+  heroEl.addEventListener('mousemove', e => {
+    const r = heroEl.getBoundingClientRect();
+    spot.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
+    spot.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
+  }, {passive:true});
+}
+
+/* ---------- Video lightbox ---------- */
+const vmodal = document.getElementById('videoModal');
+const vmount = document.getElementById('videoMount');
+let lastFocus = null;
+const openVideo = (id) => {
+  lastFocus = document.activeElement;
+  vmount.innerHTML = '<iframe src="https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0" title="Erfolgsgeschichte Video" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+  vmodal.hidden = false;
+  document.body.classList.add('vmodal-open');
+  document.getElementById('videoClose').focus();
+};
+const closeVideo = () => {
+  vmodal.hidden = true; vmount.innerHTML = '';
+  document.body.classList.remove('vmodal-open');
+  if(lastFocus) lastFocus.focus();
+};
+document.querySelectorAll('[data-video]').forEach(a => {
+  a.addEventListener('click', e => { e.preventDefault(); openVideo(a.dataset.video); });
+});
+document.getElementById('videoClose').addEventListener('click', closeVideo);
+vmodal.querySelector('[data-close]').addEventListener('click', closeVideo);
+document.addEventListener('keydown', e => { if(e.key === 'Escape' && !vmodal.hidden) closeVideo(); });
 
 /* ---------- Year ---------- */
 document.getElementById('year').textContent = new Date().getFullYear();
