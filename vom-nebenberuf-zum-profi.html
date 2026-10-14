@@ -468,7 +468,7 @@ body::after{content:"";position:fixed;inset:0;z-index:300;pointer-events:none;op
 
 /* moving marquee band */
 .marquee{overflow:hidden;background:var(--ink);border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark);padding:20px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.marquee__track{display:inline-flex;align-items:center;gap:0;white-space:nowrap;animation:marquee 32s linear infinite;will-change:transform}
+.marquee__track{display:inline-flex;align-items:center;gap:0;white-space:nowrap;animation:marquee 44s linear infinite;will-change:transform}
 .marquee:hover .marquee__track{animation-play-state:paused}
 .marquee span{font-family:var(--serif);font-weight:700;font-size:clamp(1.3rem,2.2vw,1.9rem);letter-spacing:-.01em;padding:0 30px;background:linear-gradient(to right,#b07f2c,#f7d105,#b07f2c);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .marquee i{color:var(--gold);font-style:normal;font-size:.8rem;opacity:.6}
@@ -480,6 +480,21 @@ body::after{content:"";position:fixed;inset:0;z-index:300;pointer-events:none;op
 .benefit:hover::after,.proc-step:hover::after{left:140%}
 .benefit:hover,.proc-step:hover{box-shadow:0 24px 60px -24px rgba(0,0,0,.6),0 0 0 1px var(--line-gold),0 0 40px -10px rgba(247,209,5,.15)}
 .tcard:hover{box-shadow:var(--shadow),0 0 46px -12px rgba(247,209,5,.14)}
+
+/* ---------- 19c. Polish: anchors, section accent, dividers, index ---------- */
+section[id]{scroll-margin-top:92px}
+/* gold accent line under centered section titles */
+.section-head.center .title::after{content:"";display:block;width:58px;height:3px;margin:22px auto 0;border-radius:2px;background:linear-gradient(to right,#b07f2c,#f7d105,#b07f2c)}
+/* trust-bar dividers */
+.trust-metric{position:relative}
+.trust-metric::after{content:"";position:absolute;right:-15px;top:14%;height:72%;width:1px;background:var(--line-dark)}
+.trust-metric:last-child::after{display:none}
+/* faint index numbers on benefit cards */
+.benefits{counter-reset:bn}
+.benefit{counter-increment:bn}
+.benefit::before{content:counter(bn,decimal-leading-zero);position:absolute;top:20px;right:24px;z-index:2;font-family:var(--serif);font-weight:800;font-size:1.5rem;color:transparent;-webkit-text-stroke:1px var(--line-gold);opacity:.7}
+/* keyboard focus ring on cards/links that move */
+.tcard:focus-within{border-color:var(--line-gold)}
 
 /* ---------- 20. Responsive ---------- */
 @media (max-width:1024px){
@@ -500,6 +515,7 @@ body::after{content:"";position:fixed;inset:0;z-index:300;pointer-events:none;op
   .nav-cta{gap:0}
   .mobile-menu{display:block}
   .trustbar__grid{grid-template-columns:repeat(2,1fr);gap:36px 20px}
+  .trust-metric::after{display:none}
   .tcards{grid-template-columns:1fr;max-width:420px;margin-inline:auto}
   .results-strip,.proc{grid-template-columns:1fr}
   .fit__grid{grid-template-columns:1fr}
@@ -763,9 +779,9 @@ body::after{content:"";position:fixed;inset:0;z-index:300;pointer-events:none;op
         </div>
       </article>
       <article class="tcard reveal d1">
-        <div class="tcard__media tcard__mono">
+        <div class="tcard__media">
           <span class="tcard__tag">Businessfotograf</span>
-          <span class="ini">MW</span>
+          <img src="assets/img/michael-winter.webp" alt="Michael Winter mit Elias Kaltenberger" style="object-position:center 26%" />
           <div class="tcard__name"><b>Michael Winter</b><span>Vom 40-Std-Job zur Freiheit</span></div>
         </div>
         <div class="tcard__body">
