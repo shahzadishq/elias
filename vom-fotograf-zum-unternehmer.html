@@ -151,6 +151,10 @@ p+p{margin-top:1.1em}
 .hero2 .display{margin:0 0 26px;max-width:14ch}
 .hero2 .display .serif-italic{display:inline}
 .hero2__sub{font-size:16px;color:var(--txt-on-dark);opacity:.9;font-weight:300;max-width:620px}
+.hero2__list{display:grid;gap:14px;margin-top:28px;max-width:660px}
+.hero2__list li{display:flex;gap:13px;align-items:flex-start;font-size:16px;color:var(--txt-on-dark);opacity:.92;line-height:1.55}
+.hero2__list strong{color:#fff;font-weight:600}
+.hero2__list .hl{flex-shrink:0;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#120D04;background:var(--grad-gold-btn);margin-top:2px}
 .hero2__cta{display:flex;flex-wrap:wrap;gap:16px;margin-top:40px}
 .hero2__mini{display:flex;gap:40px;margin-top:52px;flex-wrap:wrap}
 .hero2__mini .m b{font-family:var(--serif);font-size:clamp(2rem,3vw,2.8rem);color:var(--gold-300);line-height:1;display:block}
@@ -233,6 +237,9 @@ p+p{margin-top:1.1em}
 .trow__tag{font-size:14px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;margin-bottom:14px;width:fit-content;background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
 .trow__quote{font-family:var(--serif);font-size:clamp(1.25rem,1.9vw,1.55rem);font-weight:700;line-height:1.36;margin-bottom:16px}
 .trow__desc{font-size:16px;color:var(--muted-dark);margin-bottom:22px;max-width:640px}
+.trow__block{margin-bottom:14px;max-width:660px}
+.trow__block .lbl{display:block;width:fit-content;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;margin-bottom:4px;background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.trow__block p{font-size:16px;color:var(--muted-dark);line-height:1.6;margin:0}
 .trow__foot{display:flex;align-items:center;gap:26px;flex-wrap:wrap;padding-top:18px;border-top:1px solid var(--line-dark)}
 .trow__foot .nm b{font-family:var(--serif);font-size:1.25rem;display:block;line-height:1.1}
 .trow__foot .nm span{font-size:12px;color:var(--muted-dark)}
@@ -241,9 +248,15 @@ p+p{margin-top:1.1em}
 .trow__foot .res span{font-size:11.5px;color:var(--muted-dark);letter-spacing:.03em}
 
 /* ---------- 14. About ---------- */
-.about2{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(40px,5vw,72px);align-items:center}
+.about2{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(40px,5vw,72px);align-items:start}
+.about2__text{max-width:720px}
+.ab-p{color:var(--muted-dark);font-size:16px;margin-bottom:14px}
+.ab-p strong{color:var(--txt-on-dark);font-weight:600}
+.about2__sys{display:grid;gap:10px;margin:6px 0 18px}
+.about2__sys li{display:flex;gap:12px;align-items:flex-start;color:var(--txt-on-dark);font-size:16px}
+.about2__sys .d{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--gold-soft);color:var(--gold-300);display:flex;align-items:center;justify-content:center;font-size:12px;margin-top:1px}
 .about2__img{position:relative;justify-self:end}
-.about2__img img{border-radius:var(--r-lg);box-shadow:var(--shadow);width:100%;max-width:420px}
+.about2__img img{border-radius:var(--r-lg);box-shadow:var(--shadow);width:100%;max-width:420px;position:sticky;top:110px}
 .about2__img .frame{position:absolute;inset:-16px -16px 20px 20px;border:1px solid var(--line-gold);border-radius:12px;z-index:-1}
 .about2__facts{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:30px;padding-top:30px;border-top:1px solid var(--line-dark)}
 .about2__facts b{font-family:var(--serif);font-size:2rem;color:var(--gold-300);display:block;line-height:1}
@@ -259,6 +272,18 @@ p+p{margin-top:1.1em}
 .fit-list .mk{flex-shrink:0;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:1px}
 .mk-yes{background:var(--gold-soft);color:var(--gold-300)}
 .mk-no{background:rgba(120,120,120,.12);color:var(--muted-dark)}
+.fit-note{max-width:820px;margin:clamp(32px,4vw,52px) auto 0;text-align:center}
+.fit-note h3{font-family:var(--serif);font-size:20px;margin-bottom:16px;color:var(--txt-on-light)}
+.fit-note p{color:var(--muted-light);font-size:16px;margin-bottom:12px}
+.fit-note p strong{color:var(--txt-on-light);font-weight:600}
+
+/* ---------- 15b. What happens in the call ---------- */
+.gespraech{max-width:760px;margin:0 auto;text-align:center}
+.gespraech p{color:var(--muted-dark);font-size:16px;margin-bottom:16px}
+.gespraech p strong{color:var(--txt-on-dark);font-weight:600}
+.gespraech__badge{display:inline-flex;flex-direction:column;align-items:center;gap:4px;margin:14px auto 22px;padding:20px 34px;border:1px solid var(--line-gold);border-radius:var(--r-lg);background:linear-gradient(170deg,rgba(176,127,44,.14),rgba(176,127,44,.03))}
+.gespraech__badge b{font-family:var(--serif);font-size:1.8rem;line-height:1;background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.gespraech__badge span{font-size:13px;color:var(--muted-dark)}
 
 /* ---------- 16. Final CTA ---------- */
 .finalcta{position:relative;overflow:hidden;background:var(--ink-900)}
@@ -398,8 +423,13 @@ body::after{content:"";position:fixed;inset:0;z-index:300;pointer-events:none;op
   <div class="hero2__orbs" aria-hidden="true"><span></span><span></span></div>
   <div class="container hero2__inner">
     <div class="hero2__rule reveal"><i></i><span style="font-size:16px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent">Für selbstständige Fotograf:innen</span></div>
-    <h1 class="display reveal d1">Vom Fotografen zum <span class="serif-italic">Fotounternehmer</span> mit Studio &amp; Team.</h1>
-    <p class="hero2__sub reveal d2">Du verdienst bereits gut. Aber wenn du drei Wochen nicht erreichbar bist, steht alles still. Hier baust du ein Unternehmen, das planbar wächst und auch ohne dich funktioniert – mit Systemen, Prozessen und einem Team, das für dich arbeitet.</p>
+    <h1 class="display reveal d1">Vom selbstständigen Fotografen zum <span class="serif-italic">Fotounternehmer</span> mit Studio &amp; Team.</h1>
+    <p class="hero2__sub reveal d2">Du verdienst bereits gut als Fotograf. Aber wenn du drei Wochen nicht erreichbar bist, kommen keine neuen Anfragen, keine Galerien gehen raus und keine Rechnungen werden gestellt. Hier änderst du das.</p>
+    <ul class="hero2__list reveal d2">
+      <li><span class="hl">✓</span><span><strong>Von selbstständig zu wirklich frei:</strong> Wie du als Fotograf neue Bereiche erschließt, planbar wächst und den nächsten Schritt gehst – ohne alles auf einmal riskieren zu müssen.</span></li>
+      <li><span class="hl">✓</span><span><strong>Planbar 15.000€ oder mehr pro Monat:</strong> Mit einem System, das unabhängig von Saison, Empfehlungen oder Glück jeden Monat die richtigen Anfragen bringt – ob über bezahlte Werbung, SEO oder Retainer-Verträge mit Firmenkunden.</span></li>
+      <li><span class="hl">✓</span><span><strong>Nie wieder alles selbst machen:</strong> Wie Anna mit 200.000€ Jahresumsatz, Barbara mit 60 Hochzeiten im Jahr mit Team und Steve mit 15.000–20.000€ pro Monat den Schritt gemacht haben – und was du konkret anders machen musst.</span></li>
+    </ul>
     <div class="hero2__cta reveal d3">
       <a href="https://www.eliaskaltenberger.com/kontakt/" class="btn btn--primary btn--lg">Kostenloses Strategiegespräch <span class="arrow">→</span></a>
       <a href="#ergebnisse" class="btn btn--ghost btn--lg">Ergebnisse ansehen</a>
@@ -429,7 +459,8 @@ body::after{content:"";position:fixed;inset:0;z-index:300;pointer-events:none;op
   <div class="container prob2">
     <span class="eyebrow reveal">Die ehrliche Standortbestimmung</span>
     <p class="pull reveal d1" style="margin-top:22px">Du hast es weit gebracht. Aber irgendwie fühlt es sich noch <em>nicht wie Freiheit</em> an.</p>
-    <p class="reveal d2">Du bist nicht mehr am Anfang. Stammkunden, regelmäßige Aufträge, Erfahrung. Aber zwischen Shooting, Bildbearbeitung, Anfragen und Organisation bleibt fast immer zu wenig Zeit – und zu wenig von dem, wofür du eigentlich angefangen hast.</p>
+    <p class="reveal d2">Du bist nicht mehr am Anfang. Du hast Stammkunden, regelmäßige Aufträge und Erfahrung. Aber irgendwo zwischen dem nächsten Shooting, der Bildbearbeitung, den Anfragen und dem Organisations-Kram merkst du: Es bleibt fast immer zu wenig Zeit übrig – und zu wenig von dem, wofür du eigentlich alles angefangen hast. Um deine Zeit frei einteilen zu können und mal entspannt in Urlaub zu fahren, ohne daran denken zu müssen, ob eine Kundengalerie vergessen wurde.</p>
+    <p class="reveal d2">Du steckst bis oben hin in Arbeit und trotzdem kommt nicht das raus, was du dir vorstellst. Mehr Stunden geht nicht, weil du schon jetzt kaum Luft hast. Und höhere Preise? Fühlen sich riskant an, weil du nicht weißt, ob deine Stammkunden dann noch mitziehen.</p>
     <div class="grid3">
       <div class="prob-mini reveal">
         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2 6 4-14 2 8h6"/></svg>
@@ -498,10 +529,10 @@ body::after{content:"";position:fixed;inset:0;z-index:300;pointer-events:none;op
     <div class="proc5" id="proc5">
       <span class="proc5__fill" id="proc5Fill" aria-hidden="true"></span>
       <div class="p5 reveal"><div class="p5__node">1</div><div class="p5__body"><span class="st">Analyse &amp; Klarheit</span><h3>Wo stehst du wirklich?</h3><p>Welche Arbeitsschritte kosten nur Zeit? Wo verlierst du Geld, ohne es zu merken? Wir analysieren deine Kunden nach dem Pareto-Prinzip – welche bringen wirklich etwas und welche kosten mehr, als sie einbringen.</p></div></div>
-      <div class="p5 reveal"><div class="p5__node">2</div><div class="p5__body"><span class="st">Planbare Kundengewinnung</span><h3>Jeden Monat die richtigen Anfragen.</h3><p>Umsatzschwankungen entstehen fast immer durch dasselbe Problem: kein planbares System. Mit bezahlter Werbung, optimiertem SEO oder einem Retainer-Modell mit Firmenkunden kommen die Anfragen jeden Monat – unabhängig von Saison, Empfehlungen oder Glück.</p></div></div>
-      <div class="p5 reveal"><div class="p5__node">3</div><div class="p5__body"><span class="st">Prozesse, die ohne dich laufen</span><h3>Systematisieren statt selbst machen.</h3><p>Bildbearbeitung, Kundenkommunikation, Buchhaltung, Galerie-Versand – alles, was nicht dein kreatives Herzstück ist, lässt sich digitalisieren oder delegieren. Ohne dass die Qualität leidet und ohne dass der Kunde etwas davon merkt.</p></div></div>
-      <div class="p5 reveal"><div class="p5__node">4</div><div class="p5__body"><span class="st">Premium-Positionierung</span><h3>Hochpreisig verkaufen.</h3><p>Um hochpreisiger zu verkaufen, musst du nicht besser argumentieren – du musst dich besser positionieren. Dein Auftritt, dein Angebot und deine Reputation lösen klar ein Problem, für das überdurchschnittlich bezahlt wird.</p></div></div>
-      <div class="p5 reveal"><div class="p5__node">5</div><div class="p5__body"><span class="st">Ein Team, das funktioniert</span><h3>Vom Einzelkämpfer zum Unternehmen.</h3><p>Die erste Einstellung ist die schwierigste. Wen holst du ins Boot, was gibst du ab? Ein Team bringt dir Geld und Ressourcen – wenn klare Strukturen und Rollen von Anfang an passen.</p></div></div>
+      <div class="p5 reveal"><div class="p5__node">2</div><div class="p5__body"><span class="st">Planbare Kundengewinnung</span><h3>Jeden Monat die richtigen Anfragen.</h3><p>Umsatzschwankungen entstehen fast immer durch dasselbe Problem: kein planbares System. Mit bezahlter Werbung, optimiertem SEO oder einem Retainer-Modell mit Firmenkunden kommen die Anfragen jeden Monat – unabhängig von Saison, Empfehlungen oder Glück. Die meisten Fotografen scheitern genau daran, weil sie ständig damit beschäftigt sind, Aufträge zu generieren, dann abzuarbeiten, dann wieder neu zu generieren.</p></div></div>
+      <div class="p5 reveal"><div class="p5__node">3</div><div class="p5__body"><span class="st">Prozesse, die ohne dich laufen</span><h3>Systematisieren statt selbst machen.</h3><p>Bildbearbeitung, Kundenkommunikation, Buchhaltung, Galerie-Versand – alles, was nicht dein kreatives Herzstück ist, lässt sich systematisieren, digitalisieren oder delegieren, ohne dass die Qualität leidet. Durch moderne Digitalisierungslösungen, Freelancer oder Mitarbeiter und klare Abläufe fokussierst du dich wieder auf das Fotografieren und Filmen – und hast mehr Zeit für die Menschen, die dir wichtig sind. Der Kunde merkt nichts davon.</p></div></div>
+      <div class="p5 reveal"><div class="p5__node">4</div><div class="p5__body"><span class="st">Premium-Positionierung</span><h3>Preise im Hochpreissegment.</h3><p>Um hochpreisiger verkaufen zu können, musst du nicht besser argumentieren – du musst dich besser positionieren. Dein Internetauftritt, dein Angebot und deine Reputation müssen klar ein Problem deiner Zielgruppe lösen. Eines, für das überdurchschnittlich bezahlt wird. Die meisten kopieren nur eine mittelmäßige Positionierung und wundern sich, warum sich nichts verändert.</p></div></div>
+      <div class="p5 reveal"><div class="p5__node">5</div><div class="p5__body"><span class="st">Ein Team, das funktioniert</span><h3>Vom Einzelkämpfer zum Unternehmen.</h3><p>Die erste Einstellung ist immer die schwierigste. Wen holt man ins Boot, was gibt man ab? Die meisten kennen den Gedanken: „Bis die Person das kann, mach ich es lieber gleich selbst." Genau diese Denkweise hält die meisten vom nächsten Schritt ab. Dabei bringt dir ein Team Geld und wertvolle Ressourcen – es braucht nur klare Strukturen und Rollen, die von Anfang an passen.</p></div></div>
     </div>
   </div>
 </section>
@@ -554,8 +585,10 @@ body::after{content:"";position:fixed;inset:0;z-index:300;pointer-events:none;op
         <div class="trow__media"><img src="assets/img/anna-von-hafenbradl.webp" alt="Anna von Hafenbrädl" /></div>
         <div class="trow__body">
           <span class="trow__tag">Studio- &amp; Familienfotografie</span>
-          <p class="trow__quote">Jetzt kann ich heimfahren, essen machen – und in der Zeit wird meine Arbeit gemacht.</p>
-          <p class="trow__desc">Seit sieben Jahren selbstständig, der Kalender randvoll, keine Zeit mehr für irgendetwas. Preisstruktur neu aufgestellt, Verkaufsprozess entwickelt, erste Mitarbeiterin für Back-Office &amp; Bildbearbeitung.</p>
+          <p class="trow__quote">Jetzt kann ich heimfahren, schnell essen machen – und in der Zeit wird meine Arbeit gemacht.</p>
+          <div class="trow__block"><span class="lbl">Ausgangssituation</span><p>Anna war seit sieben Jahren selbständig und erfolgreich. Shootings hatte sie genug – aber irgendwann war der Kalender so voll, dass keine Zeit mehr für irgendetwas anderes blieb. Das Business hing komplett an ihr. Ihre Preise lagen bei 350–520€ pro Shooting.</p></div>
+          <div class="trow__block"><span class="lbl">Was wir konkret gemacht haben</span><p>Preisstruktur neu aufgestellt, einen klaren Verkaufsprozess entwickelt und die ersten Schritte gemacht, um Aufgaben abzugeben. Weg vom Einzelkämpfer-Modus hin zu einem Business, das auch ohne sie läuft.</p></div>
+          <div class="trow__block"><span class="lbl">Aktuelle Situation</span><p>Anna hat ihre Preise angehoben und neue Angebote implementiert. Sie hat eine Mitarbeiterin im Team, die ihr den Back-Office-Bereich und die Fotobearbeitung abnimmt. Erreichter Jahresumsatz: 200.000€.</p></div>
           <div class="trow__foot"><div class="nm"><b>Anna von Hafenbrädl</b><span>Vom Einzelkämpfer zum Team</span></div><div class="res"><b data-count="200000" data-suffix="€">200.000€</b><span>Jahresumsatz</span></div></div>
         </div>
       </article>
@@ -563,8 +596,10 @@ body::after{content:"";position:fixed;inset:0;z-index:300;pointer-events:none;op
         <div class="trow__media"><img src="assets/img/elias-barbara.jpeg" alt="Barbara Frieß mit Elias Kaltenberger" /></div>
         <div class="trow__body">
           <span class="trow__tag">Hochzeitsfotografie</span>
-          <p class="trow__quote">Es kamen genau die Kunden, die ich will. Wirklich meine Lieblingskunden.</p>
-          <p class="trow__desc">Gedeckelt bei 20–25 Hochzeiten, beim höherpreisigen Verkauf regelmäßig Absagen. Elias analysierte ihre Verkaufsgespräche vor Ort – die entscheidende Abschlussfrage fehlte. Skript angepasst, Workflow digitalisiert.</p>
+          <p class="trow__quote">Es kamen genau die Kunden, die ich will. Wirklich meine Lieblingskunden, die 100% zu mir passen.</p>
+          <div class="trow__block"><span class="lbl">Ausgangssituation</span><p>Barbara war bereits hauptberuflich selbständig mit einem klaren Ziel: professionell wachsen. Sie hatte schon mehrere Workshops besucht, aber beim höherpreisigen Verkaufen kamen regelmäßig Absagen – und sie war gedeckelt auf maximal 20–25 Hochzeiten im Jahr.</p></div>
+          <div class="trow__block"><span class="lbl">Was wir konkret gemacht haben</span><p>Elias hat vor Ort ihre Verkaufsgespräche analysiert. Barbara hatte in jedem Gespräch die eine entscheidende Abschlussfrage vergessen – die Paare konnten gar nicht richtig Ja sagen. Wir haben das Verkaufsskript komplett auf ihre Sprache angepasst und den gesamten Workflow digitalisiert und optimiert.</p></div>
+          <div class="trow__block"><span class="lbl">Aktuelle Situation</span><p>Barbara fotografiert heute knapp 60 Hochzeiten im Jahr – mit einem Team aus zwei weiteren Fotografinnen und externen Videografen. „Es war viel einfacher. Mir ist es dann nur noch so zugeflogen."</p></div>
           <div class="trow__foot"><div class="nm"><b>Barbara Frieß</b><span>Mit Team aus Fotografinnen &amp; Videografen</span></div><div class="res"><b>~60</b><span>Hochzeiten / Jahr</span></div></div>
         </div>
       </article>
@@ -572,8 +607,10 @@ body::after{content:"";position:fixed;inset:0;z-index:300;pointer-events:none;op
         <div class="trow__mono"><span class="ini">SM</span></div>
         <div class="trow__body">
           <span class="trow__tag">Business- &amp; Eventfotografie</span>
-          <p class="trow__quote">Sich unter Wert zu verkaufen bringt dir nichts – und dem Kunden auch nicht.</p>
-          <p class="trow__desc">Portfolio top, aber die Fotografie lief auf Empfehlungsbasis im dreistelligen Bereich. Zielgruppe scharf definiert, Verkaufsprozess strukturiert, planbarer Akquiseweg statt Empfehlungen.</p>
+          <p class="trow__quote">Sich unter Wert zu verkaufen bringt dir nichts – und dem Kunden auch nicht die Wertschätzung, die deine Arbeit verdient.</p>
+          <div class="trow__block"><span class="lbl">Ausgangssituation</span><p>Steve hatte bereits eine Werbeagentur, aber die Fotografie lief noch auf Empfehlungsbasis mit Aufträgen im dreistelligen Bereich. Das Portfolio war top – aber die Strategie, wie man die richtigen Kunden erreicht und seinen Wert klar kommuniziert, fehlte noch.</p></div>
+          <div class="trow__block"><span class="lbl">Was wir konkret gemacht haben</span><p>Seine Zielgruppe scharf definiert, den Verkaufsprozess strukturiert und einen klaren Akquiseweg entwickelt – weg von Empfehlungen, hin zu einem planbaren System. Der erste Magic Moment: ein B2B-Kunde im vierstelligen Bereich, ohne Einwände abgeschlossen.</p></div>
+          <div class="trow__block"><span class="lbl">Aktuelle Situation</span><p>Steve generiert heute stabil 15.000–20.000€ pro Monat. „Man sollte sich genaue Ziele setzen, in sich selbst investieren und sich an die Leute wenden, die schon dort sind, wo man hin möchte."</p></div>
           <div class="trow__foot"><div class="nm"><b>Steve Meinhardt</b><span>Vom Zufall zum System</span></div><div class="res"><b>15–20k€</b><span>stabil pro Monat</span></div></div>
         </div>
       </article>
@@ -581,8 +618,10 @@ body::after{content:"";position:fixed;inset:0;z-index:300;pointer-events:none;op
         <div class="trow__mono"><span class="ini">CB</span></div>
         <div class="trow__body">
           <span class="trow__tag">High-End-Boudoirfotografie</span>
-          <p class="trow__quote">Wer immer das Gleiche macht, braucht sich nicht wundern, wenn sich nichts verändert.</p>
-          <p class="trow__desc">29 Jahre Erfahrung mit Meisterbrief, aber Kundengewinnung wurde nie aktiv betrieben. Positionierung auf High-End-Boudoir für Frauen zwischen 40 und 60 geschärft, aktiver Social-Media-Weg entwickelt.</p>
+          <p class="trow__quote">Wenn man immer das Gleiche macht wie immer, braucht man sich nicht wundern, wenn sich nichts verändert.</p>
+          <div class="trow__block"><span class="lbl">Ausgangssituation</span><p>Claudia fotografiert seit 29 Jahren – mit Ausbildung und Meisterbrief. Aber Kundengewinnung wurde nie aktiv betrieben. Das ging jahrelang gut, bis die Aufträge irgendwann nicht mehr so kamen wie früher. Ihre Preise für Boudoir-Shootings lagen bei 500–800€.</p></div>
+          <div class="trow__block"><span class="lbl">Was wir konkret gemacht haben</span><p>Die Positionierung auf High-End-Boudoir-Fotografie für echte Frauen zwischen 40 und 60 Jahren geschärft. Einen aktiven Weg über Social Media entwickelt, damit sie nachhaltig sichtbar bleibt – ohne auf Aufträge warten zu müssen.</p></div>
+          <div class="trow__block"><span class="lbl">Aktuelle Situation</span><p>Claudia verlangt heute 2.000€ pro Shooting – fast das Dreifache von früher. Ihre Kundinnen zahlen es, weil sie genau wissen, was sie bekommen und warum es das wert ist.</p></div>
           <div class="trow__foot"><div class="nm"><b>Claudia Brandl</b><span>Preise fast verdreifacht</span></div><div class="res"><b data-count="2000" data-suffix="€">2.000€</b><span>pro Shooting</span></div></div>
         </div>
       </article>
@@ -593,11 +632,24 @@ body::after{content:"";position:fixed;inset:0;z-index:300;pointer-events:none;op
 <!-- ============ ABOUT ELIAS ============ -->
 <section class="section bg-ink900" id="ueber">
   <div class="container about2">
-    <div class="reveal">
+    <div class="about2__text reveal">
       <span class="eyebrow">Über Elias Kaltenberger</span>
-      <h2 class="title" style="margin:18px 0 18px">Ich habe den Weg selbst gebaut.</h2>
-      <p class="lead">Ich erinnere mich genau an den Moment, als ich zum ersten Mal eine fertig bearbeitete Galerie bekam – komplett erledigt von meinem Team und KI. Kein einziger Handgriff meinerseits. Das war das erste Mal, dass sich Selbstständigkeit wirklich nach Freiheit angefühlt hat.</p>
-      <p style="color:var(--muted-dark)">Planbare Kundengewinnung über bezahlte Werbung, das Retainer-Modell mit Firmenkunden, Prozesse die ohne mich laufen, ein funktionierendes Team und ein klares Dashboard. Genau diese Systeme gebe ich heute an andere Fotograf:innen weiter – weil ich damals selbst niemanden hatte, der mir das gezeigt hat.</p>
+      <h2 class="title" style="margin:18px 0 18px">Vom selbstständigen Fotografen zum Fotounternehmer – und was ich dabei gelernt habe.</h2>
+      <p class="lead" style="margin-bottom:16px">Viele Fotografen sind stolz darauf, hauptberuflich selbständig zu sein – und das zurecht. Ein paar tausend Euro im Monat, kreative Projekte und ein gutes Leben. Für viele ist das genug.</p>
+      <p class="ab-p">Aber wenn du gerade das hier liest und dir denkst: <strong>Das war noch nicht alles</strong> – dann weißt du, wovon ich rede.</p>
+      <p class="ab-p">Ich erinnere mich noch genau an den Moment, als ich zum ersten Mal eine fertig bearbeitete Galerie bekommen habe, die komplett von meinem Team und KI erledigt wurde. Kein einziger Handgriff meinerseits. Nur noch die Bilder bearbeiten, auf die ich wirklich Lust hatte. Der Rest lief ohne mich. Das war das erste Mal, dass sich Selbständigkeit wirklich nach Freiheit angefühlt hat.</p>
+      <p class="ab-p">Kurz danach: die Buchhaltung. Belege zusammensuchen, Steuerberater, Überweisungen – alles übernommen. Fast wäre mal etwas schiefgegangen: meine Assistentin hat eine Null zu viel eingegeben und hätte dem Finanzamt statt 5.000€ fast 50.000€ überwiesen. Seitdem gilt bei mir eisern das Vier-Augen-Prinzip bei allen Bankgeschäften. Aber genau solche Dinge lernst du nur, wenn du sie wirklich durchlebst.</p>
+      <p class="ab-p">Bei der Kundengewinnung war der Wendepunkt, als ich verstanden habe, wie bezahlte Werbung wirklich funktioniert. Auf einmal: jeden Monat neue Anfragen – ohne Netzwerktreffen oder auf Empfehlungen hoffen zu müssen.</p>
+      <p class="ab-p">Und der größte Gamechanger bei den Preisen war das <strong>Retainer-Modell</strong>: Firmenkunden, die jeden Monat mehrere tausend Euro für hochwertigen Content zahlen, den ich regelmäßig liefere. So hast du wirklich jeden Monat planbar deine Umsätze, ohne ständig neue Kunden akquirieren zu müssen.</p>
+      <p class="ab-p">Genau diese Systeme gebe ich heute an andere Fotografen weiter:</p>
+      <ul class="about2__sys">
+        <li><span class="d">✓</span>Planbare Kundengewinnung</li>
+        <li><span class="d">✓</span>Prozesse, die ohne mich laufen</li>
+        <li><span class="d">✓</span>Premiumpreise, die sich fast von selbst durchsetzen</li>
+        <li><span class="d">✓</span>Ein funktionierendes Team</li>
+        <li><span class="d">✓</span>Ein klares Unternehmens-Dashboard, das zeigt, wo man ansetzen muss</li>
+      </ul>
+      <p class="ab-p">Nicht weil ich das geplant hatte – sondern weil ich damals selbst niemanden hatte, der mir gezeigt hat, wie das konkret geht. Wie man als Fotograf aufhört, jeden Euro selbst zu verdienen, und anfängt, ein Business zu führen, das auch ohne einen selbst funktioniert. Diesen Weg abzukürzen ist das, was mich heute antreibt.</p>
       <div class="about2__facts">
         <div><b data-count="826" data-suffix="+">826+</b><span>bezahlte Aufträge</span></div>
         <div><b data-count="238" data-suffix="+">238+</b><span>begleitete Fotograf:innen</span></div>
@@ -626,7 +678,8 @@ body::after{content:"";position:fixed;inset:0;z-index:300;pointer-events:none;op
           <li><span class="mk mk-yes">✓</span>du regelmäßige Aufträge hast, aber keine planbare Struktur dahinter.</li>
           <li><span class="mk mk-yes">✓</span>du merkst, dass dein Business ohne dich nicht funktioniert.</li>
           <li><span class="mk mk-yes">✓</span>du höhere Preise willst – ohne Kundenverlust.</li>
-          <li><span class="mk mk-yes">✓</span>du ein Team aufbauen willst, aber nicht weißt, wie.</li>
+          <li><span class="mk mk-yes">✓</span>du dir ein Team aufbauen willst, aber noch nicht weißt, wie du das konkret angehst.</li>
+          <li><span class="mk mk-yes">✓</span>du weißt, dass du besser bist als viele andere Fotografen in deiner Region – aber nach außen hin sieht das noch niemand so.</li>
           <li><span class="mk mk-yes">✓</span>du bereit bist, nicht nur als Fotograf, sondern als Unternehmer zu denken.</li>
         </ul>
       </div>
@@ -637,8 +690,31 @@ body::after{content:"";position:fixed;inset:0;z-index:300;pointer-events:none;op
           <li><span class="mk mk-no">✕</span>du noch keine regelmäßigen Aufträge hast.</li>
           <li><span class="mk mk-no">✕</span>du mit dem Status quo vollkommen zufrieden bist.</li>
         </ul>
-        <p style="margin-top:28px;color:var(--muted-light);font-size:.98rem">Das Strategiegespräch ist kein Workshop nach Schema F. Es geht darum, gemeinsam herauszufinden, wo bei dir konkret der Hebel liegt – individuell, auf deine Situation zugeschnitten.</p>
+        <p style="margin-top:28px;color:var(--muted-light);font-size:16px">Dieses Gespräch ist für Fotograf:innen, bei denen es schon läuft – der Kalender ist voll, aber die Freiheit fehlt, der Umsatz schwankt und irgendwie hängt noch alles an dir persönlich.</p>
       </div>
+    </div>
+    <div class="fit-note reveal d1">
+      <h3>„Ich war doch schon auf Workshops. Was macht das hier anders?"</h3>
+      <p>Faire Frage – und eine, die wir direkt beantworten wollen. Die meisten Workshops zeigen dir, <strong>was</strong> du tun sollst. Allgemein, für alle, nach Schema F. Du nimmst dir ein paar Impulse mit – und dann stehst du wieder alleine da mit der Frage: Wie setze ich das jetzt konkret für mein Business um?</p>
+      <p>Das Strategiegespräch ist kein Workshop. Es geht nicht darum, dir ein fertiges System zu präsentieren, das für alle gleich aussieht. Es geht darum, gemeinsam herauszufinden, wo bei dir konkret der Hebel liegt – und was dein nächster Schritt ist. Individuell, auf deine Situation zugeschnitten, ohne Umwege. Ob du den Plan dann auf eigene Faust umsetzt oder wir das gemeinsam angehen, entscheidest du.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT HAPPENS IN THE CALL ============ -->
+<section class="section bg-dark has-bg" id="gespraech">
+  <div class="secbg" aria-hidden="true"><img src="assets/img/elias-wide.webp" alt="" loading="lazy" /></div>
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow is-centered">Ein ehrliches Gespräch</span>
+      <h2 class="title" style="margin-top:18px">Was passiert in diesem Gespräch <span class="serif-italic">wirklich</span>?</h2>
+    </div>
+    <div class="gespraech reveal d1">
+      <p>Du hast wahrscheinlich schon das ein oder andere Erstgespräch geführt. Du weißt, wie das läuft: jemand hört dir zu, nickt viel – und am Ende kommt ein Angebot auf den Tisch. <strong>Das hier läuft komplett anders.</strong></p>
+      <p>Wir schauen uns gemeinsam dein Business an. Wo stehst du gerade wirklich? Was funktioniert bereits – und was kostet dich jeden Monat Zeit, Geld oder Nerven, ohne dass du es merkst? Daraus entsteht ein konkretes Bild, was bei dir der nächste sinnvolle Schritt ist.</p>
+      <p>Kein allgemeiner Fahrplan, der für jeden gleich aussieht. Sondern eine ehrliche Einschätzung deiner aktuellen Situation – von jemandem, der selbst als Fotograf diesen Weg gegangen ist und weiß, wo die typischen Engpässe liegen.</p>
+      <div class="gespraech__badge"><b>≈ 60 Minuten</b><span>mit Elias persönlich oder einem Experten aus seinem Team</span></div>
+      <p>Und wenn du am Ende das Gefühl hast, dass wir den erarbeiteten Plan gemeinsam umsetzen sollten, sprechen wir darüber, wie das konkret bei dir aussieht. Willst du den Plan auf eigene Faust umsetzen, hast du trotzdem eine klare, ehrliche Außenperspektive auf dein Business – und die ist allein schon einiges wert.</p>
     </div>
   </div>
 </section>
