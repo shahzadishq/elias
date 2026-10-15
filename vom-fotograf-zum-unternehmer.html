@@ -141,7 +141,7 @@ p+p{margin-top:1.1em}
 .mobile-menu .btn{margin-top:20px}
 
 /* ---------- 7. Hero (LP2 — architectural, metric-led, left rule) ---------- */
-.hero2{position:relative;min-height:100vh;display:flex;align-items:center;padding:140px 0 70px;overflow:hidden;background:var(--cream);color:var(--txt-on-light)}
+.hero2{position:relative;min-height:100vh;display:flex;align-items:center;padding:140px 0 70px;overflow:hidden;color:var(--txt-on-light);background:linear-gradient(rgba(255,255,255,.9),rgba(255,255,255,.93)),url("assets/img/studio.webp");background-size:cover;background-position:center}
 .hero2__orbs span:nth-child(1){background:radial-gradient(circle,rgba(176,127,44,.14),transparent 68%)}
 .hero2__orbs span:nth-child(2){background:radial-gradient(circle,rgba(176,127,44,.12),transparent 70%)}
 .hero2__grid{position:relative;z-index:2;display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(40px,5vw,72px);align-items:center;width:100%}
@@ -152,15 +152,15 @@ p+p{margin-top:1.1em}
 .hero2 .display .serif-italic{display:inline}
 .hero2__sub{font-size:16px;color:var(--muted-light);font-weight:400;max-width:620px}
 .hero2__list{display:grid;gap:14px;margin-top:26px;max-width:620px}
-.hero2__list li{display:flex;gap:13px;align-items:flex-start;font-size:16px;color:var(--txt-on-light);line-height:1.55}
+.hero2__list li{display:flex;gap:13px;align-items:flex-start;font-size:14px;color:var(--txt-on-light);line-height:1.55}
 .hero2__list strong{color:#000;font-weight:600}
 .hero2__list .hl{flex-shrink:0;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#120D04;background:var(--grad-gold-btn);margin-top:2px}
 .hero2__cta{display:flex;flex-wrap:wrap;gap:16px;margin-top:34px}
 .hero2 .btn--ghost{color:var(--txt-on-light);box-shadow:inset 0 0 0 1px var(--line-gold)}
-.hero2__mini{display:flex;gap:34px;margin-top:44px;flex-wrap:wrap}
-.hero2__mini .m b{font-family:var(--serif);font-size:clamp(1.8rem,2.6vw,2.4rem);line-height:1;display:block}
-.hero2__mini .m span{font-size:12px;color:var(--muted-light);letter-spacing:.04em;margin-top:6px;display:block}
-.hero2__mini .m{position:relative;padding-left:20px}
+.hero2__mini{display:flex;gap:20px;margin-top:40px;flex-wrap:nowrap}
+.hero2__mini .m b{font-family:var(--serif);font-size:clamp(1.25rem,2.1vw,1.6rem);line-height:1;display:block}
+.hero2__mini .m span{font-size:11px;color:var(--muted-light);letter-spacing:.03em;margin-top:5px;display:block}
+.hero2__mini .m{position:relative;padding-left:16px}
 .hero2__mini .m::before{content:"";position:absolute;left:0;top:4px;bottom:4px;width:2px;border-radius:2px;background:var(--grad-gold)}
 /* MacBook mockup with video */
 .macbook{position:relative;width:100%;max-width:580px;justify-self:end}
@@ -193,7 +193,7 @@ p+p{margin-top:1.1em}
 .prob2 p{color:var(--muted-dark);font-size:16px;max-width:720px}
 .prob2 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px}
 .prob-mini{padding:28px;border:1px solid var(--line-dark);border-radius:var(--r-lg);background:var(--ink-800)}
-.prob-mini .ic{width:40px;height:40px;color:var(--gold-300);margin-bottom:16px}
+.prob-mini .ic{width:40px;height:40px;stroke:url(#iconGrad);color:var(--gold-300);margin-bottom:16px}
 .prob-mini h4{font-family:var(--serif);font-size:20px;margin-bottom:8px;font-weight:700;overflow-wrap:anywhere;hyphens:auto}
 .prob-mini p{font-size:16px;color:var(--muted-dark)}
 
@@ -234,7 +234,7 @@ p+p{margin-top:1.1em}
 .js .psl:not(:last-child){margin-bottom:0}
 .psl__num{font-family:var(--serif);font-weight:800;font-size:clamp(3.4rem,7vw,6rem);line-height:.85;margin-bottom:8px;background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
 .psl__label{display:inline-block;font-size:14px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;margin-bottom:14px;background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
-.psl__text h3{font-size:36px;line-height:1.12;margin-bottom:16px;color:var(--txt-on-light)}
+.psl__text h3{font-size:25px;line-height:1.2;margin-bottom:16px;color:var(--txt-on-light)}
 .psl__text p{font-size:17px;line-height:1.65;color:var(--muted-light);max-width:560px}
 .psl__media{position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/3;box-shadow:0 30px 70px -34px rgba(0,0,0,.4);border:1px solid var(--line-gold)}
 .psl__media img{width:100%;height:100%;object-fit:cover}
@@ -261,19 +261,19 @@ p+p{margin-top:1.1em}
 .sys::before{content:"";position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,var(--gold),transparent);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
 .sys:hover{transform:translateY(-6px);border-color:var(--line-gold);box-shadow:var(--shadow)}
 .sys:hover::before{transform:scaleX(1)}
-.sys .ico{width:44px;height:44px;color:var(--gold-300);margin-bottom:20px}
+.sys .ico{width:44px;height:44px;stroke:url(#iconGrad);color:var(--gold-300);margin-bottom:20px}
 .sys h3{font-size:20px;margin-bottom:10px}
 .sys p{font-size:16px;color:var(--muted-dark)}
 
 /* ---------- 13. Case studies (LP2 — premium editorial feature cards) ---------- */
 .trows{display:grid;grid-template-columns:1fr;gap:clamp(32px,4vw,56px)}
-.trow{display:grid;grid-template-columns:minmax(0,420px) minmax(0,1fr);gap:0;border:1px solid var(--line-light);border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 30px 70px -44px rgba(0,0,0,.4);transition:border-color .5s,box-shadow .5s,transform .5s var(--ease)}
-.trow:nth-child(even){grid-template-columns:minmax(0,1fr) minmax(0,420px)}
+.trow{display:grid;grid-template-columns:minmax(0,480px) minmax(0,1fr);gap:0;border:1px solid var(--line-light);border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 30px 70px -44px rgba(0,0,0,.4);transition:border-color .5s,box-shadow .5s,transform .5s var(--ease)}
+.trow:nth-child(even){grid-template-columns:minmax(0,1fr) minmax(0,480px)}
 .trow:nth-child(even) .trow__media{order:2}
 .trow>*{min-width:0}
 .trow:hover{border-color:var(--line-gold);box-shadow:0 44px 90px -46px rgba(0,0,0,.5);transform:translateY(-5px)}
-.trow__media{position:relative;overflow:hidden;background:#eee;min-height:420px}
-.trow__media img{width:100%;height:100%;object-fit:cover;object-position:center;position:absolute;inset:0;transition:transform 1s var(--ease)}
+.trow__media{position:relative;overflow:hidden;background:#eee;min-height:460px}
+.trow__media img{width:100%;height:100%;object-fit:cover;object-position:center 22%;position:absolute;inset:0;transition:transform 1s var(--ease)}
 .trow:hover .trow__media img{transform:scale(1.06)}
 .trow__media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.72))}
 .trow__badge{position:absolute;top:18px;left:18px;z-index:2;font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:#120D04;background:var(--grad-gold-btn);padding:7px 14px;border-radius:999px}
@@ -292,15 +292,15 @@ p+p{margin-top:1.1em}
 .trow__block p{font-size:15.5px;color:var(--muted-light);line-height:1.6;margin:0}
 
 /* ---------- 14. About ---------- */
-.about2{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(40px,5vw,72px);align-items:start}
-.about2__text{max-width:720px}
+.about2{display:grid;grid-template-columns:1fr .82fr;gap:clamp(40px,5vw,72px);align-items:center}
+.about2__text{max-width:640px}
 .ab-p{color:var(--muted-dark);font-size:16px;margin-bottom:14px}
 .ab-p strong{color:var(--txt-on-dark);font-weight:600}
-.about2__sys{display:grid;gap:10px;margin:6px 0 18px}
-.about2__sys li{display:flex;gap:12px;align-items:flex-start;color:var(--txt-on-dark);font-size:16px}
-.about2__sys .d{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--gold-soft);color:var(--gold-300);display:flex;align-items:center;justify-content:center;font-size:12px;margin-top:1px}
-.about2__img{position:relative;justify-self:end}
-.about2__img img{border-radius:var(--r-lg);box-shadow:var(--shadow);width:100%;max-width:420px;position:sticky;top:110px}
+.about2__sys{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 22px}
+.about2__sys li{display:flex;gap:8px;align-items:center;color:var(--txt-on-dark);font-size:13px;border:1px solid var(--line-gold);border-radius:999px;padding:8px 15px;background:rgba(176,127,44,.06)}
+.about2__sys .d{flex-shrink:0;color:var(--gold-300);font-size:12px;font-weight:700}
+.about2__img{position:relative;justify-self:end;width:100%}
+.about2__img img{display:block;border-radius:var(--r-lg);box-shadow:var(--shadow);width:100%;max-width:480px;height:800px;object-fit:cover;object-position:center 15%;margin-left:auto}
 .about2__img .frame{position:absolute;inset:-16px -16px 20px 20px;border:1px solid var(--line-gold);border-radius:12px;z-index:-1}
 .about2__facts{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:30px;padding-top:30px;border-top:1px solid var(--line-dark)}
 .about2__facts b{font-family:var(--serif);font-size:2rem;color:var(--gold-300);display:block;line-height:1}
@@ -419,6 +419,7 @@ body::after{content:"";position:fixed;inset:0;z-index:300;pointer-events:none;op
   .systems{grid-template-columns:repeat(2,1fr)}
   .about2{grid-template-columns:1fr}
   .about2__img{justify-self:start}
+  .about2__img img{height:560px;max-width:100%;margin-left:0}
   .prob2 .grid3{grid-template-columns:1fr}
   .footer__top{grid-template-columns:repeat(3,1fr)}
   .footer__brand{grid-column:1/-1}
@@ -455,6 +456,7 @@ body::after{content:"";position:fixed;inset:0;z-index:300;pointer-events:none;op
 </style>
 </head>
 <body>
+<svg width="0" height="0" aria-hidden="true" style="position:absolute"><defs><linearGradient id="iconGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b07f2c"/><stop offset="0.5" stop-color="#f3e07a"/><stop offset="1" stop-color="#b07f2c"/></linearGradient></defs></svg>
 <div class="scroll-progress" id="progress" aria-hidden="true"></div>
 
 <!-- ============ HEADER ============ -->
@@ -495,7 +497,6 @@ body::after{content:"";position:fixed;inset:0;z-index:300;pointer-events:none;op
       </ul>
       <div class="hero2__cta reveal d3">
         <a href="https://www.eliaskaltenberger.com/kontakt/" class="btn btn--primary btn--lg">Kostenloses Strategiegespräch <span class="arrow">→</span></a>
-        <a href="#ergebnisse" class="btn btn--ghost btn--lg">Ergebnisse ansehen</a>
       </div>
       <div class="hero2__mini reveal d4">
         <div class="m"><b data-count="15000" data-suffix="€+">15.000€+</b><span>planbar pro Monat</span></div>
@@ -743,22 +744,16 @@ body::after{content:"";position:fixed;inset:0;z-index:300;pointer-events:none;op
   <div class="container about2">
     <div class="about2__text reveal">
       <span class="eyebrow">Über Elias Kaltenberger</span>
-      <h2 class="title" style="margin:18px 0 18px">Vom selbstständigen Fotografen zum Fotounternehmer – und was ich dabei gelernt habe.</h2>
-      <p class="lead" style="margin-bottom:16px">Viele Fotografen sind stolz darauf, hauptberuflich selbständig zu sein – und das zurecht. Ein paar tausend Euro im Monat, kreative Projekte und ein gutes Leben. Für viele ist das genug.</p>
-      <p class="ab-p">Aber wenn du gerade das hier liest und dir denkst: <strong>Das war noch nicht alles</strong> – dann weißt du, wovon ich rede.</p>
-      <p class="ab-p">Ich erinnere mich noch genau an den Moment, als ich zum ersten Mal eine fertig bearbeitete Galerie bekommen habe, die komplett von meinem Team und KI erledigt wurde. Kein einziger Handgriff meinerseits. Nur noch die Bilder bearbeiten, auf die ich wirklich Lust hatte. Der Rest lief ohne mich. Das war das erste Mal, dass sich Selbständigkeit wirklich nach Freiheit angefühlt hat.</p>
-      <p class="ab-p">Kurz danach: die Buchhaltung. Belege zusammensuchen, Steuerberater, Überweisungen – alles übernommen. Fast wäre mal etwas schiefgegangen: meine Assistentin hat eine Null zu viel eingegeben und hätte dem Finanzamt statt 5.000€ fast 50.000€ überwiesen. Seitdem gilt bei mir eisern das Vier-Augen-Prinzip bei allen Bankgeschäften. Aber genau solche Dinge lernst du nur, wenn du sie wirklich durchlebst.</p>
-      <p class="ab-p">Bei der Kundengewinnung war der Wendepunkt, als ich verstanden habe, wie bezahlte Werbung wirklich funktioniert. Auf einmal: jeden Monat neue Anfragen – ohne Netzwerktreffen oder auf Empfehlungen hoffen zu müssen.</p>
-      <p class="ab-p">Und der größte Gamechanger bei den Preisen war das <strong>Retainer-Modell</strong>: Firmenkunden, die jeden Monat mehrere tausend Euro für hochwertigen Content zahlen, den ich regelmäßig liefere. So hast du wirklich jeden Monat planbar deine Umsätze, ohne ständig neue Kunden akquirieren zu müssen.</p>
-      <p class="ab-p">Genau diese Systeme gebe ich heute an andere Fotografen weiter:</p>
+      <h2 class="title" style="margin:16px 0 18px">Ich habe den Weg vom Fotografen zum <span class="serif-italic">Unternehmer</span> selbst gebaut.</h2>
+      <p class="lead" style="margin-bottom:16px">Der Moment, in dem sich Selbstständigkeit zum ersten Mal nach Freiheit anfühlte: Ich bekam eine fertig bearbeitete Galerie – komplett von meinem Team und KI erledigt. Kein einziger Handgriff von mir.</p>
+      <p class="ab-p">Die zwei echten Gamechanger: <strong>planbare Kundengewinnung</strong> über bezahlte Werbung und das <strong>Retainer-Modell</strong> mit Firmenkunden – planbare Umsätze Monat für Monat, statt ständig neue Aufträge zu jagen. Genau diese Systeme gebe ich heute weiter, weil ich damals selbst niemanden hatte, der mir gezeigt hat, wie das konkret geht.</p>
       <ul class="about2__sys">
         <li><span class="d">✓</span>Planbare Kundengewinnung</li>
-        <li><span class="d">✓</span>Prozesse, die ohne mich laufen</li>
-        <li><span class="d">✓</span>Premiumpreise, die sich fast von selbst durchsetzen</li>
+        <li><span class="d">✓</span>Prozesse, die ohne dich laufen</li>
+        <li><span class="d">✓</span>Premiumpreise</li>
         <li><span class="d">✓</span>Ein funktionierendes Team</li>
-        <li><span class="d">✓</span>Ein klares Unternehmens-Dashboard, das zeigt, wo man ansetzen muss</li>
+        <li><span class="d">✓</span>Unternehmens-Dashboard</li>
       </ul>
-      <p class="ab-p">Nicht weil ich das geplant hatte – sondern weil ich damals selbst niemanden hatte, der mir gezeigt hat, wie das konkret geht. Wie man als Fotograf aufhört, jeden Euro selbst zu verdienen, und anfängt, ein Business zu führen, das auch ohne einen selbst funktioniert. Diesen Weg abzukürzen ist das, was mich heute antreibt.</p>
       <div class="about2__facts">
         <div><b data-count="826" data-suffix="+">826+</b><span>bezahlte Aufträge</span></div>
         <div><b data-count="238" data-suffix="+">238+</b><span>begleitete Fotograf:innen</span></div>
